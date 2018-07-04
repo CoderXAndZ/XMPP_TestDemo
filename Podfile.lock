@@ -1,0 +1,51 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - HYBMasonryAutoCellHeight (2.0.1):
+    - Masonry (~> 0.6)
+  - Masonry (0.6.4)
+  - SDWebImage (4.4.1):
+    - SDWebImage/Core (= 4.4.1)
+  - SDWebImage/Core (4.4.1)
+  - YYKit (1.0.9):
+    - YYKit/no-arc (= 1.0.9)
+  - YYKit/no-arc (1.0.9)
+
+DEPENDENCIES:
+  - AFNetworking
+  - HYBMasonryAutoCellHeight
+  - Masonry
+  - SDWebImage
+  - YYKit
+
+SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AFNetworking
+    - HYBMasonryAutoCellHeight
+    - Masonry
+    - SDWebImage
+    - YYKit
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  HYBMasonryAutoCellHeight: 9296583777080d32ba6257f55e52b7334dd481fc
+  Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
+  SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+  YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
+
+PODFILE CHECKSUM: 960305e9f563f1241f36f84eff20a91416e50b9a
+
+COCOAPODS: 1.5.0
