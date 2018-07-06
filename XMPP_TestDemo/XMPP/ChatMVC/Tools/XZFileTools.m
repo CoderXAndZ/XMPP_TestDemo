@@ -42,6 +42,17 @@
     return [[self getAppSupportDataDirectory] stringByAppendingPathComponent:@"web"];
 }
 
+/// 当前录音的时间作为文件名使用
++ (NSString *)currentRecordFileName {
+    
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
+    NSString *fileName = [NSString stringWithFormat:@"%ld.wav",(long)timeInterval];
+    
+    NSLog(@"音频存放名称：%@",fileName);
+    
+    return fileName;
+}
+
 /// 获取语音时长
 + (NSUInteger)durationWithVoiceURL:(NSURL *)voiceURL {
     NSDictionary *opt = [NSDictionary dictionaryWithObject:@(NO) forKey:AVURLAssetPreferPreciseDurationAndTimingKey];

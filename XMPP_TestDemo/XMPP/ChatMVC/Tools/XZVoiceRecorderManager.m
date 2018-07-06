@@ -164,9 +164,9 @@
             NSLog(@"录制时间太短");
             return;
         }else {
-            if (completion) {
-                completion(@"NOT SHORT RECORD");
-            }
+//            if (completion) {
+//                completion(@"NOT SHORT RECORD");
+//            }
             
             recorderFinish = completion;
             

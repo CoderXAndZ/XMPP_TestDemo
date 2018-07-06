@@ -42,10 +42,12 @@
         if (self.isTaped) { // 播放
             [self.imgVoiceIcon startAnimating];
             
-            if (self.delegate && [self.delegate respondsToSelector:@selector(playWithVoicePath: cell:)]) {
+            if (self.delegate && [self.delegate respondsToSelector:@selector(playWithVoicePath:cell:)]) {
+                //                [self.delegate playWithVoicePath: [self voicePath] cell:self];
                 
-                [self.delegate playWithVoicePath: [self voicePath] cell:self];
+                [self.delegate playWithVoicePath:self.modelChat.audioPath  cell:self];
             }
+    
         }else { // 暂停播放
             [[XZVoicePlayer shared] stop];
             
@@ -54,19 +56,13 @@
     }
 }
 
-/// 声音路径
-- (NSString *)voicePath {
-    //    NSString *path = [XZFileTools recoderPathWithFileName:@"1530602004.wav"];
-    NSString *path = @"1530602005.wav";
-    return path;
-}
-
 /// 播放完成
 - (void)setIsCompletedPlay:(BOOL)isCompletedPlay {
     _isCompletedPlay = isCompletedPlay;
     
     [self.imgVoiceIcon stopAnimating];
     self.isTaped = NO;
+    
 }
 
 /// 设置值
@@ -74,6 +70,8 @@
     _modelChat = modelChat;
     
     self.labelTime.text = modelChat.chatTime;
+    self.labelVoiceDuration.text = [NSString stringWithFormat:@"%lu\"",modelChat.audioDurations];
+    
 }
 
 /// 设置页面
@@ -89,11 +87,11 @@
     /// 声音
     UIImageView *imgVoiceIcon = [[UIImageView alloc] init];
     [self.contentView addSubview:imgVoiceIcon];
-    imgVoiceIcon.image = [UIImage imageNamed:@"left-3"];
+    imgVoiceIcon.image = [UIImage imageNamed:@"right-3"];
     self.imgVoiceIcon = imgVoiceIcon;
-    UIImage *image1 = [UIImage imageNamed:@"left-1"];
-    UIImage *image2 = [UIImage imageNamed:@"left-2"];
-    UIImage *image3 = [UIImage imageNamed:@"left-3"];
+    UIImage *image1 = [UIImage imageNamed:@"right-1"];
+    UIImage *image2 = [UIImage imageNamed:@"right-2"];
+    UIImage *image3 = [UIImage imageNamed:@"right-3"];
     
     imgVoiceIcon.animationDuration = 0.8;
     imgVoiceIcon.animationImages = @[image1,image2,image3];
@@ -110,7 +108,7 @@
     
     [imgBubble mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.imgIcon);
-        make.right.equalTo(self.imgIcon.mas_right).offset(-8);
+        make.right.equalTo(self.imgIcon.mas_left).offset(-8);
         make.size.mas_equalTo(CGSizeMake(113, 40));
     }];
     

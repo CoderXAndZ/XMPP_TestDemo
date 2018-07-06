@@ -35,6 +35,8 @@
 
 /// 获取语音时长
 + (NSUInteger)durationWithVoiceURL:(NSURL *)voiceURL;
+/// 当前录音的时间作为文件名使用
++ (NSString *)currentRecordFileName;
 
 #pragma mark --- 录音文件存放地址
 /// 录音文件主路径

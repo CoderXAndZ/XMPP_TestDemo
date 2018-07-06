@@ -41,8 +41,9 @@
             [self.imgVoiceIcon startAnimating];
             
             if (self.delegate && [self.delegate respondsToSelector:@selector(playWithVoicePath: cell:)]) {
-                
-                [self.delegate playWithVoicePath: [self voicePath] cell:self];
+                // [self voicePath]]
+                NSLog(@"self.modelChat.audioPath ===== %@",self.modelChat.audioPath);
+                [self.delegate playWithVoicePath:self.modelChat.audioPath  cell:self];
             }
         }else { // 暂停播放
             [[XZVoicePlayer shared] stop];
@@ -52,12 +53,12 @@
     }
 }
 
-/// 声音路径
-- (NSString *)voicePath {
-//    NSString *path = [XZFileTools recoderPathWithFileName:@"1530602004.wav"];
-    NSString *path = @"1530602005.wav";
-    return path;
-}
+///// 声音路径
+//- (NSString *)voicePath {
+////    NSString *path = [XZFileTools recoderPathWithFileName:@"1530602004.wav"];
+//    NSString *path = @"1530602005.wav";
+//    return path;
+//}
 
 /// 播放完成
 - (void)setIsCompletedPlay:(BOOL)isCompletedPlay {

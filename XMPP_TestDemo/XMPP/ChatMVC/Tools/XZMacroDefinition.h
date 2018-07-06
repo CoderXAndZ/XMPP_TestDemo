@@ -32,4 +32,7 @@
 #define kRecorderType @".wav"  /// 录音的格式
 #define kAMRType @"amr"   /// 需要的格式
 
+/// 工具栏高度
+#define XZChatToolBarHeight 64
+
 #endif /* XZMacroDefinition_h */

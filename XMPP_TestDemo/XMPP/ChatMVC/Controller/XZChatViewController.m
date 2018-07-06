@@ -15,19 +15,23 @@
 #import "XZChatImageRightCell.h" // 纯图片右侧
 #import "XZChatImageLeftCell.h" // 纯图片左侧
 #import "XZVoiceProgress.h" // 说话音量显示
+#import "XZChatVoiceRightCell.h" // 右侧语音
 #import "XZChatVoiceLeftCell.h" // 左侧语音
 #import "XZChatToolBar.h" //  聊天工具栏
 #import "XZXMPPManager.h"
 #import "XZVoicePlayer.h"
+#import "XZFileTools.h"
 #import "XZChatModel.h"
 #import "XMPP.h"
 
 
-@interface XZChatViewController ()<XMPPStreamDelegate,UITableViewDelegate,UITableViewDataSource,XZChatToolBarDelegate,XZChatVoiceLeftCellDelegate>
+@interface XZChatViewController ()<XMPPStreamDelegate,UITableViewDelegate,UITableViewDataSource,XZChatVoiceRightCellDelegate,XZChatToolBarDelegate>
+//
 
 @property (nonatomic, strong) UITableView *tableChat;
 @property (nonatomic, strong) XZChatToolBar *toolBar;
 @property (nonatomic, strong) XZVoiceProgress *voiceProgress;
+//@property (nonatomic, assign) CGFloat height;
 @end
 
 @implementation XZChatViewController
@@ -35,10 +39,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-//    [[XZXMPPManager defaultManager] loginWithName:@"t6" password:@"t6"];
-   
-    [self setupChatView];
+//    self.automaticallyAdjustsScrollViewInsets = NO;
     
+//    [[XZXMPPManager defaultManager] loginWithName:@"t6" password:@"t6"];
+    
+    [self setupChatView];
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    [self.tableChat reloadData];
 }
 
 #pragma mark ----- UITableViewDataSource
@@ -58,10 +69,12 @@
     
 //    XZChatImageRightCell *cell = [tableView dequeueReusableCellWithIdentifier:@"XZChatImageRightCell"];
     
-    XZChatVoiceLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:@"XZChatVoiceLeftCell"];
+//    XZChatVoiceLeftCell *cell = [tableView dequeueReusableCellWithIdentifier:@"XZChatVoiceLeftCell"];
+    
+    XZChatVoiceRightCell *cell = [tableView dequeueReusableCellWithIdentifier:@"XZChatVoiceRightCell"];
     
     if (!cell) {
-        cell = [[XZChatVoiceLeftCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"XZChatVoiceLeftCell"];
+        cell = [[XZChatVoiceRightCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"XZChatVoiceRightCell"];
     }
     
     cell.delegate = self;
@@ -86,6 +99,10 @@
     return 150;
 }
 
+//- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+//    [self.view endEditing:YES];
+//}
+
 #pragma mark --- XZChatVoiceLeftCellDelegate
 - (void)playWithVoicePath:(NSString *)path cell:(XZChatVoiceLeftCell *)cell {
     NSLog(@"playWithVoicePath ---- 播放文件：%@",path);
@@ -100,10 +117,11 @@
 }
 
 #pragma mark ---- 底部工具栏的代理
+/// 开始录制语音
 - (void)didStartRecordingVoice {
     self.voiceProgress.hidden = NO;
     
-    [[XZVoiceRecorderManager sharedManager] startRecordWithFileName:[self currentRecordFileName] completion:^(NSError *error) {
+    [[XZVoiceRecorderManager sharedManager] startRecordWithFileName:[XZFileTools currentRecordFileName] completion:^(NSError *error) {
         if (error) {
             if (error.code != 12) {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:error.localizedDescription delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
@@ -117,6 +135,7 @@
     
 }
 
+/// 取消录制语音
 - (void)didCancelRecordingVoice {
     self.voiceProgress.hidden = YES;
     
@@ -125,6 +144,7 @@
     self.voiceProgress.image = [UIImage imageNamed:@"voice_1"];
 }
 
+/// 录制过程中进行拖拽
 - (void)didDragInside:(BOOL)inside {
     if (inside) {
         [[XZVoiceRecorderManager sharedManager] resumeTimer];
@@ -137,6 +157,7 @@
     }
 }
 
+/// 停止录制语音
 - (void)didStopRecordingVoice {
     self.voiceProgress.hidden = YES;
     
@@ -149,11 +170,6 @@
         } else {
             NSLog(@"录音完成，地址是：\n%@",recordPath);
             
-//            NSString *voiceMsg = [NSString stringWithFormat:@"voice[local://%@]",recordPath];
-            // =========
-//            [weakSelf.dataArray addObject:[XZChatHelper creatMessage:voiceMsg msgType:YHMessageType_Voice toID:@"1"]];
-//            [weakSelf.tableChat reloadData];
-//            [weakSelf.tableChat scrollToBottomAnimated:NO];
         }
     }];
 }
@@ -168,18 +184,9 @@
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         weakSelf.voiceProgress.hidden = YES;
+        
+        self.voiceProgress.image = [UIImage imageNamed:@"voice_1"];
     });
-}
-
-/// 当前录音存放地址
-- (NSString *)currentRecordFileName {
-    
-    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
-    NSString *fileName = [NSString stringWithFormat:@"%ld.wav",(long)timeInterval];
-    
-    NSLog(@"音频存放地址：%@",fileName);
-    
-    return fileName;
 }
 
 #pragma mark ---  设置页面
@@ -187,6 +194,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview: self.tableChat];
     [self.view addSubview: self.toolBar];
+    [self.toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.left.bottom.right.equalTo(self.view);
+        make.height.equalTo(@(XZChatToolBarHeight));
+    }];
+
     [self.view addSubview: self.voiceProgress];
     
 //    /// 关闭手势延迟
@@ -208,8 +220,9 @@
 
 - (XZChatToolBar *)toolBar {
     if (!_toolBar) {
-        _toolBar = [[XZChatToolBar alloc] initWithFrame:CGRectMake(0, kScreenHeight - 64, kScreenWidth, 64)];
+        _toolBar = [[XZChatToolBar alloc] initWithViewController:self aboveView:self.tableChat];
         _toolBar.delegate = self;
+        
     }
     return _toolBar;
 }

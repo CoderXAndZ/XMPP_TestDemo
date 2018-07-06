@@ -21,4 +21,14 @@
 
 /** 聊天图片 */
 @property (nonatomic, copy) NSString *imgUrl;
+
+/** 语音路径 */
+@property (nonatomic, copy) NSString *audioPath;
+
+/** 语音时长 */
+@property (nonatomic, assign) NSUInteger audioDurations;
+
+/** 当前行的点击状态 */
+@property (nonatomic, assign) BOOL isSelected;
+
 @end
