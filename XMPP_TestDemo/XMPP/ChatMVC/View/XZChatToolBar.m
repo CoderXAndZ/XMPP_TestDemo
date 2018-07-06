@@ -8,7 +8,7 @@
 
 #import "XZChatToolBar.h"
 #import "XZTextView.h"
-#import "CMInputView.h"
+//#import "CMInputView.h"
 
 #define kNaviBarH       64   // 导航栏高度
 #define kToolbarBtnH    35   // 顶部工具栏的按钮高度
@@ -32,8 +32,8 @@
 @property (nonatomic, strong) UIButton *btnEmoticon;
 /// 加号按钮
 @property (nonatomic, strong) UIButton *btnContactAdd;
-///// 输入框
-//@property (nonatomic, strong) XZTextView *textView;
+/// 输入框
+@property (nonatomic, strong) XZTextView *textView;
 
 // 被添加到的 控制器 和 父视图
 @property (nonatomic, weak) UIViewController *viewController;
@@ -44,7 +44,7 @@
 ///// 距离底部
 //@property (nonatomic, assign) CGFloat offset;
 
-@property (nonatomic,strong) CMInputView *inputView;
+//@property (nonatomic,strong) CMInputView *inputView;
 @end;
 
 @implementation XZChatToolBar
@@ -305,62 +305,61 @@
     
     CGFloat width = kScreenWidth - (35 * 3) - 20 - 5;
     
-//    /// 输入框
-//    XZTextView *textView = [[XZTextView alloc] initWithFrame:CGRectMake(45, 14.5, width, 35)];
-//    [self addSubview:textView];
-//    self.textView = textView;
-////    textView.delegate = self;
-//    textView.placeholder = @"请简短的描述你的问题";
-//    textView.font = [UIFont systemFontOfSize:15.0f];
-//    textView.layer.masksToBounds = YES;
-//    textView.layer.cornerRadius = 15;
-//    textView.layer.borderWidth = 1.0f;
-//    textView.layer.borderColor = [UIColor colorWithRed:222/255.0 green:222/255.0 blue:222/255.0 alpha:1.0].CGColor;
-////    textView.returnKeyType = UIReturnKeySend;
-//    textView.numberOfLines = 4;
+    /// 输入框
+    XZTextView *textView = [[XZTextView alloc] initWithFrame:CGRectMake(45, 14.5, width, 35)];
+    [self addSubview:textView];
+    self.textView = textView;
+//    textView.delegate = self;
+    textView.placeholder = @"请简短的描述你的问题";
+    textView.font = [UIFont systemFontOfSize:15.0f];
+    textView.layer.masksToBounds = YES;
+    textView.layer.cornerRadius = 15;
+    textView.layer.borderWidth = 1.0f;
+    textView.layer.borderColor = [UIColor colorWithRed:222/255.0 green:222/255.0 blue:222/255.0 alpha:1.0].CGColor;
+//    textView.returnKeyType = UIReturnKeySend;
+    textView.numberOfLines = 4;
     
-//    __weak __typeof(&*textView)weakTextView = textView;
     WeakSelf;
     
-//    textView.blockChangeHeight = ^(CGFloat height, NSString *text) {
+    textView.blockChangeHeight = ^(CGFloat height, NSString *text) {
+
+        CGFloat H = XZChatToolBarHeight - 35 + height;
+
+        CGRect frame = weakSelf.textView.frame;
+        frame.size.height = height;
+        weakSelf.textView.frame = frame;
+
+//        [weakSelf.textView mas_updateConstraints:^(MASConstraintMaker *make) {
+//            make.height.equalTo(@(height));
+//        }];
+
+        [weakSelf mas_updateConstraints:^(MASConstraintMaker *make) {
+            make.height.equalTo(@(H));
+        }];
+    };
+    
+//    _inputView = [[CMInputView alloc]initWithFrame:CGRectMake(45, 14.5, width, 35)];
 //
-//        CGFloat H = XZChatToolBarHeight - 35 + height;
+//    _inputView.font = [UIFont systemFontOfSize:15];
+//    _inputView.placeholder = @"CrabMan的测试文字";
 //
-//        CGRect frame = weakSelf.textView.frame;
-//        frame.size.height = height;
-//        weakSelf.textView.frame = frame;
+//    _inputView.cornerRadius = 17;
+//    _inputView.placeholderColor = [UIColor redColor];
+//    // 设置文本框最大行数
+//    [_inputView textValueDidChanged:^(NSString *text, CGFloat textHeight) {
+//        CGRect frame = _inputView.frame;
+//        frame.size.height = textHeight;
+//        _inputView.frame = frame;
 //
-////        [weakSelf.textView mas_updateConstraints:^(MASConstraintMaker *make) {
-////            make.height.equalTo(@(height));
-////        }];
+//        CGFloat H = XZChatToolBarHeight - 35 + textHeight;
 //
 //        [weakSelf mas_updateConstraints:^(MASConstraintMaker *make) {
 //            make.height.equalTo(@(H));
 //        }];
-//    };
-    
-    _inputView = [[CMInputView alloc]initWithFrame:CGRectMake(45, 14.5, width, 35)];
-    
-    _inputView.font = [UIFont systemFontOfSize:15];
-    _inputView.placeholder = @"CrabMan的测试文字";
-    
-    _inputView.cornerRadius = 17;
-    _inputView.placeholderColor = [UIColor redColor];
-    // 设置文本框最大行数
-    [_inputView textValueDidChanged:^(NSString *text, CGFloat textHeight) {
-        CGRect frame = _inputView.frame;
-        frame.size.height = textHeight;
-        _inputView.frame = frame;
-        
-        CGFloat H = XZChatToolBarHeight - 35 + textHeight;
-        
-        [weakSelf mas_updateConstraints:^(MASConstraintMaker *make) {
-            make.height.equalTo(@(H));
-        }];
-    }];
-    
-    _inputView.maxNumberOfLines = 4;
-    [self addSubview:_inputView];
+//    }];
+//
+//    _inputView.maxNumberOfLines = 4;
+//    [self addSubview:_inputView];
  
     btnSpeak.hidden = YES;
     
