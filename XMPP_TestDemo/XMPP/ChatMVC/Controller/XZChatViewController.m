@@ -222,7 +222,13 @@
     if (!_toolBar) {
         _toolBar = [[XZChatToolBar alloc] initWithViewController:self aboveView:self.tableChat];
         _toolBar.delegate = self;
-        
+        _toolBar.blockDidClickButton = ^(NSInteger tagIdx) {
+            if (tagIdx == 121) { // 转人工
+                NSLog(@"点击了 转人工");
+            }else if (tagIdx == 123) { // 发送
+                NSLog(@"点击了 发送");
+            }
+        };
     }
     return _toolBar;
 }

@@ -23,11 +23,9 @@
 /// 点击发送按钮
 - (void)didClickSendBtn:(NSString *)text;
 
-@optional
-/// 根据键盘是否弹起，设置 tableView frame
-- (void)toolBar:(XZChatToolBar *)toolBar changeDuration:(CGFloat)duration;
-/// 选择“+”内容
-- (void)didSelectedExtraItem:(NSString *)itemName;
+//@optional
+///// 根据键盘是否弹起，设置 tableView frame
+//- (void)toolBar:(XZChatToolBar *)toolBar changeDuration:(CGFloat)duration;
 
 @end
 
@@ -35,9 +33,6 @@
 
 /** delegate */
 @property (nonatomic, weak) id<XZChatToolBarDelegate> delegate;
-
-///// 修改高度
-//@property (nonatomic, copy) void(^blockChangeHeight)(CGFloat height);
 
 /// 最大显示行
 @property (nonatomic, assign) int maxNumberOfLines;
@@ -48,5 +43,7 @@
  */
 - (instancetype)initWithViewController:(UIViewController <XZChatToolBarDelegate>*)viewController aboveView:(UIView *)aboveView;
 
+/// 点击“转人工”和“发送”按钮
+@property (nonatomic, copy) void(^blockDidClickButton)(NSInteger);
 
 @end

@@ -9,7 +9,7 @@
 #import "XZChatToolBar.h"
 #import "XZKeyboardInputView.h"
 #import "XZTextView.h"
-#import "XZInputView.h"
+#import "XZTextView.h"
 #import "XZButton.h"
 
 #define kNaviBarH       64   // 导航栏高度
@@ -43,7 +43,7 @@
 @property (nonatomic, weak) UIView *superView;
 @property (nonatomic, weak) UIView *aboveView;
 /// 输入框
-@property (nonatomic,strong) XZInputView *inputView;
+@property (nonatomic,strong) XZTextView *textView;
 /// 键盘视图
 @property (nonatomic,strong) XZKeyboardInputView *keyboardInputView;
 /// 顶部工具栏
@@ -191,15 +191,15 @@
     if (button.tag == 120) { // 语音聊天按钮
         button.selected = !button.selected;
         if (button.selected) {
-            self.inputView.hidden = YES;
+            self.textView.hidden = YES;
             self.btnSpeak.hidden = NO;
             // 回收键盘
-            [self.inputView resignFirstResponder];
+            [self.textView resignFirstResponder];
         }else {
-            self.inputView.hidden = NO;
+            self.textView.hidden = NO;
             self.btnSpeak.hidden = YES;
             // 成为第一响应者
-            [self.inputView becomeFirstResponder];
+            [self.textView becomeFirstResponder];
         }
         
         // 隐藏底部视图
@@ -209,17 +209,20 @@
         button.hidden = YES;
         self.btnVoice.hidden = NO;
         
+        if (self.blockDidClickButton) {
+            self.blockDidClickButton(button.tag);
+        }
     }else if (button.tag == 122) { // 加号按钮
         button.selected = !button.selected;
         
         // 回收键盘
-        [self.inputView resignFirstResponder];
+        [self.textView resignFirstResponder];
         
         self.keyboardInputView.hidden = button.selected ? NO : YES;
         
         // 显示输入框
-        if (self.inputView.hidden == YES) {
-            self.inputView.hidden = NO;
+        if (self.textView.hidden == YES) {
+            self.textView.hidden = NO;
             self.btnSpeak.hidden = YES;
             self.btnVoice.selected = NO;
         }
@@ -228,7 +231,9 @@
         [weakSelf makeKeyboardInputViewConstraints:button.selected ? YES : NO];
         
     }else if (button.tag == 123)  { // 发送按钮
-        
+        if (self.blockDidClickButton) {
+            self.blockDidClickButton(button.tag);
+        }
     }
 }
 
@@ -323,16 +328,17 @@
     [btnSendMsg.titleLabel setFont:[UIFont systemFontOfSize:14.0]];
     
     /// 输入框
-    _inputView = [[XZInputView alloc] init];
-    _inputView.font = [UIFont systemFontOfSize:15];
-    _inputView.placeholder = @"请简短的描述你的问题";
-    _inputView.cornerRadius = 17;
+    _textView = [[XZTextView alloc] init];
+    _textView.font = [UIFont systemFontOfSize:15];
+    _textView.placeholder = @"请简短的描述你的问题";
+    _textView.cornerRadius = 17;
+    _textView.backgroundColor = XZColor(242, 242, 242);
     WeakSelf;
-    [_inputView textValueDidChanged:^(NSString *text, CGFloat textHeight) {
+    [_textView textValueDidChanged:^(NSString *text, CGFloat textHeight) {
 //        CGRect frame = _inputView.frame;
 //        frame.size.height = textHeight;
 //        _inputView.frame = frame;
-        [weakSelf.inputView mas_updateConstraints:^(MASConstraintMaker *make) {
+        [weakSelf.textView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(textHeight));
         }];
 
@@ -352,8 +358,8 @@
     }];
     
     // 设置文本框最大行数
-    _inputView.maxNumberOfLines = 4;
-    [topView addSubview:_inputView];
+    _textView.maxNumberOfLines = 4;
+    [topView addSubview:_textView];
     
     [self setupConstraints:topView];
 }
@@ -368,10 +374,12 @@
         make.height.equalTo(@(XZChatToolBarHeight));
     }];
     
+    CGFloat bottom = (XZChatToolBarHeight - kToolbarBtnH) / 2.0;
+    
     /// 语音聊天
     [self.btnVoice mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(topView).offset(15);
-        make.bottom.equalTo(topView).offset(-14.5);
+        make.bottom.equalTo(topView).offset(-bottom);
         make.size.equalTo(@(kToolbarBtnH));
     }];
     
@@ -391,8 +399,8 @@
         make.height.equalTo(@(kToolbarBtnH));
     }];
     
-    /// 输入文字 WithFrame:CGRectMake(kBtnSpeakLeftX, 14.5, width, kToolbarBtnH)
-    [self.inputView mas_makeConstraints:^(MASConstraintMaker *make) {
+    /// 输入文字 WithFrame:CGRectMake(kBtnSpeakLeftX, bottom, width, kToolbarBtnH)
+    [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(topView).offset(kBtnSpeakLeftX);
         make.centerY.equalTo(topView);
         make.width.equalTo(@(width));
@@ -409,7 +417,7 @@
     /// 发送消息
     [self.btnSendMsg mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(topView).offset(-10);
-        make.bottom.equalTo(topView).offset(-14.5);
+        make.bottom.equalTo(topView).offset(-bottom);
         make.height.equalTo(@(kToolbarBtnH));
         make.width.equalTo(@45);
     }];
