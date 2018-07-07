@@ -70,8 +70,8 @@
 		843C68C320E477BE00FD9195 /* XZVoiceRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68C120E477BE00FD9195 /* XZVoiceRecorderManager.m */; };
 		843C68C620E4824F00FD9195 /* XZFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68C520E4824F00FD9195 /* XZFileTools.m */; };
 		843C68C720E4824F00FD9195 /* XZFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68C520E4824F00FD9195 /* XZFileTools.m */; };
-		844CB83320EF5CC5001AC711 /* CMInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844CB83120EF5CC5001AC711 /* CMInputView.m */; };
-		844CB83420EF5CC5001AC711 /* CMInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844CB83120EF5CC5001AC711 /* CMInputView.m */; };
+		844CB83320EF5CC5001AC711 /* XZInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844CB83120EF5CC5001AC711 /* XZInputView.m */; };
+		844CB83420EF5CC5001AC711 /* XZInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844CB83120EF5CC5001AC711 /* XZInputView.m */; };
 		8458A1E920EAFBBA001DDC56 /* XZDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458A1E820EAFBBA001DDC56 /* XZDownloadManager.m */; };
 		8458A1EA20EAFBBA001DDC56 /* XZDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458A1E820EAFBBA001DDC56 /* XZDownloadManager.m */; };
 		84627DA020DC97CF00B5D130 /* XMPPAnonymousAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 84627BCD20DC97CD00B5D130 /* XMPPAnonymousAuthentication.m */; };
@@ -569,8 +569,8 @@
 		843C68C420E4824F00FD9195 /* XZFileTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZFileTools.h; sourceTree = "<group>"; };
 		843C68C520E4824F00FD9195 /* XZFileTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZFileTools.m; sourceTree = "<group>"; };
 		843C68C820E489D200FD9195 /* XZMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZMacroDefinition.h; sourceTree = "<group>"; };
-		844CB83120EF5CC5001AC711 /* CMInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMInputView.m; sourceTree = "<group>"; };
-		844CB83220EF5CC5001AC711 /* CMInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMInputView.h; sourceTree = "<group>"; };
+		844CB83120EF5CC5001AC711 /* XZInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZInputView.m; sourceTree = "<group>"; };
+		844CB83220EF5CC5001AC711 /* XZInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZInputView.h; sourceTree = "<group>"; };
 		8458A1E720EAFBBA001DDC56 /* XZDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZDownloadManager.h; sourceTree = "<group>"; };
 		8458A1E820EAFBBA001DDC56 /* XZDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZDownloadManager.m; sourceTree = "<group>"; };
 		84627BCC20DC97CD00B5D130 /* XMPPAnonymousAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPAnonymousAuthentication.h; sourceTree = "<group>"; };
@@ -1263,8 +1263,8 @@
 			children = (
 				84893FE720ECB59B009035BB /* XZTextView.h */,
 				84893FE820ECB59B009035BB /* XZTextView.m */,
-				844CB83220EF5CC5001AC711 /* CMInputView.h */,
-				844CB83120EF5CC5001AC711 /* CMInputView.m */,
+				844CB83220EF5CC5001AC711 /* XZInputView.h */,
+				844CB83120EF5CC5001AC711 /* XZInputView.m */,
 				8490000E20EDF09D0023B93A /* XZKeyboardInputView.h */,
 				8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */,
 				8468AFC920E36979009F39FC /* XZChatToolBar.h */,
@@ -2821,7 +2821,7 @@
 				84627E9820DC97D000B5D130 /* XMPPCapabilities.m in Sources */,
 				84627E7020DC97D000B5D130 /* XMPPvCardTempTel.m in Sources */,
 				84627E1820DC97D000B5D130 /* XMPPResourceCoreDataStorageObject.m in Sources */,
-				844CB83320EF5CC5001AC711 /* CMInputView.m in Sources */,
+				844CB83320EF5CC5001AC711 /* XZInputView.m in Sources */,
 				84627DA420DC97CF00B5D130 /* XMPPDeprecatedPlainAuthentication.m in Sources */,
 				84627EB020DC97D000B5D130 /* XMPPBlocking.m in Sources */,
 				8419AF2620E0D7690031DC85 /* XZEmoticonViewController.m in Sources */,
@@ -2910,7 +2910,7 @@
 				84627E4720DC97D000B5D130 /* XMPPRoomMemoryStorage.m in Sources */,
 				8468AFC420E3628D009F39FC /* XZChatImageRightCell.m in Sources */,
 				84627E0D20DC97D000B5D130 /* XMPPIQ+OMEMO.m in Sources */,
-				844CB83420EF5CC5001AC711 /* CMInputView.m in Sources */,
+				844CB83420EF5CC5001AC711 /* XZInputView.m in Sources */,
 				84627EE920DC97D000B5D130 /* XMPPCapabilities+XEP_0359.m in Sources */,
 				84627EF120DC97D000B5D130 /* XMPPSlot.m in Sources */,
 				84627DCF20DC97CF00B5D130 /* GCDAsyncUdpSocket.m in Sources */,

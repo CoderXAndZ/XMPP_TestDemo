@@ -33,6 +33,6 @@
 #define kAMRType @"amr"   /// 需要的格式
 
 /// 工具栏高度
-#define XZChatToolBarHeight 64
+#define XZChatToolBarHeight 55
 
 #endif /* XZMacroDefinition_h */

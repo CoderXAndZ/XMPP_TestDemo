@@ -8,20 +8,23 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void(^blockChangeHeight)(CGFloat height,NSString *text);
+
 @interface XZTextView : UITextView
 /** 占位文字 */
 @property (nonatomic, strong) NSString *placeholder;
 /** 文字颜色 */
 @property (nonatomic, strong) UIColor *color;
 /** 行数控制 */
-@property (nonatomic, assign) NSInteger numberOfLines;
-/// 最高高度
+@property (nonatomic, assign) NSInteger numOfLines;
+/** 最高高度 */
 @property (nonatomic, assign,readonly) CGFloat maxHeight;
-
-///// 一行高度
-//@property (nonatomic, assign,readonly) CGFloat oneLineHeight;
+/** 设置圆角 */
+@property (nonatomic, assign) NSUInteger cornerRadius;
 
 /// 修改高度
-@property (nonatomic, copy) void(^blockChangeHeight)(CGFloat height,NSString *text);
+@property (nonatomic, copy) blockChangeHeight blockChangeHeight;
+
+- (void)textValueDidChanged:(blockChangeHeight)block;
 
 @end

@@ -16,7 +16,7 @@
 
 - (void)layoutSubviews{
     [super layoutSubviews];
-//    self.imageView.backgroundColor = [UIColor redColor];
+//    self.imageView.backgroundColor = [UIColor purpleColor];
 //    self.titleLabel.backgroundColor = [UIColor orangeColor];
     switch (self.buttonsType) {
         case 0: // 图片和文字是上下的
