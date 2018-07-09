@@ -42,7 +42,7 @@
             
             if (self.delegate && [self.delegate respondsToSelector:@selector(playWithVoicePath: cell:)]) {
                 // [self voicePath]]
-                NSLog(@"self.modelChat.audioPath ===== %@",self.modelChat.audioPath);
+                Log(@"self.modelChat.audioPath ===== %@",self.modelChat.audioPath);
                 [self.delegate playWithVoicePath:self.modelChat.audioPath  cell:self];
             }
         }else { // 暂停播放

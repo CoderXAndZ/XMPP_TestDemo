@@ -35,7 +35,7 @@
     NSURLSessionDownloadTask *download = [manager downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
         
         // 监听下载进度
-        NSLog(@"下载进度 ==== %f", 1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+        Log(@"下载进度 ==== %f", 1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
         
         CGFloat progressDownload = 1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount;
         
@@ -48,9 +48,9 @@
         
         NSString *urlStr = [url.absoluteString stringByReplacingOccurrencesOfString:@"file://" withString:@""];
         
-//        NSLog(@"下载完的url是：========== %@ \n ==== targetPath:%@",url ,targetPath);
+//        Log(@"下载完的url是：========== %@ \n ==== targetPath:%@",url ,targetPath);
 //
-//        NSLog(@"\n urlStr:%@\n\n 修改完的url ===  %@\n",urlStr,[NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]);
+//        Log(@"\n urlStr:%@\n\n 修改完的url ===  %@\n",urlStr,[NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]);
         
         // ================
         return [NSURL fileURLWithPath:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
@@ -66,10 +66,10 @@
         if (progress == 1) {
             completion(urlFinal, progress);
             
-            NSLog(@"urlFinal = %@",urlFinal);
+            Log(@"urlFinal = %@",urlFinal);
         }
         
-        NSLog(@"filePath = %@",filePath);
+        Log(@"filePath = %@",filePath);
     }];
     
     // 3.执行Task

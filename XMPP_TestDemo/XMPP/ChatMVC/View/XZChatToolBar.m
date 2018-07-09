@@ -159,7 +159,7 @@
 
 /// UIControlEventTouchCancel
 - (void)speakerTouchCancel {
-    NSLog(@"speakerTouchCancel");
+    Log(@"speakerTouchCancel");
 }
 
 /// UIControlEventTouchUpOutside
@@ -212,6 +212,9 @@
         if (self.blockDidClickButton) {
             self.blockDidClickButton(button.tag);
         }
+        
+        // 设置是跟机器人聊天还是跟客服聊天 ==================
+        self.keyboardInputView.isRobot = NO;
     }else if (button.tag == 122) { // 加号按钮
         button.selected = !button.selected;
         
@@ -234,6 +237,8 @@
         if (self.blockDidClickButton) {
             self.blockDidClickButton(button.tag);
         }
+        // 清空输入框
+        self.textView.text = @"";
     }
 }
 
@@ -249,7 +254,7 @@
     
     /// 顶部线
     UIView *line = [[UIView alloc] init];
-    line.frame = CGRectMake(0, 0, kScreenWidth, 1);
+    line.frame = CGRectMake(0, 0, KProjectScreenWidth, 1);
     [topView addSubview:line];
     line.backgroundColor = XZColor(191, 191, 191);
     
@@ -366,7 +371,7 @@
 
 /// 设置布局
 - (void)setupConstraints:(UIView *)topView {
-    /// 底部视图 WithFrame:CGRectMake(0, 0, kScreenWidth, XZChatToolBarHeight)
+    /// 底部视图 WithFrame:CGRectMake(0, 0, KProjectScreenWidth, XZChatToolBarHeight)
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);
         make.bottom.equalTo(self);
@@ -390,7 +395,7 @@
         make.size.equalTo(@45);
     }];
     
-    CGFloat width = kScreenWidth - kBtnSpeakLeftX - 10 - 50;
+    CGFloat width = KProjectScreenWidth - kBtnSpeakLeftX - 10 - 50;
     /// 按住说话
     [self.btnSpeak mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(topView).offset(60);
@@ -427,15 +432,14 @@
 - (void)makeKeyboardInputViewConstraints:(BOOL)isBottom {
     
     if (isBottom) { // 显示工具栏底部视图
+        
         [self.topView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self);
+            make.left.right.equalTo(self);
             make.height.equalTo(@(XZChatToolBarHeight));
-            make.right.equalTo(self);
             make.bottom.equalTo(self).offset(-kToolbarBottom);
         }];
         [self.keyboardInputView mas_remakeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self);
-            make.right.equalTo(self);
+            make.left.right.equalTo(self);
             make.top.equalTo(self.topView.mas_bottom);
             make.height.equalTo(@(kToolbarBottom));
         }];
@@ -464,7 +468,7 @@
         // 将加号选中状态还原
         self.btnContactAdd.selected = NO;
     }
-    
+    [self.keyboardInputView layoutIfNeeded];
 }
 
 // tableView是否滚动上去
@@ -484,7 +488,6 @@
 //                make.bottom.equalTo(self.viewController.view);
 //            }];
 //        }
-        
     }
 }
 
@@ -494,6 +497,15 @@
         _keyboardInputView = [[XZKeyboardInputView alloc] init];
         _keyboardInputView.hidden = YES;
         [self addSubview:_keyboardInputView];
+        // 设置是跟机器人聊天还是跟客服聊天
+        _keyboardInputView.isRobot = YES;
+        
+        WeakSelf;
+        _keyboardInputView.blockClickKeyboardInputViewBtn = ^(NSInteger tag) {
+            if (weakSelf.blockClickedKeyboardInputView) {
+                weakSelf.blockClickedKeyboardInputView(tag, weakSelf.keyboardInputView.isRobot);
+            }
+        };
     }
     return _keyboardInputView;
 }

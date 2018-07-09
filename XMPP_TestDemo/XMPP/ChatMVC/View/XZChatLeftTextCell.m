@@ -44,7 +44,7 @@
     labelContent.textColor = [UIColor darkGrayColor];
     self.labelContent = labelContent;
     labelContent.backgroundColor = [UIColor greenColor];
-    labelContent.preferredMaxLayoutWidth = kScreenWidth - 133;
+    labelContent.preferredMaxLayoutWidth = KProjectScreenWidth - 133;
     labelContent.ignoreCommonProperties = YES;
     labelContent.displaysAsynchronously = YES;
     
@@ -60,7 +60,7 @@
     
     [labelContent mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(imgBubble).offset(12);
-        make.width.mas_lessThanOrEqualTo(kScreenWidth - 133);
+        make.width.mas_lessThanOrEqualTo(KProjectScreenWidth - 133);
         make.top.equalTo(imgBubble).offset(5);
         make.bottom.equalTo(imgBubble).offset(-5);
     }];
@@ -72,7 +72,7 @@
 - (void)setModelChat:(XZChatModel *)modelChat {
     _modelChat = modelChat;
     
-    NSLog(@"%@ ---- %@",modelChat.chatTime,modelChat.chatContent);
+    Log(@"%@ ---- %@",modelChat.chatTime,modelChat.chatContent);
     
     self.labelContent.text = modelChat.chatContent;
     self.labelTime.text = modelChat.chatTime;

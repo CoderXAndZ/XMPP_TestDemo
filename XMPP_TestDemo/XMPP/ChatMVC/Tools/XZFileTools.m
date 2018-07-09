@@ -48,7 +48,7 @@
     NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
     NSString *fileName = [NSString stringWithFormat:@"%ld.wav",(long)timeInterval];
     
-    NSLog(@"音频存放名称：%@",fileName);
+    Log(@"音频存放名称：%@",fileName);
     
     return fileName;
 }
@@ -82,7 +82,7 @@
     
     NSString *recoderPath = [[self mainPathOfRecorder] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",fileName]];
     
-    NSLog(@"recoderPathWithFileName-录音文件路径:%@", recoderPath);
+    Log(@"recoderPathWithFileName-录音文件路径:%@", recoderPath);
     
     return recoderPath;
 }
@@ -94,7 +94,7 @@
     if (![manager fileExistsAtPath:path]) {
         if (![manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil]) {
             
-            NSLog(@"创建文件夹失败");
+            Log(@"创建文件夹失败");
             return nil;
         }
     }
@@ -106,7 +106,7 @@
     //    NSMutableArray *filenamelist = [NSMutableArray arrayWithCapacity:10];
     NSURL *dirURL = [NSURL fileURLWithPath:dirPath];
     if (!dirURL) {
-        NSLog(@"dirPath can not create URL!");
+        Log(@"dirPath can not create URL!");
         return @[];
     }
     //    NSArray *tmplist = [[NSFileManager defaultManager] contentsOfDirectoryAtPath:dirPath error:nil];
@@ -173,7 +173,7 @@
     if (!isDirExist) {
         BOOL isCreatDir = [fileManager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
         if (!isCreatDir) {
-            NSLog(@"create folder failed");
+            Log(@"create folder failed");
             return nil;
         }
     }

@@ -98,13 +98,13 @@
         [session setActive:YES error:nil];
         [session setCategory:AVAudioSessionCategoryPlayAndRecord error:&error];
         if (error) {
-            NSLog(@"startRecordWithFileName错误：%@", [error description]);
+            Log(@"startRecordWithFileName错误：%@", [error description]);
         }
         
         // 初始化录音设备
         NSURL *url = [NSURL fileURLWithPath:[XZFileTools recoderPathWithFileName: fileName]];
         
-        NSLog(@"初始化录音设备 %@",[XZFileTools recoderPathWithFileName: fileName]);
+        Log(@"初始化录音设备 %@",[XZFileTools recoderPathWithFileName: fileName]);
         
         NSDictionary *settings = [self getAudioSetting];
         self.audioRecorder = [[AVAudioRecorder alloc] initWithURL:url settings:settings error:&error];
@@ -161,7 +161,7 @@
             /// 录音时间太短，不保存
             [self cancelCurrentRecording];
             [self removeCurrentRecordFile];
-            NSLog(@"录制时间太短");
+            Log(@"录制时间太短");
             return;
         }else {
 //            if (completion) {
@@ -173,11 +173,11 @@
             WeakSelf;
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 [weakSelf.audioRecorder stop];
-                NSLog(@"录音时长：%f",recordDuration);
+                Log(@"录音时长：%f",recordDuration);
             });
         }
     }else {
-        NSLog(@"不是正在录制？？？？");
+        Log(@"不是正在录制？？？？");
     }
 }
 
@@ -187,13 +187,13 @@
         [self.audioRecorder stop];
     }
     
-    NSLog(@"cancelCurrentRecording 取消当前录制:%@",_timer);
+    Log(@"cancelCurrentRecording 取消当前录制:%@",_timer);
     
     // 关闭定时器
     [_timer invalidate];
     _timer = nil;
     
-    NSLog(@"cancelCurrentRecording 取消当前录制hou === :%@",_timer);
+    Log(@"cancelCurrentRecording 取消当前录制hou === :%@",_timer);
     
     _audioRecorder.delegate = nil;
     _audioRecorder = nil;
@@ -236,12 +236,12 @@
 /// 录音完成, success 是否成功
 - (void)audioDidFinishRecording:(AVAudioRecorder *)recorder success:(BOOL)success {
     
-    NSLog(@"录音完成!");
+    Log(@"录音完成!");
     
     NSString *recordPath = [[self.audioRecorder url] path];
 //    // 音频格式转换 ============= 删除
 //    NSString *amrPath = [[recordPath stringByDeletingPathExtension] stringByAppendingPathExtension:kAMRType];
-//    NSLog(@"amrPath ------- %@",amrPath);
+//    Log(@"amrPath ------- %@",amrPath);
 //    [VoiceConverter ConvertWavToAmr:recordPath amrSavePath:amrPath];
     
     if (recorderFinish) {
@@ -261,7 +261,7 @@
 
 /// 录音出现编码问题
 - (void)audioRecorderEncodeErrorDidOccur:(AVAudioRecorder *)recorder error:(NSError *)error {
-    NSLog(@"录音出现编码问题 === audioPlayerDecodeErrorDidOccur");
+    Log(@"录音出现编码问题 === audioPlayerDecodeErrorDidOccur");
 }
 
 #pragma mark --- 时间计时器处理
@@ -289,7 +289,7 @@
     if (recorderPower) {
         recorderPower(progress);
     }
-    NSLog(@"语音功率：%f",progress);
+    Log(@"语音功率：%f",progress);
 }
 
 #pragma mark --- 录音文件设置
@@ -314,7 +314,7 @@
 - (NSTimer *)timer {
     if (!_timer) {
         _timer = [NSTimer scheduledTimerWithTimeInterval:0.3f target:self selector:@selector(powerChanged) userInfo:nil repeats:YES];
-        NSLog(@"当前录制计时器 ==== %@",_timer);
+        Log(@"当前录制计时器 ==== %@",_timer);
     }
     return _timer;
 }

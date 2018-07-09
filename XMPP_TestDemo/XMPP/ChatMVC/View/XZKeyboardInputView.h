@@ -10,4 +10,10 @@
 
 @interface XZKeyboardInputView : UIView
 
+/// 点击页面
+@property (nonatomic, copy) void(^blockClickKeyboardInputViewBtn)(NSInteger tag);
+
+/** 是机器人聊天界面 */
+@property (nonatomic, assign) BOOL isRobot;
+
 @end

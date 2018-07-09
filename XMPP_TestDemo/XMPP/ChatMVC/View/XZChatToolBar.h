@@ -43,7 +43,9 @@
  */
 - (instancetype)initWithViewController:(UIViewController <XZChatToolBarDelegate>*)viewController aboveView:(UIView *)aboveView;
 
-/// 点击“转人工”和“发送”按钮
+/// 点击“转人工”和“发送”按钮,
 @property (nonatomic, copy) void(^blockDidClickButton)(NSInteger);
+/// 点击“+”按钮视图
+@property (nonatomic, copy) void(^blockClickedKeyboardInputView)(NSInteger,BOOL isRobot);
 
 @end

@@ -28,7 +28,7 @@
 {
     self.placeholderView.hidden = self.hasText;
     
-    NSInteger height = ceilf([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height);
+    CGFloat height = ceilf([self sizeThatFits:CGSizeMake(self.bounds.size.width, MAXFLOAT)].height);
     
 //    if (_textH != height) { // 高度不一样，就改变了高度
     

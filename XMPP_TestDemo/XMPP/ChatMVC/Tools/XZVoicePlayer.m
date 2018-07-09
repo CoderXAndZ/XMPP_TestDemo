@@ -45,7 +45,7 @@
             
             if (![XZFileTools fileExistsAtPath:wavPath]) {
                 if ([VoiceConverter ConvertAmrToWav:path wavSavePath:wavPath]) {
-                    NSLog(@"转化成功");
+                    Log(@"转化成功");
                     // 移除 .amr 文件
                     [XZFileTools removeFileAtPath: path];
                 }
@@ -86,7 +86,7 @@
         [self.player prepareToPlay];
         
         if (error) {
-            NSLog(@"初始化播放器过程中发生错误，错误信息：%@",error.localizedDescription);
+            Log(@"初始化播放器过程中发生错误，错误信息：%@",error.localizedDescription);
             if (self.progress) {
                 self.progress(0);
             }
@@ -128,7 +128,7 @@
 #pragma mark ---- AVAudioPlayerDelegate
 /// 播放结束时执行的动作
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag {
-    NSLog(@"audioPlayerDidFinishPlaying");
+    Log(@"audioPlayerDidFinishPlaying");
     
     if (self.progress) {
         self.progress(1);
@@ -140,7 +140,7 @@
 /// 解码错误执行的动作
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error {
     
-    NSLog(@"audioPlayerDecodeErrorDidOccur");
+    Log(@"audioPlayerDecodeErrorDidOccur");
     
     if (self.progress) {
         self.progress(0);

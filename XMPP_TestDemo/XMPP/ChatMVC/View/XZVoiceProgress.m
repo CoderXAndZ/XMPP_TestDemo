@@ -54,7 +54,7 @@
 //    for (UIGestureRecognizer *gesture in self.window.gestureRecognizers) {
 //        gesture.delaysTouchesBegan = NO;
 //
-//        NSLog(@"delaysTouchesBegan = %@",gesture.delaysTouchesBegan ? @"YES":@"NO");
+//        Log(@"delaysTouchesBegan = %@",gesture.delaysTouchesBegan ? @"YES":@"NO");
 //    }
 //}
 
