@@ -69,8 +69,6 @@
 		843C68C320E477BE00FD9195 /* XZVoiceRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68C120E477BE00FD9195 /* XZVoiceRecorderManager.m */; };
 		843C68C620E4824F00FD9195 /* XZFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68C520E4824F00FD9195 /* XZFileTools.m */; };
 		843C68C720E4824F00FD9195 /* XZFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68C520E4824F00FD9195 /* XZFileTools.m */; };
-		844CB83320EF5CC5001AC711 /* XZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844CB83120EF5CC5001AC711 /* XZTextView.m */; };
-		844CB83420EF5CC5001AC711 /* XZTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 844CB83120EF5CC5001AC711 /* XZTextView.m */; };
 		8458A1E920EAFBBA001DDC56 /* XZDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458A1E820EAFBBA001DDC56 /* XZDownloadManager.m */; };
 		8458A1EA20EAFBBA001DDC56 /* XZDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458A1E820EAFBBA001DDC56 /* XZDownloadManager.m */; };
 		84627DA020DC97CF00B5D130 /* XMPPAnonymousAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 84627BCD20DC97CD00B5D130 /* XMPPAnonymousAuthentication.m */; };
@@ -447,6 +445,8 @@
 		84893FEE20ECB67B009035BB /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 84893FEC20ECB67A009035BB /* UIView+Extension.m */; };
 		84893FF120ECBAEC009035BB /* XZButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84893FEF20ECBAEB009035BB /* XZButton.m */; };
 		84893FF220ECBAEC009035BB /* XZButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84893FEF20ECBAEB009035BB /* XZButton.m */; };
+		8489FBD220F4B97D00C0BBDA /* XZToolBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489FBD120F4B97D00C0BBDA /* XZToolBarTextView.m */; };
+		8489FBD320F4B97D00C0BBDA /* XZToolBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489FBD120F4B97D00C0BBDA /* XZToolBarTextView.m */; };
 		8490001020EDF09D0023B93A /* XZKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */; };
 		8490001120EDF09D0023B93A /* XZKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */; };
 		84A33FE120F2F0D900D76A7C /* XZAfterThreeMinutesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE020F2F0D900D76A7C /* XZAfterThreeMinutesView.m */; };
@@ -571,8 +571,6 @@
 		843C68C420E4824F00FD9195 /* XZFileTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZFileTools.h; sourceTree = "<group>"; };
 		843C68C520E4824F00FD9195 /* XZFileTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZFileTools.m; sourceTree = "<group>"; };
 		843C68C820E489D200FD9195 /* XZMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZMacroDefinition.h; sourceTree = "<group>"; };
-		844CB83120EF5CC5001AC711 /* XZTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZTextView.m; sourceTree = "<group>"; };
-		844CB83220EF5CC5001AC711 /* XZTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZTextView.h; sourceTree = "<group>"; };
 		8458A1E720EAFBBA001DDC56 /* XZDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZDownloadManager.h; sourceTree = "<group>"; };
 		8458A1E820EAFBBA001DDC56 /* XZDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZDownloadManager.m; sourceTree = "<group>"; };
 		84627BCC20DC97CD00B5D130 /* XMPPAnonymousAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPAnonymousAuthentication.h; sourceTree = "<group>"; };
@@ -965,6 +963,8 @@
 		84893FEC20ECB67A009035BB /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		84893FEF20ECBAEB009035BB /* XZButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZButton.m; sourceTree = "<group>"; };
 		84893FF020ECBAEC009035BB /* XZButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZButton.h; sourceTree = "<group>"; };
+		8489FBD020F4B97C00C0BBDA /* XZToolBarTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZToolBarTextView.h; sourceTree = "<group>"; };
+		8489FBD120F4B97D00C0BBDA /* XZToolBarTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZToolBarTextView.m; sourceTree = "<group>"; };
 		8490000E20EDF09D0023B93A /* XZKeyboardInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZKeyboardInputView.h; sourceTree = "<group>"; };
 		8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZKeyboardInputView.m; sourceTree = "<group>"; };
 		84A33FDF20F2F0D900D76A7C /* XZAfterThreeMinutesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZAfterThreeMinutesView.h; sourceTree = "<group>"; };
@@ -1258,8 +1258,8 @@
 		84263A9120E21ABE00BFC64D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				844CB83220EF5CC5001AC711 /* XZTextView.h */,
-				844CB83120EF5CC5001AC711 /* XZTextView.m */,
+				8489FBD020F4B97C00C0BBDA /* XZToolBarTextView.h */,
+				8489FBD120F4B97D00C0BBDA /* XZToolBarTextView.m */,
 				8490000E20EDF09D0023B93A /* XZKeyboardInputView.h */,
 				8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */,
 				8468AFC920E36979009F39FC /* XZChatToolBar.h */,
@@ -2684,6 +2684,7 @@
 				84627E1C20DC97D000B5D130 /* XMPPRosterCoreDataStorage.m in Sources */,
 				84627DDA20DC97CF00B5D130 /* DDLog.m in Sources */,
 				84627E9220DC97D000B5D130 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
+				8489FBD220F4B97D00C0BBDA /* XZToolBarTextView.m in Sources */,
 				84627DC820DC97CF00B5D130 /* NSXMLElement+XMPP.m in Sources */,
 				84627DB620DC97CF00B5D130 /* XMPPJID.m in Sources */,
 				84627E3020DC97D000B5D130 /* XMPPIQ+LastActivity.m in Sources */,
@@ -2790,7 +2791,6 @@
 				84627E9820DC97D000B5D130 /* XMPPCapabilities.m in Sources */,
 				84627E7020DC97D000B5D130 /* XMPPvCardTempTel.m in Sources */,
 				84627E1820DC97D000B5D130 /* XMPPResourceCoreDataStorageObject.m in Sources */,
-				844CB83320EF5CC5001AC711 /* XZTextView.m in Sources */,
 				84627DA420DC97CF00B5D130 /* XMPPDeprecatedPlainAuthentication.m in Sources */,
 				84627EB020DC97D000B5D130 /* XMPPBlocking.m in Sources */,
 				8419AF2620E0D7690031DC85 /* XZEmoticonViewController.m in Sources */,
@@ -2862,6 +2862,7 @@
 				84627E7D20DC97D000B5D130 /* XMPPIQ+XEP_0066.m in Sources */,
 				84627ED520DC97D000B5D130 /* XMPPMessage+XEP_0313.m in Sources */,
 				84627E4120DC97D000B5D130 /* XMPPRoomHybridStorage.m in Sources */,
+				8489FBD320F4B97D00C0BBDA /* XZToolBarTextView.m in Sources */,
 				84627EE120DC97D000B5D130 /* NSXMLElement+XEP_0352.m in Sources */,
 				84627DA520DC97CF00B5D130 /* XMPPDeprecatedPlainAuthentication.m in Sources */,
 				84627EC320DC97D000B5D130 /* NSXMLElement+XEP_0203.m in Sources */,
@@ -2879,7 +2880,6 @@
 				84627E4720DC97D000B5D130 /* XMPPRoomMemoryStorage.m in Sources */,
 				8468AFC420E3628D009F39FC /* XZChatImageRightCell.m in Sources */,
 				84627E0D20DC97D000B5D130 /* XMPPIQ+OMEMO.m in Sources */,
-				844CB83420EF5CC5001AC711 /* XZTextView.m in Sources */,
 				84627EE920DC97D000B5D130 /* XMPPCapabilities+XEP_0359.m in Sources */,
 				84627EF120DC97D000B5D130 /* XMPPSlot.m in Sources */,
 				84627DCF20DC97CF00B5D130 /* GCDAsyncUdpSocket.m in Sources */,

@@ -38,16 +38,16 @@
         }
         
         if (data) {
-            // 图片保存的路径
+            // 图片保存的路径 =================
             // 这里将图片放在沙盒的documents文件夹中
-            NSString * DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
+            NSString *DocumentsPath = [NSHomeDirectory() stringByAppendingPathComponent:@"Documents"];
             // 文件管理器
             NSFileManager *fileManager = [NSFileManager defaultManager];
             // 把刚刚图片转换的data对象拷贝至沙盒中 并保存为image.png
             [fileManager createDirectoryAtPath:DocumentsPath withIntermediateDirectories:YES attributes:nil error:nil];
             [fileManager createFileAtPath:[DocumentsPath stringByAppendingString:@"/image6.png"] contents:data attributes:nil];
             // 得到选择后沙盒中图片的完整路径
-            NSString * imageFilePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image6.png"];
+            NSString *imageFilePath = [[NSString alloc]initWithFormat:@"%@%@",DocumentsPath,  @"/image6.png"];
             self.imageFilePath = imageFilePath;
         }
         

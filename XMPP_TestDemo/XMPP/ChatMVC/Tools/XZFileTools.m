@@ -155,8 +155,6 @@
                     [fileNames addObject:fileName];
                 //                [theArray addObject:theURL];
             }
-            
-            
         }
     }
     
@@ -166,7 +164,6 @@
 // 文件主目录
 + (NSString *)fileMainPath
 {
-    
     NSString *path = XZOfficeDir;
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL isDirExist = [fileManager fileExistsAtPath:path];

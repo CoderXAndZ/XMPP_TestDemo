@@ -44,7 +44,7 @@
     imgContent.image = oriImg;
 //    [UIImage imageArrowWithImage:oriImg isSender:NO];
     
-    WeakSelf;
+    FMWeakSelf;
     [self.imgIcon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView).offset(-10);
     }];
@@ -64,7 +64,7 @@
     
     self.imgContent.image = image;
     
-    WeakSelf;
+    FMWeakSelf;
     [self.imgContent mas_remakeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(weakSelf.imgIcon);
         make.right.equalTo(weakSelf.imgIcon.mas_left).offset(-10);

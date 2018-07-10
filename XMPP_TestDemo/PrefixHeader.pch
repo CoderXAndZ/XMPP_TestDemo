@@ -28,16 +28,15 @@
 #define iOS8Later ([UIDevice currentDevice].systemVersion.floatValue >= 8.0f)
 
 /// self的弱引用
-#define WeakSelf  __weak __typeof(&*self)weakSelf = self;
+#define FMWeakSelf  __weak __typeof(&*self)weakSelf = self;
 
+/// 聊天界面背景色
+#define XZChatBgColor XZColor(239, 236, 236)
 #import "Masonry.h"
-
+#import <YYKit/YYKit.h>
 
 #import "UIImage+XZChat.h"
 #import "NSString+XZChat.h"
-#import <YYKit/YYKit.h>
 #import "XZMacroDefinition.h"
-/// 聊天界面背景色
-#define XZChatBgColor XZColor(239, 236, 236)
 
 #endif /* PrefixHeader_pch */

@@ -170,7 +170,7 @@
             
             recorderFinish = completion;
             
-            WeakSelf;
+            FMWeakSelf;
             dispatch_async(dispatch_get_global_queue(0, 0), ^{
                 [weakSelf.audioRecorder stop];
                 Log(@"录音时长：%f",recordDuration);

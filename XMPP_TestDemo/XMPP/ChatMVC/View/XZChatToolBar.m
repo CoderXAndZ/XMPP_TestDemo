@@ -8,9 +8,10 @@
 
 #import "XZChatToolBar.h"
 #import "XZKeyboardInputView.h"
-#import "XZTextView.h"
-#import "XZTextView.h"
+#import "XZToolBarTextView.h"
 #import "XZButton.h"
+#import "UIImage+XZChat.h"
+#import "XZMacroDefinition.h"
 
 #define kNaviBarH       64   // 导航栏高度
 #define kToolbarBtnH    35   // 顶部工具栏的按钮高度
@@ -20,7 +21,7 @@
 #define DURTAION  0.25f      // 键盘显示/收起动画时间
 #define kTextVTopMargin 8
 
-@interface XZChatToolBar() // <UITextViewDelegate>
+@interface XZChatToolBar()
 {
     BOOL _toolBarBtnTap; /// toolbarButton被点击
     CGFloat _heightOfOneLine; /// 输入框每一行文字高度
@@ -28,7 +29,7 @@
     NSMutableArray *_ArrToolbarBtn;
     UIButton *_btnSelectedToolbar;
 }
-/// 语音聊天按钮 // 35
+/// 语音聊天按钮
 @property (nonatomic, strong) UIButton *btnVoice;
 /// 按住说话按钮,默认隐藏
 @property (nonatomic, strong) UIButton *btnSpeak;
@@ -43,7 +44,7 @@
 @property (nonatomic, weak) UIView *superView;
 @property (nonatomic, weak) UIView *aboveView;
 /// 输入框
-@property (nonatomic,strong) XZTextView *textView;
+@property (nonatomic,strong) XZToolBarTextView *textView;
 /// 键盘视图
 @property (nonatomic,strong) XZKeyboardInputView *keyboardInputView;
 /// 顶部工具栏
@@ -69,19 +70,19 @@
         self.superView = viewController.view;
         [self.superView addSubview:self];
 
-        WeakSelf
-        if (aboveView) {
-            _aboveView = aboveView;
-            if (![self.superView.subviews containsObject:_aboveView]) {
-                [self.superview addSubview:_aboveView];
-            }
-
-            [_aboveView mas_makeConstraints:^(MASConstraintMaker *make) {
-                make.bottom.equalTo(weakSelf.mas_top);
-                make.left.right.equalTo(self.superview);
-                make.top.equalTo(self.superView);
-            }];
-        }
+        FMWeakSelf
+//        if (aboveView) {
+//            _aboveView = aboveView;
+//            if (![self.superView.subviews containsObject:_aboveView]) {
+//                [self.superview addSubview:_aboveView];
+//            }
+//
+//            [_aboveView mas_makeConstraints:^(MASConstraintMaker *make) {
+//                make.bottom.equalTo(weakSelf.mas_top);
+//                make.left.right.equalTo(weakSelf.superview);
+//                make.top.equalTo(weakSelf.superView);
+//            }];
+//        }
 
         // 在控制器中，自定义键盘在父视图中的位置
         [self mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -115,7 +116,7 @@
     // 隐藏底部视图
     [self makeKeyboardInputViewConstraints: NO];
 
-    WeakSelf;
+    FMWeakSelf;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.05 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [weakSelf mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self.viewController.view);
@@ -124,25 +125,27 @@
         }];
     });
 
-    // tableView是否滚动上去
-    [self aboveScroll:YES];
+    if (self.blockKeyboardWillChange) {
+        self.blockKeyboardWillChange(aNotification);
+    }
+//    // tableView是否滚动上去
+//    [self aboveScroll:YES];
 }
 
 // 当键退出时调用
 - (void)keyboardWillHide:(NSNotification *)aNotification
 {
-    [self mas_remakeConstraints:^(MASConstraintMaker *make) {
+    [self mas_updateConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.equalTo(self.viewController.view);
         make.height.equalTo(@(XZChatToolBarHeight));
     }];
+    
+    if (self.blockKeyboardWillChange) {
+        self.blockKeyboardWillChange(aNotification);
+    }
 }
 
 #pragma mark ---- 按钮的点击事件
-///// 点击 "按住 说话" ==> 变成 “松开 结束”
-//- (void)pressOnSpeakButton:(UIButton *)button {
-//    button.selected = !button.selected;
-//}
-
 /// UIControlEventTouchDragInside
 - (void)speakerTouchDragInside {
     if (self.delegate && [self.delegate respondsToSelector:@selector(didDragInside:)]) {
@@ -195,11 +198,22 @@
             self.btnSpeak.hidden = NO;
             // 回收键盘
             [self.textView resignFirstResponder];
+            
+            // 隐藏”发送“按钮
+            if (self.btnSendMsg.hidden == NO) {
+                self.btnSendMsg.hidden = YES;
+                self.btnContactAdd.hidden = NO;
+            }
         }else {
             self.textView.hidden = NO;
             self.btnSpeak.hidden = YES;
             // 成为第一响应者
             [self.textView becomeFirstResponder];
+            
+            if (self.textView.text) {
+                self.btnSendMsg.hidden = NO;
+                self.btnContactAdd.hidden = YES;
+            }
         }
         
         // 隐藏底部视图
@@ -230,7 +244,7 @@
             self.btnVoice.selected = NO;
         }
         
-        WeakSelf
+        FMWeakSelf;
         [weakSelf makeKeyboardInputViewConstraints:button.selected ? YES : NO];
         
     }else if (button.tag == 123)  { // 发送按钮
@@ -279,7 +293,7 @@
     [btnTurnArtifical.titleLabel setFont:[UIFont systemFontOfSize:12.0f]];
     [btnTurnArtifical addTarget:self action:@selector(didClickVoiceButton:) forControlEvents:UIControlEventTouchUpInside];
 //    btnTurnArtifical.backgroundColor = [UIColor redColor];
-    [btnTurnArtifical.titleLabel setTextAlignment:NSTextAlignmentCenter];
+//    [btnTurnArtifical.titleLabel setTextAlignment:NSTextAlignmentCenter];
     btnTurnArtifical.tag = 121;
     
     /// 按住说话按钮,默认隐藏
@@ -333,16 +347,14 @@
     [btnSendMsg.titleLabel setFont:[UIFont systemFontOfSize:14.0]];
     
     /// 输入框
-    _textView = [[XZTextView alloc] init];
+    _textView = [[XZToolBarTextView alloc] init];
     _textView.font = [UIFont systemFontOfSize:15];
     _textView.placeholder = @"请简短的描述你的问题";
     _textView.cornerRadius = 17;
     _textView.backgroundColor = XZColor(242, 242, 242);
-    WeakSelf;
+    FMWeakSelf;
     [_textView textValueDidChanged:^(NSString *text, CGFloat textHeight) {
-//        CGRect frame = _inputView.frame;
-//        frame.size.height = textHeight;
-//        _inputView.frame = frame;
+
         [weakSelf.textView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.height.equalTo(@(textHeight));
         }];
@@ -371,7 +383,7 @@
 
 /// 设置布局
 - (void)setupConstraints:(UIView *)topView {
-    /// 底部视图 WithFrame:CGRectMake(0, 0, KProjectScreenWidth, XZChatToolBarHeight)
+    /// 底部视图
     [self.topView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self);
         make.bottom.equalTo(self);
@@ -404,7 +416,7 @@
         make.height.equalTo(@(kToolbarBtnH));
     }];
     
-    /// 输入文字 WithFrame:CGRectMake(kBtnSpeakLeftX, bottom, width, kToolbarBtnH)
+    /// 输入文字
     [self.textView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(topView).offset(kBtnSpeakLeftX);
         make.centerY.equalTo(topView);
@@ -431,29 +443,38 @@
 /// 设置底部视图的布局 isBottom:YES 显示，NO 不显示
 - (void)makeKeyboardInputViewConstraints:(BOOL)isBottom {
     
+    CGFloat height = self.textView.text_height + XZChatToolBarHeight - kToolbarBtnH;
+    
+    if (self.textView.hidden) {
+        height = XZChatToolBarHeight;
+    }
+    
     if (isBottom) { // 显示工具栏底部视图
         
-        [self.topView mas_remakeConstraints:^(MASConstraintMaker *make) {
+        [self.topView mas_updateConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
-            make.height.equalTo(@(XZChatToolBarHeight));
+            make.height.equalTo(@(height));
             make.bottom.equalTo(self).offset(-kToolbarBottom);
         }];
+        
         [self.keyboardInputView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.right.equalTo(self);
             make.top.equalTo(self.topView.mas_bottom);
             make.height.equalTo(@(kToolbarBottom));
         }];
+        
         [self mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.bottom.right.equalTo(self.viewController.view);
-            make.height.equalTo(@(XZChatToolBarHeight + kToolbarBottom));
+            make.height.equalTo(@(height + kToolbarBottom));
         }];
         
     }else { // 隐藏工具栏底部视图
+        
         [self.topView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self);
             make.bottom.equalTo(self);
             make.right.equalTo(self);
-            make.height.equalTo(@(XZChatToolBarHeight));
+            make.height.equalTo(@(height));
         }];
         [self.keyboardInputView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self);
@@ -463,33 +484,34 @@
         }];
         [self mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.bottom.right.equalTo(self.viewController.view);
-            make.height.equalTo(@(XZChatToolBarHeight));
+            make.height.equalTo(@(height));
         }];
+        
         // 将加号选中状态还原
         self.btnContactAdd.selected = NO;
     }
     [self.keyboardInputView layoutIfNeeded];
 }
 
-// tableView是否滚动上去
-- (void)aboveScroll:(BOOL)isScroll {
-    if (_aboveView && [_aboveView isKindOfClass:[UIScrollView class]]) {
-        UIScrollView *scrollView = (UIScrollView *) _aboveView;
-        
-        CGPoint off = scrollView.contentOffset;
-        off.y = scrollView.contentSize.height - scrollView.bounds.size.height + scrollView.contentInset.bottom;
-        [scrollView setContentOffset:off animated:YES];
-//        if (isScroll) {
-//            [self.aboveView mas_updateConstraints:^(MASConstraintMaker *make) {
-//                make.bottom.equalTo(self.mas_top);
-//            }];
-//        }else{
-//            [self.aboveView mas_updateConstraints:^(MASConstraintMaker *make) {
-//                make.bottom.equalTo(self.viewController.view);
-//            }];
-//        }
-    }
-}
+//// tableView是否滚动上去
+//- (void)aboveScroll:(BOOL)isScroll {
+//    if (_aboveView && [_aboveView isKindOfClass:[UIScrollView class]]) {
+//        UIScrollView *scrollView = (UIScrollView *) _aboveView;
+//
+//        CGPoint off = scrollView.contentOffset;
+//        off.y = scrollView.contentSize.height - scrollView.bounds.size.height + scrollView.contentInset.bottom;
+//        [scrollView setContentOffset:off animated:YES];
+////        if (isScroll) {
+////            [self.aboveView mas_updateConstraints:^(MASConstraintMaker *make) {
+////                make.bottom.equalTo(self.mas_top);
+////            }];
+////        }else{
+////            [self.aboveView mas_updateConstraints:^(MASConstraintMaker *make) {
+////                make.bottom.equalTo(self.viewController.view);
+////            }];
+////        }
+//    }
+//}
 
 #pragma mark --- 懒加载
 - (XZKeyboardInputView *)keyboardInputView {
@@ -500,7 +522,7 @@
         // 设置是跟机器人聊天还是跟客服聊天
         _keyboardInputView.isRobot = YES;
         
-        WeakSelf;
+        FMWeakSelf;
         _keyboardInputView.blockClickKeyboardInputViewBtn = ^(NSInteger tag) {
             if (weakSelf.blockClickedKeyboardInputView) {
                 weakSelf.blockClickedKeyboardInputView(tag, weakSelf.keyboardInputView.isRobot);

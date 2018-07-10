@@ -48,4 +48,7 @@
 /// 点击“+”按钮视图
 @property (nonatomic, copy) void(^blockClickedKeyboardInputView)(NSInteger,BOOL isRobot);
 
+/** keyboardNotification */
+@property (nonatomic, copy) void(^blockKeyboardWillChange)(NSNotification *noti);
+
 @end

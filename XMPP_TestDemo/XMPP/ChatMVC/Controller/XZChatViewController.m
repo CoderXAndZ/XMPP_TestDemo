@@ -163,7 +163,7 @@
 - (void)didStopRecordingVoice {
     self.voiceProgress.hidden = YES;
     
-    WeakSelf;
+    FMWeakSelf;
     [[XZVoiceRecorderManager sharedManager] stopRecordingWithCompletion:^(NSString *recordPath) {
         Log(@"didStopRecordingVoice === recordPath:%@",recordPath);
         
@@ -182,7 +182,7 @@
     
     self.voiceProgress.image = [UIImage imageNamed:@"voiceShort"];
     
-    WeakSelf;
+    FMWeakSelf;
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
         weakSelf.voiceProgress.hidden = YES;
@@ -234,7 +234,7 @@
     if (!_toolBar) {
         _toolBar = [[XZChatToolBar alloc] initWithViewController:self aboveView:self.tableChat];
         _toolBar.delegate = self;
-        WeakSelf;
+        FMWeakSelf;
         // 点击"发送"和 "转人工"
         _toolBar.blockDidClickButton = ^(NSInteger tagIdx) {
             if (tagIdx == 121) { // 转人工

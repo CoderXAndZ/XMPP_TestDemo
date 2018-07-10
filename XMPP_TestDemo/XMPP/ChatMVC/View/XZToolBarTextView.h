@@ -1,5 +1,5 @@
 //
-//  XZTextView.h
+//  XZToolBarTextView.h
 //  XZFenLeiJieMian
 //
 //  Created by admin on 16/5/5.
@@ -10,7 +10,7 @@
 typedef void(^textHeightChangedBlock)(NSString *text,CGFloat textHeight);
 
 
-@interface XZTextView : UITextView
+@interface XZToolBarTextView : UITextView
 
 /// 占位文字
 @property (nonatomic, strong) NSString *placeholder;
@@ -35,5 +35,8 @@ typedef void(^textHeightChangedBlock)(NSString *text,CGFloat textHeight);
 @property (nonatomic, assign) NSUInteger cornerRadius;
 
 - (void)textValueDidChanged:(textHeightChangedBlock)block;
+
+// 高度
+@property (nonatomic, assign,readonly) CGFloat text_height;
 
 @end

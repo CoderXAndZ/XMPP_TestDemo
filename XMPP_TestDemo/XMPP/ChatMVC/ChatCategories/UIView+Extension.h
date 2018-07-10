@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface UIView (Extension)
-@property (nonatomic, assign) CGFloat x;
-@property (nonatomic, assign) CGFloat y;
-@property (nonatomic, assign) CGFloat centerX;
-@property (nonatomic, assign) CGFloat centerY;
-@property (nonatomic, assign) CGFloat width;
-@property (nonatomic, assign) CGFloat height;
-@property (nonatomic, assign) CGSize size;
+@property (nonatomic, assign) CGFloat fm_x;
+@property (nonatomic, assign) CGFloat fm_y;
+@property (nonatomic, assign) CGFloat fm_centerX;
+@property (nonatomic, assign) CGFloat fm_centerY;
+@property (nonatomic, assign) CGFloat fm_width;
+@property (nonatomic, assign) CGFloat fm_height;
+@property (nonatomic, assign) CGSize fm_size;
 @end

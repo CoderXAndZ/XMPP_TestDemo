@@ -10,94 +10,159 @@
 
 @implementation UIView (Extension)
 
-- (void)setX:(CGFloat)x
-{
+- (void)setFm_x:(CGFloat)fm_x {
     CGRect frame = self.frame;
-    frame.origin.x = x;
+    frame.origin.x = fm_x;
     self.frame = frame;
-   
 }
 
-- (CGFloat)x
-{
+//- (void)setX:(CGFloat)x
+//{
+//    CGRect frame = self.frame;
+//    frame.origin.x = x;
+//    self.frame = frame;
+//
+//}
+
+- (CGFloat)fm_x {
     return self.frame.origin.x;
 }
 
-- (void)setCenterX:(CGFloat)centerX
-{
+//- (CGFloat)x
+//{
+//    return self.frame.origin.x;
+//}
+
+- (void)setFm_centerX:(CGFloat)fm_centerX {
     CGPoint center = self.center;
-    center.x = centerX;
+    center.x = fm_centerX;
     self.center = center;
 }
 
-- (CGFloat)centerX
-{
+//- (void)setCenterX:(CGFloat)centerX
+//{
+//    CGPoint center = self.center;
+//    center.x = centerX;
+//    self.center = center;
+//}
+
+- (CGFloat)fm_centerX {
     return self.center.x;
 }
 
-- (void)setCenterY:(CGFloat)centerY
-{
+//- (CGFloat)centerX
+//{
+//    return self.center.x;
+//}
+
+- (void)setFm_centerY:(CGFloat)fm_centerY {
     CGPoint center = self.center;
-    center.y = centerY;
+    center.y = fm_centerY;
     self.center = center;
 }
 
-- (CGFloat)centerY
-{
+//- (void)setCenterY:(CGFloat)centerY
+//{
+//    CGPoint center = self.center;
+//    center.y = centerY;
+//    self.center = center;
+//}
+
+- (CGFloat)fm_centerY {
     return self.center.y;
 }
 
+//- (CGFloat)centerY
+//{
+//    return self.center.y;
+//}
 
-- (void)setY:(CGFloat)y
-{
+- (void)setFm_y:(CGFloat)fm_y {
     CGRect frame = self.frame;
-    frame.origin.y = y;
+    frame.origin.y = fm_y;
     self.frame = frame;
 }
+//- (void)setY:(CGFloat)y
+//{
+//    CGRect frame = self.frame;
+//    frame.origin.y = y;
+//    self.frame = frame;
+//}
 
-
-
-- (CGFloat)y
-{
+- (CGFloat)fm_y {
     return self.frame.origin.y;
 }
+//
+//- (CGFloat)y
+//{
+//    return self.frame.origin.y;
+//}
 
-- (void)setWidth:(CGFloat)width
-{
+- (void)setFm_width:(CGFloat)fm_width {
     CGRect frame = self.frame;
-    frame.size.width = width;
+    frame.size.width = fm_width;
     self.frame = frame;
 }
 
-- (CGFloat)width
-{
+//- (void)setWidth:(CGFloat)width
+//{
+//    CGRect frame = self.frame;
+//    frame.size.width = width;
+//    self.frame = frame;
+//}
+
+- (CGFloat)fm_width {
     return self.frame.size.width;
 }
 
-- (void)setHeight:(CGFloat)height
-{
+//- (CGFloat)width
+//{
+//    return self.frame.size.width;
+//}
+
+- (void)setFm_height:(CGFloat)fm_height {
     CGRect frame = self.frame;
-    frame.size.height = height;
+    frame.size.height = fm_height;
     self.frame = frame;
 }
 
-- (CGFloat)height
-{
+//- (void)setHeight:(CGFloat)height
+//{
+//    CGRect frame = self.frame;
+//    frame.size.height = height;
+//    self.frame = frame;
+//}
+
+- (CGFloat)fm_height {
     return self.frame.size.height;
 }
+//- (CGFloat)height
+//{
+//    return self.frame.size.height;
+//}
 
-- (void)setSize:(CGSize)size
-{
-//    self.width = size.width;
-//    self.height = size.height;
+- (void)setFm_size:(CGSize)fm_size {
     CGRect frame = self.frame;
-    frame.size = size;
+    frame.size = fm_size;
     self.frame = frame;
 }
 
-- (CGSize)size
-{
-    return self.frame.size;
+//- (void)setSize:(CGSize)size
+//{
+////    self.width = size.width;
+////    self.height = size.height;
+//    CGRect frame = self.frame;
+//    frame.size = size;
+//    self.frame = frame;
+//}
+
+- (CGSize)fm_size {
+   return self.frame.size;
 }
+
+//- (CGSize)size
+//{
+//    return self.frame.size;
+//}
 
 @end
