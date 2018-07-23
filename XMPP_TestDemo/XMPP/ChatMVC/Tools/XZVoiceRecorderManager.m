@@ -239,10 +239,10 @@
     Log(@"录音完成!");
     
     NSString *recordPath = [[self.audioRecorder url] path];
-//    // 音频格式转换 ============= 删除
-//    NSString *amrPath = [[recordPath stringByDeletingPathExtension] stringByAppendingPathExtension:kAMRType];
-//    Log(@"amrPath ------- %@",amrPath);
-//    [VoiceConverter ConvertWavToAmr:recordPath amrSavePath:amrPath];
+    // 音频格式转换 ============= 删除
+    NSString *amrPath = [[recordPath stringByDeletingPathExtension] stringByAppendingPathExtension:kAMRType];
+    Log(@"amrPath ------- %@",amrPath);
+    [VoiceConverter ConvertWavToAmr:recordPath amrSavePath:amrPath];
     
     if (recorderFinish) {
         if (!success) {

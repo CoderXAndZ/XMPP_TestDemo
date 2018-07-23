@@ -30,6 +30,7 @@
 - (NSUInteger)audioDurations {
     NSString *path = [XZFileTools recoderPathWithFileName:@"1530602004.wav"];
     NSUInteger duration = [XZFileTools durationWithVoiceURL:[NSURL fileURLWithPath:path]];
+    
     return duration;
 }
 

@@ -34,7 +34,7 @@
 + (CGFloat)fileSizeWithPath:(NSString *)path;
 
 /// 获取语音时长
-+ (NSUInteger)durationWithVoiceURL:(NSURL *)voiceURL;
++ (NSTimeInterval)durationWithVoiceURL:(NSURL *)voiceURL;
 /// 当前录音的时间作为文件名使用
 + (NSString *)currentRecordFileName;
 

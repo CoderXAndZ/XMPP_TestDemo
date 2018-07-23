@@ -7,5 +7,6 @@ target 'XMPP_TestDemo' do
     pod 'YYKit'
     pod 'SDWebImage'
     pod 'AFNetworking'
+    pod 'TZImagePickerController'
     
 end

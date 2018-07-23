@@ -25,6 +25,7 @@
 #import "XZVoicePlayer.h"
 #import "XZFileTools.h"
 #import "XZChatModel.h"
+#import <TZImagePickerController.h>
 #import "XMPP.h"
 
 @interface XZChatViewController ()<XMPPStreamDelegate,UITableViewDelegate,UITableViewDataSource,XZChatVoiceRightCellDelegate,XZChatToolBarDelegate>
@@ -172,6 +173,8 @@
         } else {
             Log(@"录音完成，地址是：\n%@",recordPath);
             
+            NSTimeInterval time = [XZFileTools durationWithVoiceURL:[NSURL fileURLWithPath:recordPath]];
+            Log(@"声音时长===== %f",time);
         }
     }];
 }
@@ -255,10 +258,14 @@
                 if (tag == 2000) { // 图片
                     Log(@"点击了 图片");
                     // 推出拍照控制器
-                    [weakSelf.pictureTool createImagePickerCompletion:^(UIImagePickerController *imgPickerVc) {
-                        [weakSelf presentViewController:imgPickerVc animated:YES completion:nil];
+//                    [weakSelf.pictureTool createImagePickerCompletion:^(UIImagePickerController *imgPickerVc) {
+//                        [weakSelf presentViewController:imgPickerVc animated:YES completion:nil];
+//                    }];
+                    [weakSelf.pictureTool selectPhotoFromAlbumWithMaxCount:9 controller:weakSelf completion:^(NSMutableArray *photos) {
+                        Log(@"控制器中的数组：%@",photos);
+                        
+                      
                     }];
-                    
                 }else if (tag == 2001) { // 留言
                     Log(@"点击了 留言");
                 }else if (tag == 2002) { // 评价

@@ -14,10 +14,11 @@
 
 @interface XZVoicePlayer()<AVAudioPlayerDelegate>
 
-@property (nonatomic,strong) AVAudioPlayer *player;
+@property (nonatomic, strong) AVAudioPlayer *player;
 
-@property (nonatomic,copy) void(^progress)(CGFloat progress);
+@property (nonatomic, copy) void(^progress)(CGFloat progress);
 
+@property (nonatomic, strong) NSString *currentPath;
 @end
 
 @implementation XZVoicePlayer
@@ -36,6 +37,12 @@
     
     self.progress = progress;
     
+    if ([self isPlaying] && [self.currentPath isEqualToString:path]) {
+        [self stop];
+        
+        self.currentPath = path;
+    }
+    
     // 播放本地音频
     if ([XZFileTools fileExistsAtPath:path]) {
     
@@ -46,8 +53,12 @@
             if (![XZFileTools fileExistsAtPath:wavPath]) {
                 if ([VoiceConverter ConvertAmrToWav:path wavSavePath:wavPath]) {
                     Log(@"转化成功");
-                    // 移除 .amr 文件
-                    [XZFileTools removeFileAtPath: path];
+                    
+//                    NSTimeInterval timeInterval = [XZFileTools durationWithVoiceURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",wavPath]]];
+//                    Log(@"转化成功 ==== 时长是：%f",timeInterval);
+//
+//                    // 移除 .amr 文件
+//                    [XZFileTools removeFileAtPath: path];
                 }
             }
             path = wavPath;

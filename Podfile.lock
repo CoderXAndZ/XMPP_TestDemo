@@ -20,6 +20,7 @@ PODS:
   - SDWebImage (4.4.1):
     - SDWebImage/Core (= 4.4.1)
   - SDWebImage/Core (4.4.1)
+  - TZImagePickerController (2.1.8)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - HYBMasonryAutoCellHeight
   - Masonry
   - SDWebImage
+  - TZImagePickerController
   - YYKit
 
 SPEC REPOS:
@@ -37,6 +39,7 @@ SPEC REPOS:
     - HYBMasonryAutoCellHeight
     - Masonry
     - SDWebImage
+    - TZImagePickerController
     - YYKit
 
 SPEC CHECKSUMS:
@@ -44,8 +47,9 @@ SPEC CHECKSUMS:
   HYBMasonryAutoCellHeight: 9296583777080d32ba6257f55e52b7334dd481fc
   Masonry: 281802d04d787ea2973179ee8bcb50500579ede2
   SDWebImage: 47e9b5b925cbce75946c23f0c42dd19464189af4
+  TZImagePickerController: c2c75f3d5c6b9c634185ecb458df66d0aab8bbae
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 7db40d1c759dadadea8bb8dafd605f82648da561
+PODFILE CHECKSUM: 738dfeacd5ee52f76a80ba52a57aa0a4d437be96
 
 COCOAPODS: 1.5.0

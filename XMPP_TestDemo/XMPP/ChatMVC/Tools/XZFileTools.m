@@ -54,11 +54,11 @@
 }
 
 /// 获取语音时长
-+ (NSUInteger)durationWithVoiceURL:(NSURL *)voiceURL {
++ (NSTimeInterval)durationWithVoiceURL:(NSURL *)voiceURL {
     NSDictionary *opt = [NSDictionary dictionaryWithObject:@(NO) forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
     // 初始化媒体文件
     AVURLAsset *asset = [AVURLAsset URLAssetWithURL:voiceURL options:opt];
-    NSUInteger second = 0;
+    NSTimeInterval second = 0;
     // 获取总时长，单位秒
     second = asset.duration.value / asset.duration.timescale;
     

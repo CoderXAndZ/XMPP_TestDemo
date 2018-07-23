@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		570768AB595DBC1806C44786 /* libPods-XMPP_TestDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C611C54100BF314C2ADBD37 /* libPods-XMPP_TestDemo.a */; };
+		8411840A20F5E80A0005D1C1 /* XZMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8411840920F5E80A0005D1C1 /* XZMediaModel.m */; };
+		8411840B20F5E80A0005D1C1 /* XZMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8411840920F5E80A0005D1C1 /* XZMediaModel.m */; };
 		8419AF2620E0D7690031DC85 /* XZEmoticonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8419AF2520E0D7690031DC85 /* XZEmoticonViewController.m */; };
 		8419AF2720E0D7690031DC85 /* XZEmoticonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8419AF2520E0D7690031DC85 /* XZEmoticonViewController.m */; };
 		8419AF4520E0D7DD0031DC85 /* Emoticon.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8419AF2A20E0D7DD0031DC85 /* Emoticon.bundle */; };
@@ -451,24 +453,6 @@
 		8490001120EDF09D0023B93A /* XZKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */; };
 		84A33FE120F2F0D900D76A7C /* XZAfterThreeMinutesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE020F2F0D900D76A7C /* XZAfterThreeMinutesView.m */; };
 		84A33FE220F2F0D900D76A7C /* XZAfterThreeMinutesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE020F2F0D900D76A7C /* XZAfterThreeMinutesView.m */; };
-		84A33FF520F3322A00D76A7C /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE520F3322900D76A7C /* TZAssetCell.m */; };
-		84A33FF620F3322A00D76A7C /* TZAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE520F3322900D76A7C /* TZAssetCell.m */; };
-		84A33FF720F3322A00D76A7C /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE720F3322900D76A7C /* TZAssetModel.m */; };
-		84A33FF820F3322A00D76A7C /* TZAssetModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE720F3322900D76A7C /* TZAssetModel.m */; };
-		84A33FF920F3322A00D76A7C /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE920F3322900D76A7C /* TZImageManager.m */; };
-		84A33FFA20F3322A00D76A7C /* TZImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE920F3322900D76A7C /* TZImageManager.m */; };
-		84A33FFB20F3322A00D76A7C /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84A33FEA20F3322900D76A7C /* TZImagePickerController.bundle */; };
-		84A33FFC20F3322A00D76A7C /* TZImagePickerController.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 84A33FEA20F3322900D76A7C /* TZImagePickerController.bundle */; };
-		84A33FFD20F3322A00D76A7C /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FEC20F3322900D76A7C /* TZImagePickerController.m */; };
-		84A33FFE20F3322A00D76A7C /* TZImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FEC20F3322900D76A7C /* TZImagePickerController.m */; };
-		84A33FFF20F3322A00D76A7C /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FEE20F3322900D76A7C /* TZPhotoPickerController.m */; };
-		84A3400020F3322A00D76A7C /* TZPhotoPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FEE20F3322900D76A7C /* TZPhotoPickerController.m */; };
-		84A3400120F3322A00D76A7C /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FF020F3322900D76A7C /* TZPhotoPreviewCell.m */; };
-		84A3400220F3322A00D76A7C /* TZPhotoPreviewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FF020F3322900D76A7C /* TZPhotoPreviewCell.m */; };
-		84A3400320F3322A00D76A7C /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FF220F3322900D76A7C /* TZPhotoPreviewController.m */; };
-		84A3400420F3322A00D76A7C /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FF220F3322900D76A7C /* TZPhotoPreviewController.m */; };
-		84A3400520F3322A00D76A7C /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FF420F3322900D76A7C /* UIView+Layout.m */; };
-		84A3400620F3322A00D76A7C /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FF420F3322900D76A7C /* UIView+Layout.m */; };
 		84A3400920F3379800D76A7C /* XZTakePictureTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3400820F3379800D76A7C /* XZTakePictureTools.m */; };
 		84A3400A20F3379800D76A7C /* XZTakePictureTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3400820F3379800D76A7C /* XZTakePictureTools.m */; };
 		84A3400D20F3541C00D76A7C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 841AB20520D9FB0C000DBCF7 /* libxml2.tbd */; };
@@ -501,6 +485,8 @@
 /* Begin PBXFileReference section */
 		012A03056197113FB4D132BD /* Pods-XMPP_TestDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPP_TestDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XMPP_TestDemo/Pods-XMPP_TestDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		0C611C54100BF314C2ADBD37 /* libPods-XMPP_TestDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XMPP_TestDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8411840820F5E80A0005D1C1 /* XZMediaModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZMediaModel.h; sourceTree = "<group>"; };
+		8411840920F5E80A0005D1C1 /* XZMediaModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZMediaModel.m; sourceTree = "<group>"; };
 		8419AF2420E0D7680031DC85 /* XZEmoticonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZEmoticonViewController.h; sourceTree = "<group>"; };
 		8419AF2520E0D7690031DC85 /* XZEmoticonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZEmoticonViewController.m; sourceTree = "<group>"; };
 		8419AF2A20E0D7DD0031DC85 /* Emoticon.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Emoticon.bundle; sourceTree = "<group>"; };
@@ -969,23 +955,6 @@
 		8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZKeyboardInputView.m; sourceTree = "<group>"; };
 		84A33FDF20F2F0D900D76A7C /* XZAfterThreeMinutesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZAfterThreeMinutesView.h; sourceTree = "<group>"; };
 		84A33FE020F2F0D900D76A7C /* XZAfterThreeMinutesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZAfterThreeMinutesView.m; sourceTree = "<group>"; };
-		84A33FE420F3322900D76A7C /* TZAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetCell.h; sourceTree = "<group>"; };
-		84A33FE520F3322900D76A7C /* TZAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetCell.m; sourceTree = "<group>"; };
-		84A33FE620F3322900D76A7C /* TZAssetModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetModel.h; sourceTree = "<group>"; };
-		84A33FE720F3322900D76A7C /* TZAssetModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetModel.m; sourceTree = "<group>"; };
-		84A33FE820F3322900D76A7C /* TZImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImageManager.h; sourceTree = "<group>"; };
-		84A33FE920F3322900D76A7C /* TZImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImageManager.m; sourceTree = "<group>"; };
-		84A33FEA20F3322900D76A7C /* TZImagePickerController.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = TZImagePickerController.bundle; sourceTree = "<group>"; };
-		84A33FEB20F3322900D76A7C /* TZImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZImagePickerController.h; sourceTree = "<group>"; };
-		84A33FEC20F3322900D76A7C /* TZImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZImagePickerController.m; sourceTree = "<group>"; };
-		84A33FED20F3322900D76A7C /* TZPhotoPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPickerController.h; sourceTree = "<group>"; };
-		84A33FEE20F3322900D76A7C /* TZPhotoPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPickerController.m; sourceTree = "<group>"; };
-		84A33FEF20F3322900D76A7C /* TZPhotoPreviewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewCell.h; sourceTree = "<group>"; };
-		84A33FF020F3322900D76A7C /* TZPhotoPreviewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewCell.m; sourceTree = "<group>"; };
-		84A33FF120F3322900D76A7C /* TZPhotoPreviewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZPhotoPreviewController.h; sourceTree = "<group>"; };
-		84A33FF220F3322900D76A7C /* TZPhotoPreviewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZPhotoPreviewController.m; sourceTree = "<group>"; };
-		84A33FF320F3322900D76A7C /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
-		84A33FF420F3322900D76A7C /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
 		84A3400720F3379800D76A7C /* XZTakePictureTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZTakePictureTools.h; sourceTree = "<group>"; };
 		84A3400820F3379800D76A7C /* XZTakePictureTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZTakePictureTools.m; sourceTree = "<group>"; };
 		84B0F0B320DB4FEF00AAF108 /* XZXMPPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZXMPPManager.h; sourceTree = "<group>"; };
@@ -2371,40 +2340,17 @@
 		8468AFB420E31FA4009F39FC /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8411840820F5E80A0005D1C1 /* XZMediaModel.h */,
+				8411840920F5E80A0005D1C1 /* XZMediaModel.m */,
 				8468AFB520E31FC1009F39FC /* XZChatModel.h */,
 				8468AFB620E31FC1009F39FC /* XZChatModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		84A33FE320F3322900D76A7C /* TZImagePickerController */ = {
-			isa = PBXGroup;
-			children = (
-				84A33FE420F3322900D76A7C /* TZAssetCell.h */,
-				84A33FE520F3322900D76A7C /* TZAssetCell.m */,
-				84A33FE620F3322900D76A7C /* TZAssetModel.h */,
-				84A33FE720F3322900D76A7C /* TZAssetModel.m */,
-				84A33FE820F3322900D76A7C /* TZImageManager.h */,
-				84A33FE920F3322900D76A7C /* TZImageManager.m */,
-				84A33FEA20F3322900D76A7C /* TZImagePickerController.bundle */,
-				84A33FEB20F3322900D76A7C /* TZImagePickerController.h */,
-				84A33FEC20F3322900D76A7C /* TZImagePickerController.m */,
-				84A33FED20F3322900D76A7C /* TZPhotoPickerController.h */,
-				84A33FEE20F3322900D76A7C /* TZPhotoPickerController.m */,
-				84A33FEF20F3322900D76A7C /* TZPhotoPreviewCell.h */,
-				84A33FF020F3322900D76A7C /* TZPhotoPreviewCell.m */,
-				84A33FF120F3322900D76A7C /* TZPhotoPreviewController.h */,
-				84A33FF220F3322900D76A7C /* TZPhotoPreviewController.m */,
-				84A33FF320F3322900D76A7C /* UIView+Layout.h */,
-				84A33FF420F3322900D76A7C /* UIView+Layout.m */,
-			);
-			path = TZImagePickerController;
-			sourceTree = "<group>";
-		};
 		84E2EDEE20E9FAA2007CCFB1 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				84A33FE320F3322900D76A7C /* TZImagePickerController */,
 				84E2EDEF20E9FAE7007CCFB1 /* VoiceConvert */,
 			);
 			path = Libs;
@@ -2470,6 +2416,7 @@
 				841AB06E20D9F141000DBCF7 /* Sources */,
 				841AB06F20D9F141000DBCF7 /* Frameworks */,
 				841AB07020D9F141000DBCF7 /* Resources */,
+				970006107DC13C331BC221AC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2545,7 +2492,6 @@
 				8419AF7620E0E1100031DC85 /* build-libidn.sh in Resources */,
 				841AB07F20D9F141000DBCF7 /* Assets.xcassets in Resources */,
 				84627DAE20DC97CF00B5D130 /* Info.plist in Resources */,
-				84A33FFB20F3322A00D76A7C /* TZImagePickerController.bundle in Resources */,
 				8419AF4520E0D7DD0031DC85 /* Emoticon.bundle in Resources */,
 				84627DCA20DC97CF00B5D130 /* Documentation.html in Resources */,
 			);
@@ -2557,7 +2503,6 @@
 			files = (
 				84627DAF20DC97CF00B5D130 /* Info.plist in Resources */,
 				84627DCB20DC97CF00B5D130 /* Documentation.html in Resources */,
-				84A33FFC20F3322A00D76A7C /* TZImagePickerController.bundle in Resources */,
 				8419AF4620E0D7DD0031DC85 /* Emoticon.bundle in Resources */,
 				8419AF7720E0E1100031DC85 /* build-libidn.sh in Resources */,
 			);
@@ -2566,6 +2511,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		970006107DC13C331BC221AC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-XMPP_TestDemo/Pods-XMPP_TestDemo-resources.sh",
+				"${PODS_ROOT}/TZImagePickerController/TZImagePickerController/TZImagePickerController/TZImagePickerController.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/TZImagePickerController.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-XMPP_TestDemo/Pods-XMPP_TestDemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		BCF836EBD1453B64B2FD99E3 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -2618,7 +2581,6 @@
 				84627EDC20DC97D000B5D130 /* XMPPMessage+XEP_0334.m in Sources */,
 				84627EB620DC97D000B5D130 /* XMPPStreamManagementStanzas.m in Sources */,
 				84627DB820DC97CF00B5D130 /* XMPPMessage.m in Sources */,
-				84A3400120F3322A00D76A7C /* TZPhotoPreviewCell.m in Sources */,
 				84627E3820DC97D000B5D130 /* XMPPRoomCoreDataStorage.m in Sources */,
 				8468AFCF20E36A94009F39FC /* XZChatVoiceLeftCell.m in Sources */,
 				84627E1220DC97D000B5D130 /* XMPPProcessOne.m in Sources */,
@@ -2635,7 +2597,6 @@
 				84627EE020DC97D000B5D130 /* NSXMLElement+XEP_0352.m in Sources */,
 				84627DF620DC97CF00B5D130 /* XMPPCoreDataStorage.m in Sources */,
 				84627DC020DC97CF00B5D130 /* XMPPStream.m in Sources */,
-				84A33FF720F3322A00D76A7C /* TZAssetModel.m in Sources */,
 				84627DCC20DC97CF00B5D130 /* GCDAsyncSocket.m in Sources */,
 				841AB08520D9F141000DBCF7 /* main.m in Sources */,
 				84627E2C20DC97D000B5D130 /* XMPPIQ+JabberRPCResonse.m in Sources */,
@@ -2660,7 +2621,6 @@
 				8419AF4D20E0D7DD0031DC85 /* XZEmoticon.m in Sources */,
 				84627EBA20DC97D000B5D130 /* XMPPAutoPing.m in Sources */,
 				84627DFC20DC97CF00B5D130 /* XMPPOutgoingFileTransfer.m in Sources */,
-				84A33FF920F3322A00D76A7C /* TZImageManager.m in Sources */,
 				8419AF4720E0D7DD0031DC85 /* NSBundle+XZEmoticon.m in Sources */,
 				84627EDE20DC97D000B5D130 /* NSXMLElement+XEP_0335.m in Sources */,
 				84627E5E20DC97D000B5D130 /* XMPPvCardCoreDataStorageObject.m in Sources */,
@@ -2677,7 +2637,6 @@
 				84627E0220DC97D000B5D130 /* OMEMOBundle.m in Sources */,
 				84627DE420DC97CF00B5D130 /* DDMultiFormatter.m in Sources */,
 				84627E1A20DC97D000B5D130 /* XMPPRoster.xcdatamodel in Sources */,
-				84A33FF520F3322A00D76A7C /* TZAssetCell.m in Sources */,
 				84627EA420DC97D000B5D130 /* XMPPURI.m in Sources */,
 				8468AFB720E31FC1009F39FC /* XZChatModel.m in Sources */,
 				84627ED820DC97D000B5D130 /* XMPPRoomLightCoreDataStorage+XEP_0313.m in Sources */,
@@ -2688,7 +2647,6 @@
 				84627DC820DC97CF00B5D130 /* NSXMLElement+XMPP.m in Sources */,
 				84627DB620DC97CF00B5D130 /* XMPPJID.m in Sources */,
 				84627E3020DC97D000B5D130 /* XMPPIQ+LastActivity.m in Sources */,
-				84A33FFD20F3322A00D76A7C /* TZImagePickerController.m in Sources */,
 				84627DD620DC97CF00B5D130 /* DDASLLogger.m in Sources */,
 				84627E5820DC97D000B5D130 /* XMPPvCard.xcdatamodeld in Sources */,
 				84627EE820DC97D000B5D130 /* XMPPCapabilities+XEP_0359.m in Sources */,
@@ -2720,6 +2678,7 @@
 				84627E0A20DC97D000B5D130 /* OMEMOSignedPreKey.m in Sources */,
 				84627EAA20DC97D000B5D130 /* XMPPPresence+XEP_0172.m in Sources */,
 				84627E1020DC97D000B5D130 /* XMPPOneToOneChat.m in Sources */,
+				8411840A20F5E80A0005D1C1 /* XZMediaModel.m in Sources */,
 				84627ECA20DC97D000B5D130 /* XMPPMessage+XEP_0224.m in Sources */,
 				84627E9E20DC97D000B5D130 /* XMPPMessageArchiving_Message_CoreDataObject.m in Sources */,
 				8490001020EDF09D0023B93A /* XZKeyboardInputView.m in Sources */,
@@ -2741,7 +2700,6 @@
 				84627DB220DC97CF00B5D130 /* XMPPElement.m in Sources */,
 				843C68C620E4824F00FD9195 /* XZFileTools.m in Sources */,
 				84627E0620DC97D000B5D130 /* OMEMOModule.m in Sources */,
-				84A3400320F3322A00D76A7C /* TZPhotoPreviewController.m in Sources */,
 				84627EFE20DC97D000B5D130 /* GCDMulticastDelegate.m in Sources */,
 				8419AF5F20E0D7DD0031DC85 /* XZEmoticonToolbar.m in Sources */,
 				84627E5020DC97D000B5D130 /* XMPPRoom.m in Sources */,
@@ -2779,10 +2737,8 @@
 				84627DA820DC97CF00B5D130 /* XMPPPlainAuthentication.m in Sources */,
 				84627EF220DC97D000B5D130 /* XMPPRoomLight.xcdatamodel in Sources */,
 				84627E8A20DC97D000B5D130 /* XMPPSoftwareVersion.m in Sources */,
-				84A33FFF20F3322A00D76A7C /* TZPhotoPickerController.m in Sources */,
 				84627E6220DC97D000B5D130 /* XMPPvCardTemp.m in Sources */,
 				8468AFCB20E36979009F39FC /* XZChatToolBar.m in Sources */,
-				84A3400520F3322A00D76A7C /* UIView+Layout.m in Sources */,
 				84627E3420DC97D000B5D130 /* XMPPPrivacy.m in Sources */,
 				8419AF5720E0D7DD0031DC85 /* XZEmoticonManager.m in Sources */,
 				843C68BD20E46B8C00FD9195 /* XZVoiceProgress.m in Sources */,
@@ -2847,6 +2803,7 @@
 				84627ED320DC97D000B5D130 /* XMPPMessage+XEP_0308.m in Sources */,
 				84627EC520DC97D000B5D130 /* XMPPDelayedDelivery.m in Sources */,
 				84627ECB20DC97D000B5D130 /* XMPPMessage+XEP_0224.m in Sources */,
+				8411840B20F5E80A0005D1C1 /* XZMediaModel.m in Sources */,
 				84627E9520DC97D000B5D130 /* XMPPCapsCoreDataStorageObject.m in Sources */,
 				84627E2320DC97D000B5D130 /* XMPPRosterMemoryStorage.m in Sources */,
 				84627DE120DC97CF00B5D130 /* DDContextFilterLogFormatter.m in Sources */,
@@ -2870,7 +2827,6 @@
 				84263A9F20E22D0300BFC64D /* XZChatTimeOrStatusLabel.m in Sources */,
 				84627DE720DC97CF00B5D130 /* DDXMLElementAdditions.m in Sources */,
 				84627E2B20DC97D000B5D130 /* XMPPIQ+JabberRPC.m in Sources */,
-				84A3400220F3322A00D76A7C /* TZPhotoPreviewCell.m in Sources */,
 				84627EC720DC97D000B5D130 /* XEP_0223.m in Sources */,
 				84627E0B20DC97D000B5D130 /* OMEMOSignedPreKey.m in Sources */,
 				8468AFC020E32FB3009F39FC /* XZChatImageLeftCell.m in Sources */,
@@ -2913,7 +2869,6 @@
 				84627EB920DC97D000B5D130 /* XMPPStreamManagement.m in Sources */,
 				843C68BE20E46B8C00FD9195 /* XZVoiceProgress.m in Sources */,
 				8419AF4C20E0D7DD0031DC85 /* UIImage+XZEmoticon.m in Sources */,
-				84A33FF620F3322A00D76A7C /* TZAssetCell.m in Sources */,
 				84627DBF20DC97CF00B5D130 /* XMPPPresence.m in Sources */,
 				84627E2520DC97D000B5D130 /* XMPPUserMemoryStorageObject.m in Sources */,
 				84627E1120DC97D000B5D130 /* XMPPOneToOneChat.m in Sources */,
@@ -2923,7 +2878,6 @@
 				84627EB120DC97D000B5D130 /* XMPPBlocking.m in Sources */,
 				84627E5F20DC97D000B5D130 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				84627E5520DC97D000B5D130 /* XMPPBookmark.m in Sources */,
-				84A3400620F3322A00D76A7C /* UIView+Layout.m in Sources */,
 				84627DAD20DC97CF00B5D130 /* XMPPXOAuth2Google.m in Sources */,
 				8419AF4E20E0D7DD0031DC85 /* XZEmoticon.m in Sources */,
 				84627E8120DC97D000B5D130 /* XMPPOutOfBandResourceMessaging.m in Sources */,
@@ -2939,9 +2893,7 @@
 				84627EA520DC97D000B5D130 /* XMPPURI.m in Sources */,
 				84627DD720DC97CF00B5D130 /* DDASLLogger.m in Sources */,
 				84627E5320DC97D000B5D130 /* NSXMLElement+XEP_0048.m in Sources */,
-				84A3400420F3322A00D76A7C /* TZPhotoPreviewController.m in Sources */,
 				84627ED920DC97D000B5D130 /* XMPPRoomLightCoreDataStorage+XEP_0313.m in Sources */,
-				84A33FFE20F3322A00D76A7C /* TZImagePickerController.m in Sources */,
 				84627E3320DC97D000B5D130 /* XMPPLastActivity.m in Sources */,
 				84627ECF20DC97D000B5D130 /* XMPPMessageCarbons.m in Sources */,
 				84893FF220ECBAEC009035BB /* XZButton.m in Sources */,
@@ -3012,15 +2964,12 @@
 				84627DA320DC97CF00B5D130 /* XMPPDeprecatedDigestAuthentication.m in Sources */,
 				84627F0520DC97D000B5D130 /* XMPPSRVResolver.m in Sources */,
 				84627E9920DC97D000B5D130 /* XMPPCapabilities.m in Sources */,
-				84A33FF820F3322A00D76A7C /* TZAssetModel.m in Sources */,
 				84627EF720DC97D000B5D130 /* XMPPRoomLightMessageCoreDataStorageObject.m in Sources */,
 				84627E6F20DC97D000B5D130 /* XMPPvCardTempModule.m in Sources */,
-				84A3400020F3322A00D76A7C /* TZPhotoPickerController.m in Sources */,
 				84627E1D20DC97D000B5D130 /* XMPPRosterCoreDataStorage.m in Sources */,
 				84627EAF20DC97D000B5D130 /* XMPPMessageDeliveryReceipts.m in Sources */,
 				84893FE620EC4E7D009035BB /* XZChatVoiceRightCell.m in Sources */,
 				84627E7B20DC97D000B5D130 /* TURNSocket.m in Sources */,
-				84A33FFA20F3322A00D76A7C /* TZImageManager.m in Sources */,
 				84627EDB20DC97D000B5D130 /* XMPPMessage+XEP_0333.m in Sources */,
 				84627E8320DC97D000B5D130 /* XMPPRegistration.m in Sources */,
 				84627F0120DC97D000B5D130 /* RFImageToDataTransformer.m in Sources */,
