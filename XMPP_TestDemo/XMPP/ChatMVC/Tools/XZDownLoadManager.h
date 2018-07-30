@@ -15,7 +15,7 @@
  * completion:
  *      url:            下载完的文件存放地址
  *      progressValue : 下载的进度
-*/
-+ (void)downloadAudioWithURL:(NSString *)urlStr completion:(void(^)(NSURL *url, CGFloat progressValue))completion;
+ */
++ (void)downloadAudioWithURL:(NSString *)urlStr completion:(void(^)(NSURL *url, CGFloat progressValue, NSString *amrPath))completion;
 
 @end

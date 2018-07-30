@@ -7,6 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef NS_ENUM(NSInteger, XZVoiceRecordState)
+{
+    XZVoiceRecordState_Normal,          // 初始状态
+    XZVoiceRecordState_Recording,       // 正在录音
+    XZVoiceRecordState_ReleaseToCancel, // 上滑取消（也在录音状态，UI显示有区别）
+    XZVoiceRecordState_RecordCounting,  // 最后10s倒计时（也在录音状态，UI显示有区别）
+    XZVoiceRecordState_RecordTooShort,  // 录音时间太短（录音结束了）
+};
 
 @class XZChatToolBar;
 @protocol XZChatToolBarDelegate <NSObject>

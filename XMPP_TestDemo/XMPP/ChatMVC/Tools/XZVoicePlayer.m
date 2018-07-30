@@ -67,7 +67,7 @@
         
         [self playWithURL: url];
     }else { // 先下载到本地
-        [XZDownloadManager downloadAudioWithURL:@"https://60.208.74.58:8343/ptm-manage/ptmcall/ptmCdr/downloadRecord/187834/7854/9AE206D76D45108E1EB8219E846C65BC" completion:^(NSURL *url, CGFloat progressValue) {
+        [XZDownloadManager downloadAudioWithURL:@"https://60.208.74.58:8343/ptm-manage/ptmcall/ptmCdr/downloadRecord/187834/7854/9AE206D76D45108E1EB8219E846C65BC" completion:^(NSURL *url, CGFloat progressValue, NSString *amrPath) {
             
             if (progressValue == 1) {
                 [self playWithURL:url];
@@ -92,7 +92,7 @@
         // 设置属性
         self.player.numberOfLoops = 0; // 不循环
         self.player.delegate = self;
-        self.player.meteringEnabled = YES; // 更新音频测量
+//        self.player.meteringEnabled = YES; // 更新音频测量
         // 加载音频文件到缓存
         [self.player prepareToPlay];
         

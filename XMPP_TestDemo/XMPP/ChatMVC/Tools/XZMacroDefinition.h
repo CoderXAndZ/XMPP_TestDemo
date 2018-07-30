@@ -32,6 +32,9 @@
 #define kRecorderType @".wav"  /// 录音的格式
 #define kAMRType @"amr"   /// 需要的格式
 
+// 文件路径
+#define kDocumentPath @"Chat/document" /// 存储位置
+
 /// 工具栏高度
 #define XZChatToolBarHeight 55
 

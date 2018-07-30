@@ -145,48 +145,65 @@
     }
 }
 
-#pragma mark ---- 按钮的点击事件
-/// UIControlEventTouchDragInside
-- (void)speakerTouchDragInside {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didDragInside:)]) {
-        [self.delegate didDragInside: YES];
-    }
-}
-
-/// UIControlEventTouchDragOutside
-- (void)speakerTouchDragOutside {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didDragInside:)]) {
-        [self.delegate didDragInside: NO];
-    }
-}
-
-/// UIControlEventTouchCancel
-- (void)speakerTouchCancel {
-    Log(@"speakerTouchCancel");
-}
-
-/// UIControlEventTouchUpOutside
-- (void)speakerTouchUpOutside {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didCancelRecordingVoice)]) {
-        [self.delegate didCancelRecordingVoice];
-    }
-}
-
-/// UIControlEventTouchDown === 开始录音
-- (void)speakerTouchDown {
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didStartRecordingVoice)]) {
-        [self.delegate didStartRecordingVoice];
-    }
-}
-
-/// UIControlEventTouchUpInside === 松开结束
-- (void)speakerTouchUpInside:(UIButton *)button {
-    button.selected = !button.selected;
+#pragma mark ---- 用户行为获取
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     
-    if (self.delegate && [self.delegate respondsToSelector:@selector(didStopRecordingVoice)]) {
-        [self.delegate didStopRecordingVoice];
-    }
 }
+
+- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+}
+
+- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+}
+
+- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    
+}
+
+//#pragma mark ---- 按钮的点击事件
+///// UIControlEventTouchDragInside
+//- (void)speakerTouchDragInside {
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(didDragInside:)]) {
+//        [self.delegate didDragInside: YES];
+//    }
+//}
+//
+///// UIControlEventTouchDragOutside
+//- (void)speakerTouchDragOutside {
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(didDragInside:)]) {
+//        [self.delegate didDragInside: NO];
+//    }
+//}
+//
+///// UIControlEventTouchCancel
+//- (void)speakerTouchCancel {
+//    Log(@"speakerTouchCancel");
+//}
+//
+///// UIControlEventTouchUpOutside
+//- (void)speakerTouchUpOutside {
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(didCancelRecordingVoice)]) {
+//        [self.delegate didCancelRecordingVoice];
+//    }
+//}
+//
+///// UIControlEventTouchDown === 开始录音
+//- (void)speakerTouchDown {
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(didStartRecordingVoice)]) {
+//        [self.delegate didStartRecordingVoice];
+//    }
+//}
+//
+///// UIControlEventTouchUpInside === 松开结束
+//- (void)speakerTouchUpInside:(UIButton *)button {
+//    button.selected = !button.selected;
+//
+//    if (self.delegate && [self.delegate respondsToSelector:@selector(didStopRecordingVoice)]) {
+//        [self.delegate didStopRecordingVoice];
+//    }
+//}
 
 // 点击录音按钮
 - (void)didClickVoiceButton:(UIButton *)button {
@@ -300,15 +317,15 @@
     UIButton *btnSpeak = [UIButton buttonWithType:UIButtonTypeCustom];
     [topView addSubview:btnSpeak];
     self.btnSpeak = btnSpeak;
-    [btnSpeak setTitle:@"按住 说话" forState:UIControlStateNormal];
-    [btnSpeak setTitle:@"松开 结束" forState:UIControlStateHighlighted];
-    [btnSpeak addTarget:self action:@selector(speakerTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
-    [btnSpeak addTarget:self action:@selector(speakerTouchDown) forControlEvents:UIControlEventTouchDown];
-    [btnSpeak addTarget:self action:@selector(speakerTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
-    [btnSpeak addTarget:self action:@selector(speakerTouchCancel) forControlEvents:UIControlEventTouchCancel];
-    [btnSpeak addTarget:self action:@selector(speakerTouchDragOutside) forControlEvents:UIControlEventTouchDragOutside];
-    [btnSpeak addTarget:self action:@selector(speakerTouchDragInside) forControlEvents:UIControlEventTouchDragInside];
-    [btnSpeak setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+//    [btnSpeak setTitle:@"按住 说话" forState:UIControlStateNormal];
+//    [btnSpeak setTitle:@"松开 结束" forState:UIControlStateHighlighted];
+//    [btnSpeak addTarget:self action:@selector(speakerTouchUpInside:) forControlEvents:UIControlEventTouchUpInside];
+//    [btnSpeak addTarget:self action:@selector(speakerTouchDown) forControlEvents:UIControlEventTouchDown];
+//    [btnSpeak addTarget:self action:@selector(speakerTouchUpOutside) forControlEvents:UIControlEventTouchUpOutside];
+//    [btnSpeak addTarget:self action:@selector(speakerTouchCancel) forControlEvents:UIControlEventTouchCancel];
+//    [btnSpeak addTarget:self action:@selector(speakerTouchDragOutside) forControlEvents:UIControlEventTouchDragOutside];
+//    [btnSpeak addTarget:self action:@selector(speakerTouchDragInside) forControlEvents:UIControlEventTouchDragInside];
+//    [btnSpeak setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     btnSpeak.hidden = YES;
     btnSpeak.layer.masksToBounds = YES;
     btnSpeak.layer.cornerRadius = 15;
@@ -316,13 +333,13 @@
     btnSpeak.layer.borderColor = [UIColor colorWithRed:222/255.0 green:222/255.0 blue:222/255.0 alpha:1.0].CGColor;
     [btnSpeak.titleLabel setFont:[UIFont systemFontOfSize:15.0f]];
     
-    UIImage *image = [UIImage imageNamed:@"compose_emotion_table_left_normal"];
-    image = [image xz_resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, image.size.width - 1)];
-    [btnSpeak setBackgroundImage:image forState:UIControlStateNormal];
-    
-    UIImage *imageSelected = [UIImage imageNamed:@"compose_emotion_table_left_selected"];
-    imageSelected = [imageSelected xz_resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, imageSelected.size.width - 1)];
-    [btnSpeak setBackgroundImage:imageSelected forState:UIControlStateHighlighted];
+//    UIImage *image = [UIImage imageNamed:@"compose_emotion_table_left_normal"];
+//    image = [image xz_resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, image.size.width - 1)];
+//    [btnSpeak setBackgroundImage:image forState:UIControlStateNormal];
+//
+//    UIImage *imageSelected = [UIImage imageNamed:@"compose_emotion_table_left_selected"];
+//    imageSelected = [imageSelected xz_resizableImageWithCapInsets:UIEdgeInsetsMake(0, 0, 0, imageSelected.size.width - 1)];
+//    [btnSpeak setBackgroundImage:imageSelected forState:UIControlStateHighlighted];
     
     /// 加号按钮
     UIButton *btnContactAdd = [UIButton buttonWithType:UIButtonTypeCustom];

@@ -12,6 +12,7 @@
 #import "XZFileTools.h"
 
 #define kShortestRecorder 1.0 /// 最短录音
+#define kRemainCountingDuration  10 // 剩余多少秒开始倒计时
 
 @interface XZVoiceRecorderManager()<AVAudioRecorderDelegate>
 {
