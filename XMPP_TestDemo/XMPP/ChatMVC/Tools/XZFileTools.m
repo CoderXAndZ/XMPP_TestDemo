@@ -9,7 +9,6 @@
 #import "XZFileTools.h"
 #import <AVFoundation/AVFoundation.h>
 #import "XZMediaModel.h"
-#import "FMXmppManager.h"
 
 @implementation XZFileTools
 
@@ -220,4 +219,3 @@
 
 @end
 
-@end

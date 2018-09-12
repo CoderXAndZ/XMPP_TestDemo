@@ -34,7 +34,7 @@ DEPENDENCIES:
   - YYKit
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - AFNetworking
     - HYBMasonryAutoCellHeight
     - Masonry
@@ -52,4 +52,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 738dfeacd5ee52f76a80ba52a57aa0a4d437be96
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3
