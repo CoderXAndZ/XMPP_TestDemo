@@ -20,11 +20,11 @@
 		0485073E2148AFDE00339D66 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0485073D2148AFDE00339D66 /* Speech.framework */; };
 		048507422148B37300339D66 /* XZAudioToTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048507412148B37300339D66 /* XZAudioToTextController.m */; };
 		048507432148B37300339D66 /* XZAudioToTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048507412148B37300339D66 /* XZAudioToTextController.m */; };
-		0485074B2148ECAF00339D66 /* 1536734357.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0485074A2148ECAF00339D66 /* 1536734357.m4a */; };
 		0485074E2148ED9800339D66 /* XZSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485074D2148ED9800339D66 /* XZSpeechSynthesizer.m */; };
 		048507502148EED800339D66 /* XZSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485074D2148ED9800339D66 /* XZSpeechSynthesizer.m */; };
 		048507562148EF2200339D66 /* XZAutoHideAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048507542148EF2100339D66 /* XZAutoHideAlertView.m */; };
 		048507572148F88A00339D66 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8419AF7420E0E1100031DC85 /* libidn.a */; };
+		048507592148FACD00339D66 /* 1536734357.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 048507582148FACD00339D66 /* 1536734357.m4a */; };
 		570768AB595DBC1806C44786 /* libPods-XMPP_TestDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C611C54100BF314C2ADBD37 /* libPods-XMPP_TestDemo.a */; };
 		8411840A20F5E80A0005D1C1 /* XZMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8411840920F5E80A0005D1C1 /* XZMediaModel.m */; };
 		8411840B20F5E80A0005D1C1 /* XZMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8411840920F5E80A0005D1C1 /* XZMediaModel.m */; };
@@ -505,11 +505,11 @@
 		0485073D2148AFDE00339D66 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
 		048507402148B37300339D66 /* XZAudioToTextController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZAudioToTextController.h; sourceTree = "<group>"; };
 		048507412148B37300339D66 /* XZAudioToTextController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZAudioToTextController.m; sourceTree = "<group>"; };
-		0485074A2148ECAF00339D66 /* 1536734357.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1536734357.m4a; sourceTree = "<group>"; };
 		0485074C2148ED9800339D66 /* XZSpeechSynthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZSpeechSynthesizer.h; sourceTree = "<group>"; };
 		0485074D2148ED9800339D66 /* XZSpeechSynthesizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZSpeechSynthesizer.m; sourceTree = "<group>"; };
 		048507542148EF2100339D66 /* XZAutoHideAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZAutoHideAlertView.m; sourceTree = "<group>"; };
 		048507552148EF2100339D66 /* XZAutoHideAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZAutoHideAlertView.h; sourceTree = "<group>"; };
+		048507582148FACD00339D66 /* 1536734357.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1536734357.m4a; sourceTree = "<group>"; };
 		0C611C54100BF314C2ADBD37 /* libPods-XMPP_TestDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XMPP_TestDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8411840820F5E80A0005D1C1 /* XZMediaModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZMediaModel.h; sourceTree = "<group>"; };
 		8411840920F5E80A0005D1C1 /* XZMediaModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZMediaModel.m; sourceTree = "<group>"; };
@@ -1066,7 +1066,7 @@
 			children = (
 				0485074C2148ED9800339D66 /* XZSpeechSynthesizer.h */,
 				0485074D2148ED9800339D66 /* XZSpeechSynthesizer.m */,
-				0485074A2148ECAF00339D66 /* 1536734357.m4a */,
+				048507582148FACD00339D66 /* 1536734357.m4a */,
 			);
 			path = Tools;
 			sourceTree = "<group>";
@@ -2505,7 +2505,7 @@
 		841AB06A20D9F141000DBCF7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = XZ;
 				TargetAttributes = {
 					841AB07120D9F141000DBCF7 = {
@@ -2547,7 +2547,7 @@
 				841AB07F20D9F141000DBCF7 /* Assets.xcassets in Resources */,
 				84627DAE20DC97CF00B5D130 /* Info.plist in Resources */,
 				8419AF4520E0D7DD0031DC85 /* Emoticon.bundle in Resources */,
-				0485074B2148ECAF00339D66 /* 1536734357.m4a in Resources */,
+				048507592148FACD00339D66 /* 1536734357.m4a in Resources */,
 				84627DCA20DC97CF00B5D130 /* Documentation.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3081,6 +3081,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -3088,6 +3089,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -3136,6 +3138,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -3143,6 +3146,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

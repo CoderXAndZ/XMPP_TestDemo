@@ -246,7 +246,7 @@ API_AVAILABLE(ios(10.0))
 
     if (@available(iOS 10.0, *)) {
         SFSpeechRecognizer *localRecognizer = [[SFSpeechRecognizer alloc] initWithLocale: local];
-        NSURL *url = [[NSBundle mainBundle] URLForResource:@"1536718629.m4a" withExtension: nil];
+        NSURL *url = [[NSBundle mainBundle] URLForResource:@"1536734357.m4a" withExtension: nil];
         NSLog(@"识别本地音频文件 : %@",url);
         
         if(!url) return;

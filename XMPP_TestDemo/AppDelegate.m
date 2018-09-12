@@ -23,8 +23,8 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
     
-    XZChatViewController *view = [[XZChatViewController alloc] init];
-//    XZAudioToTextController *view = [[XZAudioToTextController alloc] init];
+//    XZChatViewController *view = [[XZChatViewController alloc] init];
+    XZAudioToTextController *view = [[XZAudioToTextController alloc] init];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:view];
     [self.window makeKeyAndVisible];
     
