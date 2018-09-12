@@ -24,9 +24,6 @@
 // 语音目录
 #define XZChatRecordDir [XZChatLogDir stringByAppendingPathComponent:@"RecordChat"]
 
-/// 办公文件目录
-#define XZOfficeDir [XZChatLogDir stringByAppendingPathComponent:@"OfficeDoc"]
-
 /// 录制音频
 #define kRecorderPath @"Chat/Recorder" /// 存储位置
 #define kRecorderType @".wav"  /// 录音的格式
@@ -37,5 +34,14 @@
 
 /// 工具栏高度
 #define XZChatToolBarHeight 55
+
+typedef NS_ENUM(NSInteger, XZVoiceRecordState)
+{
+    XZVoiceRecordState_Normal,          // 初始状态
+    XZVoiceRecordState_Recording,       // 正在录音
+    XZVoiceRecordState_ReleaseToCancel, // 上滑取消（也在录音状态，UI显示有区别）
+    XZVoiceRecordState_RecordCounting,  // 最后10s倒计时（也在录音状态，UI显示有区别）
+    XZVoiceRecordState_RecordTooShort,  // 录音时间太短（录音结束了）
+};
 
 #endif /* XZMacroDefinition_h */

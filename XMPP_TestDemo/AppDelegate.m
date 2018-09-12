@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "XZChatViewController.h"
+#import "XZAudioToTextController.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +24,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     XZChatViewController *view = [[XZChatViewController alloc] init];
+//    XZAudioToTextController *view = [[XZAudioToTextController alloc] init];
     self.window.rootViewController = [[UINavigationController alloc] initWithRootViewController:view];
     [self.window makeKeyAndVisible];
     

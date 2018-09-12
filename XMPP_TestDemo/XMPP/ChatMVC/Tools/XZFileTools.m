@@ -8,7 +8,9 @@
 
 #import "XZFileTools.h"
 #import <AVFoundation/AVFoundation.h>
+#import "XZMacroDefinition.h"
 #import "XZMediaModel.h"
+//#import "FMXmppManager.h"
 
 @implementation XZFileTools
 
@@ -21,31 +23,29 @@
     return path;
 }
 
+/// 当前时间作为文件名使用
++ (NSString *)currentFileName:(NSString *)suffix {
+    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
+    NSString *namePath = [NSString stringWithFormat:@"%ld.%@",(long)timeInterval,suffix];
+    //    NSString *namePath = [NSString stringWithFormat:@"%@.wav",[[FMXmppManager defaultManager].xmppStream generateUUID]];
+    return namePath;
+}
+
 /// 当前录音的时间作为文件名使用
 + (NSString *)currentRecordFileName {
-    
-    NSTimeInterval timeInterval = [[NSDate date] timeIntervalSince1970];
-    NSString *namePath = [NSString stringWithFormat:@"%ld.wav",(long)timeInterval];
+    NSString *namePath = [self currentFileName: @"wav"];
     
 //    NSString *namePath = [NSString stringWithFormat:@"%@.wav",[[FMXmppManager defaultManager].xmppStream generateUUID]];
-    
-    Log(@"音频存放名称：%@",namePath);
-    
     return namePath;
 }
 
 /// 获取语音时长
 + (NSTimeInterval)durationWithVoiceURL:(NSURL *)voiceURL {
     NSDictionary *opt = [NSDictionary dictionaryWithObject:@(NO) forKey:AVURLAssetPreferPreciseDurationAndTimingKey];
-    //    // 初始化媒体文件
-    //    AVURLAsset *asset = [AVURLAsset URLAssetWithURL:voiceURL options:opt];
-    //    NSTimeInterval second = 0;
-    //    // 获取总时长，单位秒
-    //    second = asset.duration.value / asset.duration.timescale;
-    
+    // 初始化媒体文件
     AVURLAsset *audioAsset = [AVURLAsset URLAssetWithURL:voiceURL options:opt];
     CMTime audioDuration = audioAsset.duration;
-    
+    // 获取总时长，单位秒
     NSTimeInterval second = CMTimeGetSeconds(audioDuration);
     
     return second;
@@ -67,11 +67,21 @@
             model.mediaName = path;
             model.mediaSize = [self filesize:filePath];
             model.mediaPath = filePath;
+            model.extension = [XZFileTools getTheSuffix:path];
             
             [documents addObject: model];
         }
     }
     return documents;
+}
+
+/// 获取后缀
++ (NSString *)getTheSuffix:(NSString *)fileName {
+    
+    NSArray *array = [fileName componentsSeparatedByString:@"."];
+    
+    NSString *suffix = (NSString *)array.lastObject;
+    return suffix ? suffix : @"";
 }
 
 /// 文件路径
@@ -99,9 +109,6 @@
 + (NSString *)recoderPathWithFileName:(NSString *)fileName {
     
     NSString *recoderPath = [[self mainPathOfRecorder] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@",fileName]];
-    
-    Log(@"recoderPathWithFileName-录音文件路径:%@", recoderPath);
-    
     return recoderPath;
 }
 
@@ -111,12 +118,43 @@
     NSFileManager *manager = [NSFileManager defaultManager];
     if (![manager fileExistsAtPath:path]) {
         if (![manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil]) {
-            
             Log(@"创建文件夹失败");
             return nil;
         }
     }
     return path;
+}
+
+/// 某个路径下的文件大小字符串值 小于1024显示KB，否则显示MB
++ (NSString *)filesize:(NSString *)path {
+    CGFloat size = [self fileSizeWithPath:path];
+    if ( size > 1000.0) { // 以1000为标准
+        return [NSString stringWithFormat:@"%.1fMB",size / 1024.0];
+    } else {
+        return [NSString stringWithFormat:@"%.1fKB",size];
+    }
+}
+
+/// 返回字节 == 文件大小的字节值
++ (CGFloat)fileSizeWithPath:(NSString *)path {
+    if ([self fileExistsAtPath:path]) {
+        NSDictionary *outputFileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
+        return [outputFileAttributes fileSize]; //
+    }else {
+        return 0.0;
+    }
+}
+
+/// 判断文件是否存在
++ (BOOL)fileExistsAtPath:(NSString *)path
+{
+    return [[NSFileManager defaultManager] fileExistsAtPath:path];
+}
+
+/// 移除 path 路径下的文件
++ (BOOL)removeFileAtPath:(NSString *)path
+{
+    return [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
 }
 
 + (NSArray *)GetFilesListAtPath:(NSString *)dirPath withType:(NSString *)type
@@ -179,43 +217,4 @@
     return fileNames;
 }
 
-/// 某个路径下的文件大小字符串值 小于1024显示KB，否则显示MB
-+ (NSString *)filesize:(NSString *)path {
-    CGFloat size = [self fileSizeWithPath:path];
-    if ( size > 1000.0) { // 以1000为标准
-        return [NSString stringWithFormat:@"%.1fMB",size / 1024.0];
-    } else {
-        return [NSString stringWithFormat:@"%.1fKB",size];
-    }
-}
-
-/// 判断文件是否存在
-+ (BOOL)fileExistsAtPath:(NSString *)path
-{
-    return [[NSFileManager defaultManager] fileExistsAtPath:path];
-}
-
-/// 移除 path 路径下的文件
-+ (BOOL)removeFileAtPath:(NSString *)path
-{
-    return [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
-}
-
-/// 字节值转换成字符串值
-+ (NSString *)fileSizeWithInteger:(NSUInteger)integer {
-    CGFloat size = integer/1024.0;
-    if ( size > 1000.0) { // 以1000为标准
-        return [NSString stringWithFormat:@"%.1fMB",size/1024.0];
-    } else {
-        return [NSString stringWithFormat:@"%.1fKB",size];
-    }
-}
-
-/// 返回字节 == 文件大小的字节值
-+ (CGFloat)fileSizeWithPath:(NSString *)path {
-    NSDictionary *outputFileAttributes = [[NSFileManager defaultManager] attributesOfItemAtPath:path error:nil];
-    return [outputFileAttributes fileSize]/1024.0;
-}
-
 @end
-

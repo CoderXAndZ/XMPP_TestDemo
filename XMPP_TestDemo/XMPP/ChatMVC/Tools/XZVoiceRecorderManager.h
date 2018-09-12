@@ -8,32 +8,25 @@
 
 #import <Foundation/Foundation.h>
 
-#define shortRecord  @"shortRecord"
-
 @interface XZVoiceRecorderManager : NSObject
-/// 录音文件当前存储路径
-@property (nonatomic, strong) NSString *currentFileName;
-
 /// 单例
 + (instancetype)sharedManager;
-
-/// 访问录音权限
-- (BOOL)canRecord;
-
 /// 开始录音
-- (void)startRecordWithFileName:(NSString *)fileName completion:(void(^)(NSError *error))completion power:(void(^)(CGFloat progress))power;
+- (void)startRecordWithFileName:(NSString *)fileName completion:(void(^)(NSError *error))completion;
 /// 停止录制
 - (void)stopRecordingWithCompletion:(void(^)(NSString *recordPath))completion;
+/// 录制被中断，录制过程中来电话
+@property (nonatomic, copy) void(^audioRecorderInterrupted)(NSString *tips);
+
 /// 取消当前录制
 - (void)cancelCurrentRecording;
 /// 移除当前录制文件
 - (void)removeCurrentRecordFile;
+/// 录音文件当前存储路径
+@property (nonatomic, strong) NSString *currentFileName;
+/** 是否需要取消录音 */
+@property (nonatomic, assign) BOOL isNeedCancelRecording;
+/// 声音改变
+- (CGFloat)powerChanged;
 
-/// 暂停计时器
-- (void)pauseTimer;
-/// 重新开始计时器
-- (void)resumeTimer;
-
-/// 获取语音时长
-- (NSUInteger)durationWithVoiceURL:(NSURL *)voiceURL;
 @end

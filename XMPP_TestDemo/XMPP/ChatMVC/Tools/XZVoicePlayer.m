@@ -14,9 +14,9 @@
 
 @interface XZVoicePlayer()<AVAudioPlayerDelegate>
 
-@property (nonatomic, strong) AVAudioPlayer *player;
+@property (nonatomic,strong) AVAudioPlayer *player;
 
-@property (nonatomic, copy) void(^progress)(CGFloat progress);
+@property (nonatomic,copy) void(^progress)(CGFloat progress);
 
 @property (nonatomic, strong) NSString *currentPath;
 @end
@@ -37,40 +37,62 @@
     
     self.progress = progress;
     
-    if ([self isPlaying] && [self.currentPath isEqualToString:path]) {
+    // 当点击了别的行，如果当前正在播放，取消当前行的播放
+    // 不能使用当前路径判断，因为再次点击相同行的话，是同一个地址；
+    if (![self.currentPath isEqualToString:path]) {
         [self stop];
-        
+        self.player = nil;
         self.currentPath = path;
+    }else {
+        if ([self isPlaying]) {
+            [self stop];
+            self.player = nil;
+            self.currentPath = @"";
+            return;
+        }
     }
     
-    // 播放本地音频
-    if ([XZFileTools fileExistsAtPath:path]) {
+    NSArray *array = [path componentsSeparatedByString:@"/"];
+    NSString *pathName = [array lastObject];
+    NSString *voicePath = [XZFileTools recoderPathWithFileName:pathName];
     
-        NSString *wavPath;
-        if ([path containsString:@"amr"]) {
-            wavPath = [[path stringByDeletingPathExtension] stringByAppendingPathExtension:@"wav"];
-            
-            if (![XZFileTools fileExistsAtPath:wavPath]) {
-                if ([VoiceConverter ConvertAmrToWav:path wavSavePath:wavPath]) {
-                    Log(@"转化成功");
-                    
-//                    NSTimeInterval timeInterval = [XZFileTools durationWithVoiceURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",wavPath]]];
-//                    Log(@"转化成功 ==== 时长是：%f",timeInterval);
-//
-//                    // 移除 .amr 文件
-//                    [XZFileTools removeFileAtPath: path];
-                }
+    NSString *wavPath = [[voicePath stringByDeletingPathExtension] stringByAppendingPathExtension:@"wav"];
+    
+    // 播放本地音频
+    if ([XZFileTools fileExistsAtPath:voicePath] || [XZFileTools fileExistsAtPath:wavPath]) {
+    
+        if ([voicePath containsString:@"amr"]) {
+            // amr 转换成 wav
+            if ([VoiceConverter ConvertAmrToWav:path wavSavePath:wavPath]) {
+                Log(@"转化成功");
+                // 移除 .amr 文件
+                [XZFileTools removeFileAtPath: path];
             }
-            path = wavPath;
         }
-        NSURL *url = [NSURL URLWithString: path];
+        
+        NSURL *url = [NSURL URLWithString: wavPath];
         
         [self playWithURL: url];
     }else { // 先下载到本地
-        [XZDownloadManager downloadAudioWithURL:@"https://60.208.74.58:8343/ptm-manage/ptmcall/ptmCdr/downloadRecord/187834/7854/9AE206D76D45108E1EB8219E846C65BC" completion:^(NSURL *url, CGFloat progressValue, NSString *amrPath) {
+//        @"https://60.208.74.58:8343/ptm-manage/ptmcall/ptmCdr/downloadRecord/187834/7854/9AE206D76D45108E1EB8219E846C65BC"
+        [XZDownloadManager downloadAudioWithURL:path completion:^(NSURL *url, CGFloat progressValue, NSString *amrPath) {
             
             if (progressValue == 1) {
-                [self playWithURL:url];
+                
+                NSString *wavPath = [amrPath stringByReplacingOccurrencesOfString:@"amr" withString:@"wav"];
+                
+                if ([amrPath containsString:@"amr"]) {
+                    // amr 转换成 wav
+                    if ([VoiceConverter ConvertAmrToWav:amrPath wavSavePath:wavPath]) {
+                        
+                        Log(@"转化成功");
+//                        // 移除 .amr 文件
+//                        [XZFileTools removeFileAtPath: path];
+                    }
+                }
+                
+                NSURL *url = [NSURL URLWithString: wavPath];
+                [self playWithURL: url];
             }
         }];
     }
@@ -92,7 +114,7 @@
         // 设置属性
         self.player.numberOfLoops = 0; // 不循环
         self.player.delegate = self;
-//        self.player.meteringEnabled = YES; // 更新音频测量
+        self.player.meteringEnabled = YES; // 更新音频测量
         // 加载音频文件到缓存
         [self.player prepareToPlay];
         
@@ -109,25 +131,26 @@
 
 /// 播放
 - (void)play {
-    if (![self.player isPlaying]) {
+    if (![self isPlaying]) {
         [self.player play];
     }
 }
 
 /// 暂停
 - (void)pause {
-    if ([self.player isPlaying]) {
+    if ([self isPlaying]) {
         [self.player pause];
     }
 }
 
 /// 停止播放
 - (void)stop {
-    if ([self.player isPlaying]) {
+    if ([self isPlaying]) {
         
         [self.player stop];
-        _player = nil;
+        
         _player.delegate = nil;
+        _player = nil;
     }
 }
 
@@ -148,6 +171,16 @@
     [self stop];
 }
 
+// 被来电打断,停止播放
+- (void)audioPlayerBeginInterruption:(AVAudioPlayer *)player {
+    [self pause];
+}
+
+// 被来电结束，继续播放
+- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player withOptions:(NSUInteger)flags {
+    [self play];
+}
+
 /// 解码错误执行的动作
 - (void)audioPlayerDecodeErrorDidOccur:(AVAudioPlayer *)player error:(NSError *)error {
     
@@ -157,6 +190,5 @@
         self.progress(0);
     }
 }
-
 
 @end

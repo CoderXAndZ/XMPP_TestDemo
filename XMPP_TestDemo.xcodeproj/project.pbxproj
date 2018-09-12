@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0485072621489DEC00339D66 /* XZDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485071C21489DEC00339D66 /* XZDownloadManager.m */; };
+		0485072721489DEC00339D66 /* XZFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485071E21489DEC00339D66 /* XZFileTools.m */; };
+		0485072821489DEC00339D66 /* XZTakePictureTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485072121489DEC00339D66 /* XZTakePictureTools.m */; };
+		0485072921489DEC00339D66 /* XZVoicePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485072321489DEC00339D66 /* XZVoicePlayer.m */; };
+		0485072A21489DEC00339D66 /* XZVoiceRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485072521489DEC00339D66 /* XZVoiceRecorderManager.m */; };
+		0485072D21489E9000339D66 /* XZAfterThreeMinutesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485072C21489E8F00339D66 /* XZAfterThreeMinutesView.m */; };
+		0485073321489EBF00339D66 /* XZChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485073221489EBF00339D66 /* XZChatToolBar.m */; };
+		0485073621489ECF00339D66 /* XZKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485073521489ECF00339D66 /* XZKeyboardInputView.m */; };
+		0485073921489EE600339D66 /* XZToolBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485073721489EE600339D66 /* XZToolBarTextView.m */; };
+		0485073C21489EF900339D66 /* XZVoiceProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485073B21489EF900339D66 /* XZVoiceProgress.m */; };
+		0485073E2148AFDE00339D66 /* Speech.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0485073D2148AFDE00339D66 /* Speech.framework */; };
+		048507422148B37300339D66 /* XZAudioToTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048507412148B37300339D66 /* XZAudioToTextController.m */; };
+		048507432148B37300339D66 /* XZAudioToTextController.m in Sources */ = {isa = PBXBuildFile; fileRef = 048507412148B37300339D66 /* XZAudioToTextController.m */; };
+		0485074B2148ECAF00339D66 /* 1536734357.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 0485074A2148ECAF00339D66 /* 1536734357.m4a */; };
+		0485074E2148ED9800339D66 /* XZSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485074D2148ED9800339D66 /* XZSpeechSynthesizer.m */; };
+		048507502148EED800339D66 /* XZSpeechSynthesizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0485074D2148ED9800339D66 /* XZSpeechSynthesizer.m */; };
+		048507562148EF2200339D66 /* XZAutoHideAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 048507542148EF2100339D66 /* XZAutoHideAlertView.m */; };
+		048507572148F88A00339D66 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8419AF7420E0E1100031DC85 /* libidn.a */; };
 		570768AB595DBC1806C44786 /* libPods-XMPP_TestDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C611C54100BF314C2ADBD37 /* libPods-XMPP_TestDemo.a */; };
 		8411840A20F5E80A0005D1C1 /* XZMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8411840920F5E80A0005D1C1 /* XZMediaModel.m */; };
 		8411840B20F5E80A0005D1C1 /* XZMediaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8411840920F5E80A0005D1C1 /* XZMediaModel.m */; };
@@ -46,7 +64,6 @@
 		8419AF6E20E0D9130031DC85 /* NSObject+Runtime.m in Sources */ = {isa = PBXBuildFile; fileRef = 8419AF6A20E0D9130031DC85 /* NSObject+Runtime.m */; };
 		8419AF7620E0E1100031DC85 /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8419AF7220E0E1100031DC85 /* build-libidn.sh */; };
 		8419AF7720E0E1100031DC85 /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = 8419AF7220E0E1100031DC85 /* build-libidn.sh */; };
-		8419AF7820E0E1100031DC85 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8419AF7420E0E1100031DC85 /* libidn.a */; };
 		8419AF7920E0E1100031DC85 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8419AF7420E0E1100031DC85 /* libidn.a */; };
 		841AB07720D9F141000DBCF7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 841AB07620D9F141000DBCF7 /* AppDelegate.m */; };
 		841AB07A20D9F141000DBCF7 /* XZChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 841AB07920D9F141000DBCF7 /* XZChatViewController.m */; };
@@ -65,16 +82,6 @@
 		84263AA320E23A0600BFC64D /* NSString+XZChat.m in Sources */ = {isa = PBXBuildFile; fileRef = 84263AA120E23A0600BFC64D /* NSString+XZChat.m */; };
 		84263AAA20E244AD00BFC64D /* XZChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84263AA920E244AD00BFC64D /* XZChatBaseCell.m */; };
 		84263AAB20E244AD00BFC64D /* XZChatBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84263AA920E244AD00BFC64D /* XZChatBaseCell.m */; };
-		84382C6D210576C100DEE779 /* XZXmppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84382C6C210576C100DEE779 /* XZXmppManager.m */; };
-		84382C6E210576C100DEE779 /* XZXmppManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84382C6C210576C100DEE779 /* XZXmppManager.m */; };
-		843C68BD20E46B8C00FD9195 /* XZVoiceProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68BC20E46B8C00FD9195 /* XZVoiceProgress.m */; };
-		843C68BE20E46B8C00FD9195 /* XZVoiceProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68BC20E46B8C00FD9195 /* XZVoiceProgress.m */; };
-		843C68C220E477BE00FD9195 /* XZVoiceRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68C120E477BE00FD9195 /* XZVoiceRecorderManager.m */; };
-		843C68C320E477BE00FD9195 /* XZVoiceRecorderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68C120E477BE00FD9195 /* XZVoiceRecorderManager.m */; };
-		843C68C620E4824F00FD9195 /* XZFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68C520E4824F00FD9195 /* XZFileTools.m */; };
-		843C68C720E4824F00FD9195 /* XZFileTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 843C68C520E4824F00FD9195 /* XZFileTools.m */; };
-		8458A1E920EAFBBA001DDC56 /* XZDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458A1E820EAFBBA001DDC56 /* XZDownloadManager.m */; };
-		8458A1EA20EAFBBA001DDC56 /* XZDownloadManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8458A1E820EAFBBA001DDC56 /* XZDownloadManager.m */; };
 		84627DA020DC97CF00B5D130 /* XMPPAnonymousAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 84627BCD20DC97CD00B5D130 /* XMPPAnonymousAuthentication.m */; };
 		84627DA120DC97CF00B5D130 /* XMPPAnonymousAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 84627BCD20DC97CD00B5D130 /* XMPPAnonymousAuthentication.m */; };
 		84627DA220DC97CF00B5D130 /* XMPPDeprecatedDigestAuthentication.m in Sources */ = {isa = PBXBuildFile; fileRef = 84627BD020DC97CD00B5D130 /* XMPPDeprecatedDigestAuthentication.m */; };
@@ -439,8 +446,6 @@
 		8468AFC020E32FB3009F39FC /* XZChatImageLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8468AFBE20E32FB3009F39FC /* XZChatImageLeftCell.m */; };
 		8468AFC320E3628D009F39FC /* XZChatImageRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8468AFC220E3628D009F39FC /* XZChatImageRightCell.m */; };
 		8468AFC420E3628D009F39FC /* XZChatImageRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8468AFC220E3628D009F39FC /* XZChatImageRightCell.m */; };
-		8468AFCB20E36979009F39FC /* XZChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8468AFCA20E36979009F39FC /* XZChatToolBar.m */; };
-		8468AFCC20E36979009F39FC /* XZChatToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8468AFCA20E36979009F39FC /* XZChatToolBar.m */; };
 		8468AFCF20E36A94009F39FC /* XZChatVoiceLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8468AFCE20E36A94009F39FC /* XZChatVoiceLeftCell.m */; };
 		8468AFD020E36A94009F39FC /* XZChatVoiceLeftCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8468AFCE20E36A94009F39FC /* XZChatVoiceLeftCell.m */; };
 		84893FE520EC4E7D009035BB /* XZChatVoiceRightCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84893FE420EC4E7D009035BB /* XZChatVoiceRightCell.m */; };
@@ -449,14 +454,6 @@
 		84893FEE20ECB67B009035BB /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 84893FEC20ECB67A009035BB /* UIView+Extension.m */; };
 		84893FF120ECBAEC009035BB /* XZButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84893FEF20ECBAEB009035BB /* XZButton.m */; };
 		84893FF220ECBAEC009035BB /* XZButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 84893FEF20ECBAEB009035BB /* XZButton.m */; };
-		8489FBD220F4B97D00C0BBDA /* XZToolBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489FBD120F4B97D00C0BBDA /* XZToolBarTextView.m */; };
-		8489FBD320F4B97D00C0BBDA /* XZToolBarTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8489FBD120F4B97D00C0BBDA /* XZToolBarTextView.m */; };
-		8490001020EDF09D0023B93A /* XZKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */; };
-		8490001120EDF09D0023B93A /* XZKeyboardInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */; };
-		84A33FE120F2F0D900D76A7C /* XZAfterThreeMinutesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE020F2F0D900D76A7C /* XZAfterThreeMinutesView.m */; };
-		84A33FE220F2F0D900D76A7C /* XZAfterThreeMinutesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A33FE020F2F0D900D76A7C /* XZAfterThreeMinutesView.m */; };
-		84A3400920F3379800D76A7C /* XZTakePictureTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3400820F3379800D76A7C /* XZTakePictureTools.m */; };
-		84A3400A20F3379800D76A7C /* XZTakePictureTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A3400820F3379800D76A7C /* XZTakePictureTools.m */; };
 		84A3400D20F3541C00D76A7C /* libxml2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 841AB20520D9FB0C000DBCF7 /* libxml2.tbd */; };
 		84A3400E20F3542400D76A7C /* libresolv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 841AB20720D9FB15000DBCF7 /* libresolv.tbd */; };
 		84B0F0B520DB4FEF00AAF108 /* XZXMPPManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 84B0F0B420DB4FEF00AAF108 /* XZXMPPManager.m */; };
@@ -470,8 +467,6 @@
 		84E2EE0420E9FAE8007CCFB1 /* VoiceConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84E2EDFD20E9FAE7007CCFB1 /* VoiceConverter.mm */; };
 		84E2EE0520E9FAE8007CCFB1 /* VoiceConverter.mm in Sources */ = {isa = PBXBuildFile; fileRef = 84E2EDFD20E9FAE7007CCFB1 /* VoiceConverter.mm */; };
 		84E2EE0A20EA0D2F007CCFB1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84E2EE0920EA0D2F007CCFB1 /* AVFoundation.framework */; };
-		84F314A320E5E257007994CF /* XZVoicePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F314A220E5E257007994CF /* XZVoicePlayer.m */; };
-		84F314A420E5E257007994CF /* XZVoicePlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F314A220E5E257007994CF /* XZVoicePlayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -486,6 +481,35 @@
 
 /* Begin PBXFileReference section */
 		012A03056197113FB4D132BD /* Pods-XMPP_TestDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPP_TestDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XMPP_TestDemo/Pods-XMPP_TestDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		0485071B21489DEC00339D66 /* XZDownloadManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZDownloadManager.h; sourceTree = "<group>"; };
+		0485071C21489DEC00339D66 /* XZDownloadManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZDownloadManager.m; sourceTree = "<group>"; };
+		0485071D21489DEC00339D66 /* XZFileTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZFileTools.h; sourceTree = "<group>"; };
+		0485071E21489DEC00339D66 /* XZFileTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZFileTools.m; sourceTree = "<group>"; };
+		0485071F21489DEC00339D66 /* XZMacroDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZMacroDefinition.h; sourceTree = "<group>"; };
+		0485072021489DEC00339D66 /* XZTakePictureTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZTakePictureTools.h; sourceTree = "<group>"; };
+		0485072121489DEC00339D66 /* XZTakePictureTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZTakePictureTools.m; sourceTree = "<group>"; };
+		0485072221489DEC00339D66 /* XZVoicePlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZVoicePlayer.h; sourceTree = "<group>"; };
+		0485072321489DEC00339D66 /* XZVoicePlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZVoicePlayer.m; sourceTree = "<group>"; };
+		0485072421489DEC00339D66 /* XZVoiceRecorderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZVoiceRecorderManager.h; sourceTree = "<group>"; };
+		0485072521489DEC00339D66 /* XZVoiceRecorderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZVoiceRecorderManager.m; sourceTree = "<group>"; };
+		0485072B21489E8F00339D66 /* XZAfterThreeMinutesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZAfterThreeMinutesView.h; sourceTree = "<group>"; };
+		0485072C21489E8F00339D66 /* XZAfterThreeMinutesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZAfterThreeMinutesView.m; sourceTree = "<group>"; };
+		0485073121489EBF00339D66 /* XZChatToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZChatToolBar.h; sourceTree = "<group>"; };
+		0485073221489EBF00339D66 /* XZChatToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZChatToolBar.m; sourceTree = "<group>"; };
+		0485073421489ECE00339D66 /* XZKeyboardInputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZKeyboardInputView.h; sourceTree = "<group>"; };
+		0485073521489ECF00339D66 /* XZKeyboardInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZKeyboardInputView.m; sourceTree = "<group>"; };
+		0485073721489EE600339D66 /* XZToolBarTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XZToolBarTextView.m; path = "../../../../../Z公司项目/ios/fmapp/classes/2017-新版/我的/聊天客服/ChatMVC/View/XZToolBarTextView.m"; sourceTree = "<group>"; };
+		0485073821489EE600339D66 /* XZToolBarTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XZToolBarTextView.h; path = "../../../../../Z公司项目/ios/fmapp/classes/2017-新版/我的/聊天客服/ChatMVC/View/XZToolBarTextView.h"; sourceTree = "<group>"; };
+		0485073A21489EF800339D66 /* XZVoiceProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZVoiceProgress.h; sourceTree = "<group>"; };
+		0485073B21489EF900339D66 /* XZVoiceProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZVoiceProgress.m; sourceTree = "<group>"; };
+		0485073D2148AFDE00339D66 /* Speech.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Speech.framework; path = System/Library/Frameworks/Speech.framework; sourceTree = SDKROOT; };
+		048507402148B37300339D66 /* XZAudioToTextController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZAudioToTextController.h; sourceTree = "<group>"; };
+		048507412148B37300339D66 /* XZAudioToTextController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZAudioToTextController.m; sourceTree = "<group>"; };
+		0485074A2148ECAF00339D66 /* 1536734357.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = 1536734357.m4a; sourceTree = "<group>"; };
+		0485074C2148ED9800339D66 /* XZSpeechSynthesizer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZSpeechSynthesizer.h; sourceTree = "<group>"; };
+		0485074D2148ED9800339D66 /* XZSpeechSynthesizer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZSpeechSynthesizer.m; sourceTree = "<group>"; };
+		048507542148EF2100339D66 /* XZAutoHideAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZAutoHideAlertView.m; sourceTree = "<group>"; };
+		048507552148EF2100339D66 /* XZAutoHideAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZAutoHideAlertView.h; sourceTree = "<group>"; };
 		0C611C54100BF314C2ADBD37 /* libPods-XMPP_TestDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-XMPP_TestDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8411840820F5E80A0005D1C1 /* XZMediaModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZMediaModel.h; sourceTree = "<group>"; };
 		8411840920F5E80A0005D1C1 /* XZMediaModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZMediaModel.m; sourceTree = "<group>"; };
@@ -552,17 +576,6 @@
 		84263AA120E23A0600BFC64D /* NSString+XZChat.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+XZChat.m"; sourceTree = "<group>"; };
 		84263AA820E244AC00BFC64D /* XZChatBaseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZChatBaseCell.h; sourceTree = "<group>"; };
 		84263AA920E244AD00BFC64D /* XZChatBaseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZChatBaseCell.m; sourceTree = "<group>"; };
-		84382C6B210576C100DEE779 /* XZXmppManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZXmppManager.h; sourceTree = "<group>"; };
-		84382C6C210576C100DEE779 /* XZXmppManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZXmppManager.m; sourceTree = "<group>"; };
-		843C68BB20E46B8C00FD9195 /* XZVoiceProgress.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZVoiceProgress.h; sourceTree = "<group>"; };
-		843C68BC20E46B8C00FD9195 /* XZVoiceProgress.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZVoiceProgress.m; sourceTree = "<group>"; };
-		843C68C020E477BE00FD9195 /* XZVoiceRecorderManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZVoiceRecorderManager.h; sourceTree = "<group>"; };
-		843C68C120E477BE00FD9195 /* XZVoiceRecorderManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZVoiceRecorderManager.m; sourceTree = "<group>"; };
-		843C68C420E4824F00FD9195 /* XZFileTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZFileTools.h; sourceTree = "<group>"; };
-		843C68C520E4824F00FD9195 /* XZFileTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZFileTools.m; sourceTree = "<group>"; };
-		843C68C820E489D200FD9195 /* XZMacroDefinition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZMacroDefinition.h; sourceTree = "<group>"; };
-		8458A1E720EAFBBA001DDC56 /* XZDownloadManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZDownloadManager.h; sourceTree = "<group>"; };
-		8458A1E820EAFBBA001DDC56 /* XZDownloadManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZDownloadManager.m; sourceTree = "<group>"; };
 		84627BCC20DC97CD00B5D130 /* XMPPAnonymousAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPAnonymousAuthentication.h; sourceTree = "<group>"; };
 		84627BCD20DC97CD00B5D130 /* XMPPAnonymousAuthentication.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XMPPAnonymousAuthentication.m; sourceTree = "<group>"; };
 		84627BCF20DC97CD00B5D130 /* XMPPDeprecatedDigestAuthentication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPDeprecatedDigestAuthentication.h; sourceTree = "<group>"; };
@@ -943,8 +956,6 @@
 		8468AFBE20E32FB3009F39FC /* XZChatImageLeftCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZChatImageLeftCell.m; sourceTree = "<group>"; };
 		8468AFC120E3628D009F39FC /* XZChatImageRightCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZChatImageRightCell.h; sourceTree = "<group>"; };
 		8468AFC220E3628D009F39FC /* XZChatImageRightCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZChatImageRightCell.m; sourceTree = "<group>"; };
-		8468AFC920E36979009F39FC /* XZChatToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZChatToolBar.h; sourceTree = "<group>"; };
-		8468AFCA20E36979009F39FC /* XZChatToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZChatToolBar.m; sourceTree = "<group>"; };
 		8468AFCD20E36A94009F39FC /* XZChatVoiceLeftCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZChatVoiceLeftCell.h; sourceTree = "<group>"; };
 		8468AFCE20E36A94009F39FC /* XZChatVoiceLeftCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZChatVoiceLeftCell.m; sourceTree = "<group>"; };
 		84893FE320EC4E7D009035BB /* XZChatVoiceRightCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZChatVoiceRightCell.h; sourceTree = "<group>"; };
@@ -953,14 +964,6 @@
 		84893FEC20ECB67A009035BB /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		84893FEF20ECBAEB009035BB /* XZButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZButton.m; sourceTree = "<group>"; };
 		84893FF020ECBAEC009035BB /* XZButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZButton.h; sourceTree = "<group>"; };
-		8489FBD020F4B97C00C0BBDA /* XZToolBarTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XZToolBarTextView.h; sourceTree = "<group>"; };
-		8489FBD120F4B97D00C0BBDA /* XZToolBarTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XZToolBarTextView.m; sourceTree = "<group>"; };
-		8490000E20EDF09D0023B93A /* XZKeyboardInputView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZKeyboardInputView.h; sourceTree = "<group>"; };
-		8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZKeyboardInputView.m; sourceTree = "<group>"; };
-		84A33FDF20F2F0D900D76A7C /* XZAfterThreeMinutesView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZAfterThreeMinutesView.h; sourceTree = "<group>"; };
-		84A33FE020F2F0D900D76A7C /* XZAfterThreeMinutesView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZAfterThreeMinutesView.m; sourceTree = "<group>"; };
-		84A3400720F3379800D76A7C /* XZTakePictureTools.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZTakePictureTools.h; sourceTree = "<group>"; };
-		84A3400820F3379800D76A7C /* XZTakePictureTools.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZTakePictureTools.m; sourceTree = "<group>"; };
 		84B0F0B320DB4FEF00AAF108 /* XZXMPPManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZXMPPManager.h; sourceTree = "<group>"; };
 		84B0F0B420DB4FEF00AAF108 /* XZXMPPManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZXMPPManager.m; sourceTree = "<group>"; };
 		84E2EDF120E9FAE7007CCFB1 /* amrFileCodec.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amrFileCodec.h; sourceTree = "<group>"; };
@@ -974,8 +977,6 @@
 		84E2EDFC20E9FAE7007CCFB1 /* VoiceConverter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VoiceConverter.h; sourceTree = "<group>"; };
 		84E2EDFD20E9FAE7007CCFB1 /* VoiceConverter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = VoiceConverter.mm; sourceTree = "<group>"; };
 		84E2EE0920EA0D2F007CCFB1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		84F314A120E5E257007994CF /* XZVoicePlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XZVoicePlayer.h; sourceTree = "<group>"; };
-		84F314A220E5E257007994CF /* XZVoicePlayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XZVoicePlayer.m; sourceTree = "<group>"; };
 		E2EB2C96EA9D81ACA9E12091 /* Pods-XMPP_TestDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XMPP_TestDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-XMPP_TestDemo/Pods-XMPP_TestDemo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -984,10 +985,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				048507572148F88A00339D66 /* libidn.a in Frameworks */,
+				0485073E2148AFDE00339D66 /* Speech.framework in Frameworks */,
 				84A3400E20F3542400D76A7C /* libresolv.tbd in Frameworks */,
 				84A3400D20F3541C00D76A7C /* libxml2.tbd in Frameworks */,
 				84E2EE0A20EA0D2F007CCFB1 /* AVFoundation.framework in Frameworks */,
-				8419AF7820E0E1100031DC85 /* libidn.a in Frameworks */,
 				84E2EE0220E9FAE8007CCFB1 /* libopencore-amrwb.a in Frameworks */,
 				841AB20420D9FAFD000DBCF7 /* Security.framework in Frameworks */,
 				84E2EE0020E9FAE8007CCFB1 /* libopencore-amrnb.a in Frameworks */,
@@ -1009,6 +1011,75 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0485071A21489DEC00339D66 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				0485071F21489DEC00339D66 /* XZMacroDefinition.h */,
+				0485071D21489DEC00339D66 /* XZFileTools.h */,
+				0485071E21489DEC00339D66 /* XZFileTools.m */,
+				0485072221489DEC00339D66 /* XZVoicePlayer.h */,
+				0485072321489DEC00339D66 /* XZVoicePlayer.m */,
+				0485072021489DEC00339D66 /* XZTakePictureTools.h */,
+				0485072121489DEC00339D66 /* XZTakePictureTools.m */,
+				0485071B21489DEC00339D66 /* XZDownloadManager.h */,
+				0485071C21489DEC00339D66 /* XZDownloadManager.m */,
+				0485072421489DEC00339D66 /* XZVoiceRecorderManager.h */,
+				0485072521489DEC00339D66 /* XZVoiceRecorderManager.m */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		0485073F2148B30500339D66 /* AudioToText */ = {
+			isa = PBXGroup;
+			children = (
+				048507532148EF1900339D66 /* View */,
+				048507522148EEE800339D66 /* Tools */,
+				048507512148EEDB00339D66 /* Controller */,
+			);
+			path = AudioToText;
+			sourceTree = "<group>";
+		};
+		0485074F2148EEA100339D66 /* XMPPFramework */ = {
+			isa = PBXGroup;
+			children = (
+				84627BFE20DC97CE00B5D130 /* Categories */,
+				84627BE220DC97CD00B5D130 /* Core */,
+				84627C4220DC97CF00B5D130 /* Extensions */,
+				84627D9120DC97CF00B5D130 /* Utilities */,
+				84627C0520DC97CE00B5D130 /* Vendor */,
+				84627BCA20DC97CD00B5D130 /* Authentication */,
+			);
+			path = XMPPFramework;
+			sourceTree = "<group>";
+		};
+		048507512148EEDB00339D66 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				048507402148B37300339D66 /* XZAudioToTextController.h */,
+				048507412148B37300339D66 /* XZAudioToTextController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		048507522148EEE800339D66 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				0485074C2148ED9800339D66 /* XZSpeechSynthesizer.h */,
+				0485074D2148ED9800339D66 /* XZSpeechSynthesizer.m */,
+				0485074A2148ECAF00339D66 /* 1536734357.m4a */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		048507532148EF1900339D66 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				048507552148EF2100339D66 /* XZAutoHideAlertView.h */,
+				048507542148EF2100339D66 /* XZAutoHideAlertView.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		07C24A38F28867CC5D6CD51B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -1047,13 +1118,9 @@
 		8419AF6120E0D7E00031DC85 /* XMPP */ = {
 			isa = PBXGroup;
 			children = (
+				0485074F2148EEA100339D66 /* XMPPFramework */,
+				0485073F2148B30500339D66 /* AudioToText */,
 				84263A8F20E21A9B00BFC64D /* ChatMVC */,
-				84627BFE20DC97CE00B5D130 /* Categories */,
-				84627BE220DC97CD00B5D130 /* Core */,
-				84627C4220DC97CF00B5D130 /* Extensions */,
-				84627D9120DC97CF00B5D130 /* Utilities */,
-				84627C0520DC97CE00B5D130 /* Vendor */,
-				84627BCA20DC97CD00B5D130 /* Authentication */,
 				8419AF2820E0D7BA0031DC85 /* XMPPManager */,
 			);
 			path = XMPP;
@@ -1196,6 +1263,7 @@
 		841AB20020D9FAF5000DBCF7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0485073D2148AFDE00339D66 /* Speech.framework */,
 				84E2EE0920EA0D2F007CCFB1 /* AVFoundation.framework */,
 				841AB20720D9FB15000DBCF7 /* libresolv.tbd */,
 				841AB20520D9FB0C000DBCF7 /* libxml2.tbd */,
@@ -1210,8 +1278,8 @@
 			isa = PBXGroup;
 			children = (
 				84E2EDEE20E9FAA2007CCFB1 /* Libs */,
-				843C68BF20E4778500FD9195 /* Tools */,
 				8468AFB420E31FA4009F39FC /* Model */,
+				0485071A21489DEC00339D66 /* Tools */,
 				84263A9720E2261500BFC64D /* ChatCategories */,
 				84263A9120E21ABE00BFC64D /* View */,
 				84263A9020E21AB200BFC64D /* Controller */,
@@ -1231,14 +1299,14 @@
 		84263A9120E21ABE00BFC64D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				8489FBD020F4B97C00C0BBDA /* XZToolBarTextView.h */,
-				8489FBD120F4B97D00C0BBDA /* XZToolBarTextView.m */,
-				8490000E20EDF09D0023B93A /* XZKeyboardInputView.h */,
-				8490000F20EDF09D0023B93A /* XZKeyboardInputView.m */,
-				8468AFC920E36979009F39FC /* XZChatToolBar.h */,
-				8468AFCA20E36979009F39FC /* XZChatToolBar.m */,
-				843C68BB20E46B8C00FD9195 /* XZVoiceProgress.h */,
-				843C68BC20E46B8C00FD9195 /* XZVoiceProgress.m */,
+				0485073821489EE600339D66 /* XZToolBarTextView.h */,
+				0485073721489EE600339D66 /* XZToolBarTextView.m */,
+				0485073421489ECE00339D66 /* XZKeyboardInputView.h */,
+				0485073521489ECF00339D66 /* XZKeyboardInputView.m */,
+				0485073A21489EF800339D66 /* XZVoiceProgress.h */,
+				0485073B21489EF900339D66 /* XZVoiceProgress.m */,
+				0485073121489EBF00339D66 /* XZChatToolBar.h */,
+				0485073221489EBF00339D66 /* XZChatToolBar.m */,
 				84263AA820E244AC00BFC64D /* XZChatBaseCell.h */,
 				84263AA920E244AD00BFC64D /* XZChatBaseCell.m */,
 				84263A9320E2209000BFC64D /* XZChatLeftTextCell.h */,
@@ -1255,8 +1323,8 @@
 				84893FE420EC4E7D009035BB /* XZChatVoiceRightCell.m */,
 				84263A9C20E22D0300BFC64D /* XZChatTimeOrStatusLabel.h */,
 				84263A9D20E22D0300BFC64D /* XZChatTimeOrStatusLabel.m */,
-				84A33FDF20F2F0D900D76A7C /* XZAfterThreeMinutesView.h */,
-				84A33FE020F2F0D900D76A7C /* XZAfterThreeMinutesView.m */,
+				0485072B21489E8F00339D66 /* XZAfterThreeMinutesView.h */,
+				0485072C21489E8F00339D66 /* XZAfterThreeMinutesView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1274,26 +1342,6 @@
 				84893FEF20ECBAEB009035BB /* XZButton.m */,
 			);
 			path = ChatCategories;
-			sourceTree = "<group>";
-		};
-		843C68BF20E4778500FD9195 /* Tools */ = {
-			isa = PBXGroup;
-			children = (
-				843C68C820E489D200FD9195 /* XZMacroDefinition.h */,
-				843C68C020E477BE00FD9195 /* XZVoiceRecorderManager.h */,
-				843C68C120E477BE00FD9195 /* XZVoiceRecorderManager.m */,
-				8458A1E720EAFBBA001DDC56 /* XZDownloadManager.h */,
-				8458A1E820EAFBBA001DDC56 /* XZDownloadManager.m */,
-				84F314A120E5E257007994CF /* XZVoicePlayer.h */,
-				84F314A220E5E257007994CF /* XZVoicePlayer.m */,
-				843C68C420E4824F00FD9195 /* XZFileTools.h */,
-				843C68C520E4824F00FD9195 /* XZFileTools.m */,
-				84A3400720F3379800D76A7C /* XZTakePictureTools.h */,
-				84A3400820F3379800D76A7C /* XZTakePictureTools.m */,
-				84382C6B210576C100DEE779 /* XZXmppManager.h */,
-				84382C6C210576C100DEE779 /* XZXmppManager.m */,
-			);
-			path = Tools;
 			sourceTree = "<group>";
 		};
 		84627BCA20DC97CD00B5D130 /* Authentication */ = {
@@ -2499,6 +2547,7 @@
 				841AB07F20D9F141000DBCF7 /* Assets.xcassets in Resources */,
 				84627DAE20DC97CF00B5D130 /* Info.plist in Resources */,
 				8419AF4520E0D7DD0031DC85 /* Emoticon.bundle in Resources */,
+				0485074B2148ECAF00339D66 /* 1536734357.m4a in Resources */,
 				84627DCA20DC97CF00B5D130 /* Documentation.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2568,12 +2617,11 @@
 				8419AF5120E0D7DD0031DC85 /* XZEmoticonButton.m in Sources */,
 				84627E3620DC97D000B5D130 /* XMPPRoom.xcdatamodeld in Sources */,
 				84627EAE20DC97D000B5D130 /* XMPPMessageDeliveryReceipts.m in Sources */,
-				843C68C220E477BE00FD9195 /* XZVoiceRecorderManager.m in Sources */,
 				84627E9420DC97D000B5D130 /* XMPPCapsCoreDataStorageObject.m in Sources */,
+				0485073C21489EF900339D66 /* XZVoiceProgress.m in Sources */,
 				84627E2820DC97D000B5D130 /* XMPPSystemInputActivityMonitor.m in Sources */,
 				84627EE420DC97D000B5D130 /* XMPPPushModule.m in Sources */,
 				84627E5420DC97D000B5D130 /* XMPPBookmark.m in Sources */,
-				8458A1E920EAFBBA001DDC56 /* XZDownloadManager.m in Sources */,
 				8419AF6D20E0D9130031DC85 /* NSObject+Runtime.m in Sources */,
 				84627E3A20DC97D000B5D130 /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
 				84627E7A20DC97D000B5D130 /* TURNSocket.m in Sources */,
@@ -2586,7 +2634,10 @@
 				8419AF5520E0D7DD0031DC85 /* XZEmoticonInputView.m in Sources */,
 				84627EDC20DC97D000B5D130 /* XMPPMessage+XEP_0334.m in Sources */,
 				84627EB620DC97D000B5D130 /* XMPPStreamManagementStanzas.m in Sources */,
+				048507562148EF2200339D66 /* XZAutoHideAlertView.m in Sources */,
 				84627DB820DC97CF00B5D130 /* XMPPMessage.m in Sources */,
+				0485072921489DEC00339D66 /* XZVoicePlayer.m in Sources */,
+				0485072A21489DEC00339D66 /* XZVoiceRecorderManager.m in Sources */,
 				84627E3820DC97D000B5D130 /* XMPPRoomCoreDataStorage.m in Sources */,
 				8468AFCF20E36A94009F39FC /* XZChatVoiceLeftCell.m in Sources */,
 				84627E1220DC97D000B5D130 /* XMPPProcessOne.m in Sources */,
@@ -2620,12 +2671,13 @@
 				84627E4A20DC97D000B5D130 /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
 				84627E8820DC97D000B5D130 /* XMPPMessage+XEP_0085.m in Sources */,
 				84627DAC20DC97CF00B5D130 /* XMPPXOAuth2Google.m in Sources */,
-				84382C6D210576C100DEE779 /* XZXmppManager.m in Sources */,
 				84627E3C20DC97D000B5D130 /* XMPPRoomOccupantCoreDataStorageObject.m in Sources */,
 				84627E9620DC97D000B5D130 /* XMPPCapsResourceCoreDataStorageObject.m in Sources */,
 				84627EF020DC97D000B5D130 /* XMPPSlot.m in Sources */,
 				84627DD420DC97CF00B5D130 /* DDASLLogCapture.m in Sources */,
 				8419AF4D20E0D7DD0031DC85 /* XZEmoticon.m in Sources */,
+				0485074E2148ED9800339D66 /* XZSpeechSynthesizer.m in Sources */,
+				0485072821489DEC00339D66 /* XZTakePictureTools.m in Sources */,
 				84627EBA20DC97D000B5D130 /* XMPPAutoPing.m in Sources */,
 				84627DFC20DC97CF00B5D130 /* XMPPOutgoingFileTransfer.m in Sources */,
 				8419AF4720E0D7DD0031DC85 /* NSBundle+XZEmoticon.m in Sources */,
@@ -2640,9 +2692,11 @@
 				84627ED020DC97D000B5D130 /* NSXMLElement+XEP_0297.m in Sources */,
 				84263A9E20E22D0300BFC64D /* XZChatTimeOrStatusLabel.m in Sources */,
 				84627EF820DC97D000B5D130 /* XMPPMUCLight.m in Sources */,
+				048507422148B37300339D66 /* XZAudioToTextController.m in Sources */,
 				84627E7420DC97D000B5D130 /* XMPPResultSet.m in Sources */,
 				84627E0220DC97D000B5D130 /* OMEMOBundle.m in Sources */,
 				84627DE420DC97CF00B5D130 /* DDMultiFormatter.m in Sources */,
+				0485073921489EE600339D66 /* XZToolBarTextView.m in Sources */,
 				84627E1A20DC97D000B5D130 /* XMPPRoster.xcdatamodel in Sources */,
 				84627EA420DC97D000B5D130 /* XMPPURI.m in Sources */,
 				8468AFB720E31FC1009F39FC /* XZChatModel.m in Sources */,
@@ -2650,10 +2704,10 @@
 				84627E1C20DC97D000B5D130 /* XMPPRosterCoreDataStorage.m in Sources */,
 				84627DDA20DC97CF00B5D130 /* DDLog.m in Sources */,
 				84627E9220DC97D000B5D130 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
-				8489FBD220F4B97D00C0BBDA /* XZToolBarTextView.m in Sources */,
 				84627DC820DC97CF00B5D130 /* NSXMLElement+XMPP.m in Sources */,
 				84627DB620DC97CF00B5D130 /* XMPPJID.m in Sources */,
 				84627E3020DC97D000B5D130 /* XMPPIQ+LastActivity.m in Sources */,
+				0485072D21489E9000339D66 /* XZAfterThreeMinutesView.m in Sources */,
 				84627DD620DC97CF00B5D130 /* DDASLLogger.m in Sources */,
 				84627E5820DC97D000B5D130 /* XMPPvCard.xcdatamodeld in Sources */,
 				84627EE820DC97D000B5D130 /* XMPPCapabilities+XEP_0359.m in Sources */,
@@ -2668,7 +2722,6 @@
 				84263A9520E2209000BFC64D /* XZChatLeftTextCell.m in Sources */,
 				84627E4C20DC97D000B5D130 /* XMPPMessage+XEP0045.m in Sources */,
 				84627DF420DC97CF00B5D130 /* XMPPBandwidthMonitor.m in Sources */,
-				84F314A320E5E257007994CF /* XZVoicePlayer.m in Sources */,
 				84627F0020DC97D000B5D130 /* RFImageToDataTransformer.m in Sources */,
 				8419AF5920E0D7DD0031DC85 /* XZEmoticonPackage.m in Sources */,
 				84627E5620DC97D000B5D130 /* XMPPBookmarksStorageElement.m in Sources */,
@@ -2677,6 +2730,7 @@
 				84627DBA20DC97CF00B5D130 /* XMPPModule.m in Sources */,
 				84627E4020DC97D000B5D130 /* XMPPRoomHybridStorage.m in Sources */,
 				84627E7220DC97D000B5D130 /* NSXMLElement+XEP_0059.m in Sources */,
+				0485073321489EBF00339D66 /* XZChatToolBar.m in Sources */,
 				84263AA220E23A0600BFC64D /* NSString+XZChat.m in Sources */,
 				8419AF5B20E0D7DD0031DC85 /* XZEmoticonTextView.m in Sources */,
 				84B0F0B520DB4FEF00AAF108 /* XZXMPPManager.m in Sources */,
@@ -2688,7 +2742,6 @@
 				8411840A20F5E80A0005D1C1 /* XZMediaModel.m in Sources */,
 				84627ECA20DC97D000B5D130 /* XMPPMessage+XEP_0224.m in Sources */,
 				84627E9E20DC97D000B5D130 /* XMPPMessageArchiving_Message_CoreDataObject.m in Sources */,
-				8490001020EDF09D0023B93A /* XZKeyboardInputView.m in Sources */,
 				8468AFBF20E32FB3009F39FC /* XZChatImageLeftCell.m in Sources */,
 				84627E0020DC97CF00B5D130 /* NSXMLElement+OMEMO.m in Sources */,
 				84627DEC20DC97CF00B5D130 /* DDXMLElement.m in Sources */,
@@ -2705,9 +2758,9 @@
 				8419AF6B20E0D9130031DC85 /* NSArray+Log.m in Sources */,
 				84627E1620DC97D000B5D130 /* XMPPGroupCoreDataStorageObject.m in Sources */,
 				84627DB220DC97CF00B5D130 /* XMPPElement.m in Sources */,
-				843C68C620E4824F00FD9195 /* XZFileTools.m in Sources */,
 				84627E0620DC97D000B5D130 /* OMEMOModule.m in Sources */,
 				84627EFE20DC97D000B5D130 /* GCDMulticastDelegate.m in Sources */,
+				0485072721489DEC00339D66 /* XZFileTools.m in Sources */,
 				8419AF5F20E0D7DD0031DC85 /* XZEmoticonToolbar.m in Sources */,
 				84627E5020DC97D000B5D130 /* XMPPRoom.m in Sources */,
 				84627E8220DC97D000B5D130 /* XMPPRegistration.m in Sources */,
@@ -2722,6 +2775,8 @@
 				84627DD820DC97CF00B5D130 /* DDFileLogger.m in Sources */,
 				84627EC420DC97D000B5D130 /* XMPPDelayedDelivery.m in Sources */,
 				84E2EDFE20E9FAE8007CCFB1 /* amrFileCodec.mm in Sources */,
+				0485072621489DEC00339D66 /* XZDownloadManager.m in Sources */,
+				0485073621489ECF00339D66 /* XZKeyboardInputView.m in Sources */,
 				84627DEA20DC97CF00B5D130 /* DDXMLDocument.m in Sources */,
 				84627DFE20DC97CF00B5D130 /* XMPPGoogleSharedStatus.m in Sources */,
 				84627DD220DC97CF00B5D130 /* DDAbstractDatabaseLogger.m in Sources */,
@@ -2734,7 +2789,6 @@
 				84627E6820DC97D000B5D130 /* XMPPvCardTempBase.m in Sources */,
 				84627DBE20DC97CF00B5D130 /* XMPPPresence.m in Sources */,
 				84627EEA20DC97D000B5D130 /* XMPPMessage+XEP_0359.m in Sources */,
-				84A3400920F3379800D76A7C /* XZTakePictureTools.m in Sources */,
 				84627EAC20DC97D000B5D130 /* XMPPMessage+XEP_0184.m in Sources */,
 				84627E8420DC97D000B5D130 /* NSDate+XMPPDateTimeProfiles.m in Sources */,
 				84627DDC20DC97CF00B5D130 /* DDOSLogger.m in Sources */,
@@ -2745,10 +2799,8 @@
 				84627EF220DC97D000B5D130 /* XMPPRoomLight.xcdatamodel in Sources */,
 				84627E8A20DC97D000B5D130 /* XMPPSoftwareVersion.m in Sources */,
 				84627E6220DC97D000B5D130 /* XMPPvCardTemp.m in Sources */,
-				8468AFCB20E36979009F39FC /* XZChatToolBar.m in Sources */,
 				84627E3420DC97D000B5D130 /* XMPPPrivacy.m in Sources */,
 				8419AF5720E0D7DD0031DC85 /* XZEmoticonManager.m in Sources */,
-				843C68BD20E46B8C00FD9195 /* XZVoiceProgress.m in Sources */,
 				84627EC020DC97D000B5D130 /* XMPPTime.m in Sources */,
 				84627EF420DC97D000B5D130 /* XMPPRoomLightCoreDataStorage.m in Sources */,
 				84627E9820DC97D000B5D130 /* XMPPCapabilities.m in Sources */,
@@ -2761,7 +2813,6 @@
 				84627E2620DC97D000B5D130 /* XMPPRoster.m in Sources */,
 				84627EB220DC97D000B5D130 /* XMPPManagedMessaging.m in Sources */,
 				84627E6020DC97D000B5D130 /* XMPPvCardTempCoreDataStorageObject.m in Sources */,
-				84A33FE120F2F0D900D76A7C /* XZAfterThreeMinutesView.m in Sources */,
 				84627ECE20DC97D000B5D130 /* XMPPMessageCarbons.m in Sources */,
 				84627DE020DC97CF00B5D130 /* DDContextFilterLogFormatter.m in Sources */,
 				84893FF120ECBAEC009035BB /* XZButton.m in Sources */,
@@ -2820,17 +2871,16 @@
 				8419AF2720E0D7690031DC85 /* XZEmoticonViewController.m in Sources */,
 				84627EAD20DC97D000B5D130 /* XMPPMessage+XEP_0184.m in Sources */,
 				84627DA720DC97CF00B5D130 /* XMPPDigestMD5Authentication.m in Sources */,
+				048507502148EED800339D66 /* XZSpeechSynthesizer.m in Sources */,
 				84627E3120DC97D000B5D130 /* XMPPIQ+LastActivity.m in Sources */,
 				84627DE320DC97CF00B5D130 /* DDDispatchQueueLogFormatter.m in Sources */,
 				84627DD520DC97CF00B5D130 /* DDASLLogCapture.m in Sources */,
 				84627E7D20DC97D000B5D130 /* XMPPIQ+XEP_0066.m in Sources */,
 				84627ED520DC97D000B5D130 /* XMPPMessage+XEP_0313.m in Sources */,
 				84627E4120DC97D000B5D130 /* XMPPRoomHybridStorage.m in Sources */,
-				8489FBD320F4B97D00C0BBDA /* XZToolBarTextView.m in Sources */,
 				84627EE120DC97D000B5D130 /* NSXMLElement+XEP_0352.m in Sources */,
 				84627DA520DC97CF00B5D130 /* XMPPDeprecatedPlainAuthentication.m in Sources */,
 				84627EC320DC97D000B5D130 /* NSXMLElement+XEP_0203.m in Sources */,
-				8458A1EA20EAFBBA001DDC56 /* XZDownloadManager.m in Sources */,
 				84263A9F20E22D0300BFC64D /* XZChatTimeOrStatusLabel.m in Sources */,
 				84627DE720DC97CF00B5D130 /* DDXMLElementAdditions.m in Sources */,
 				84627E2B20DC97D000B5D130 /* XMPPIQ+JabberRPC.m in Sources */,
@@ -2865,16 +2915,14 @@
 				84627E9D20DC97D000B5D130 /* XMPPMessageArchiving_Contact_CoreDataObject.m in Sources */,
 				84263A9B20E2265700BFC64D /* UIImage+XZChat.m in Sources */,
 				84263A9620E2209000BFC64D /* XZChatLeftTextCell.m in Sources */,
-				8490001120EDF09D0023B93A /* XZKeyboardInputView.m in Sources */,
 				8468AFB820E31FC1009F39FC /* XZChatModel.m in Sources */,
 				84627E0320DC97D000B5D130 /* OMEMOBundle.m in Sources */,
 				84627E6920DC97D000B5D130 /* XMPPvCardTempBase.m in Sources */,
-				8468AFCC20E36979009F39FC /* XZChatToolBar.m in Sources */,
 				84627E4B20DC97D000B5D130 /* XMPPRoomOccupantMemoryStorageObject.m in Sources */,
+				048507432148B37300339D66 /* XZAudioToTextController.m in Sources */,
 				84627EEB20DC97D000B5D130 /* XMPPMessage+XEP_0359.m in Sources */,
 				84627E8920DC97D000B5D130 /* XMPPMessage+XEP_0085.m in Sources */,
 				84627EB920DC97D000B5D130 /* XMPPStreamManagement.m in Sources */,
-				843C68BE20E46B8C00FD9195 /* XZVoiceProgress.m in Sources */,
 				8419AF4C20E0D7DD0031DC85 /* UIImage+XZEmoticon.m in Sources */,
 				84627DBF20DC97CF00B5D130 /* XMPPPresence.m in Sources */,
 				84627E2520DC97D000B5D130 /* XMPPUserMemoryStorageObject.m in Sources */,
@@ -2896,13 +2944,11 @@
 				84627DB520DC97CF00B5D130 /* XMPPIQ.m in Sources */,
 				84627E1F20DC97D000B5D130 /* XMPPUserCoreDataStorageObject.m in Sources */,
 				84627E3920DC97D000B5D130 /* XMPPRoomCoreDataStorage.m in Sources */,
-				843C68C720E4824F00FD9195 /* XZFileTools.m in Sources */,
 				84627EA520DC97D000B5D130 /* XMPPURI.m in Sources */,
 				84627DD720DC97CF00B5D130 /* DDASLLogger.m in Sources */,
 				84627E5320DC97D000B5D130 /* NSXMLElement+XEP_0048.m in Sources */,
 				84627ED920DC97D000B5D130 /* XMPPRoomLightCoreDataStorage+XEP_0313.m in Sources */,
 				84627E3320DC97D000B5D130 /* XMPPLastActivity.m in Sources */,
-				84382C6E210576C100DEE779 /* XZXmppManager.m in Sources */,
 				84627ECF20DC97D000B5D130 /* XMPPMessageCarbons.m in Sources */,
 				84893FF220ECBAEC009035BB /* XZButton.m in Sources */,
 				84627DB320DC97CF00B5D130 /* XMPPElement.m in Sources */,
@@ -2917,7 +2963,6 @@
 				84627DD120DC97CF00B5D130 /* CLIColor.m in Sources */,
 				84627DDF20DC97CF00B5D130 /* DDTTYLogger.m in Sources */,
 				8419AF4A20E0D7DD0031DC85 /* NSString+XZEmoji.m in Sources */,
-				843C68C320E477BE00FD9195 /* XZVoiceRecorderManager.m in Sources */,
 				84627E1720DC97D000B5D130 /* XMPPGroupCoreDataStorageObject.m in Sources */,
 				84627E0120DC97CF00B5D130 /* NSXMLElement+OMEMO.m in Sources */,
 				84627E8520DC97D000B5D130 /* NSDate+XMPPDateTimeProfiles.m in Sources */,
@@ -2928,20 +2973,17 @@
 				84627EA120DC97D000B5D130 /* XMPPMessageArchivingCoreDataStorage.m in Sources */,
 				84627DCD20DC97CF00B5D130 /* GCDAsyncSocket.m in Sources */,
 				84627E3520DC97D000B5D130 /* XMPPPrivacy.m in Sources */,
-				84F314A420E5E257007994CF /* XZVoicePlayer.m in Sources */,
 				84627F0720DC97D000B5D130 /* XMPPStringPrep.m in Sources */,
 				84627DDD20DC97CF00B5D130 /* DDOSLogger.m in Sources */,
 				84627DED20DC97CF00B5D130 /* DDXMLElement.m in Sources */,
 				84627DC720DC97CF00B5D130 /* NSNumber+XMPP.m in Sources */,
 				84627E7320DC97D000B5D130 /* NSXMLElement+XEP_0059.m in Sources */,
 				8419AF6C20E0D9130031DC85 /* NSArray+Log.m in Sources */,
-				84A33FE220F2F0D900D76A7C /* XZAfterThreeMinutesView.m in Sources */,
 				84627E4520DC97D000B5D130 /* XMPPRoomOccupantHybridMemoryStorageObject.m in Sources */,
 				84627EED20DC97D000B5D130 /* XMPPStanzaIdModule.m in Sources */,
 				84627DC120DC97CF00B5D130 /* XMPPStream.m in Sources */,
 				84627EF320DC97D000B5D130 /* XMPPRoomLight.xcdatamodel in Sources */,
 				84627E1520DC97D000B5D130 /* XMPPReconnect.m in Sources */,
-				84A3400A20F3379800D76A7C /* XZTakePictureTools.m in Sources */,
 				84627E2F20DC97D000B5D130 /* XMPPJabberRPCModule.m in Sources */,
 				84627EA320DC97D000B5D130 /* XMPPMessageArchiving.m in Sources */,
 				84627EB720DC97D000B5D130 /* XMPPStreamManagementStanzas.m in Sources */,
@@ -3149,6 +3191,7 @@
 					"$(PROJECT_DIR)/XMPP_TestDemo/Vendor/libidn",
 					"$(PROJECT_DIR)/XMPP_TestDemo/XMPP/Vendor/libidn",
 					"$(PROJECT_DIR)/XMPP_TestDemo/XMPP/ChatMVC/Libs/VoiceConvert/lib",
+					"$(PROJECT_DIR)/XMPP_TestDemo/XMPP/XMPPFramework/Vendor/libidn",
 				);
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (
@@ -3182,6 +3225,7 @@
 					"$(PROJECT_DIR)/XMPP_TestDemo/Vendor/libidn",
 					"$(PROJECT_DIR)/XMPP_TestDemo/XMPP/Vendor/libidn",
 					"$(PROJECT_DIR)/XMPP_TestDemo/XMPP/ChatMVC/Libs/VoiceConvert/lib",
+					"$(PROJECT_DIR)/XMPP_TestDemo/XMPP/XMPPFramework/Vendor/libidn",
 				);
 				MACH_O_TYPE = mh_execute;
 				OTHER_LDFLAGS = (

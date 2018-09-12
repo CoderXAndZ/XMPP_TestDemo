@@ -34,6 +34,7 @@
 #define XZChatBgColor XZColor(239, 236, 236)
 #import "Masonry.h"
 #import <YYKit/YYKit.h>
+#import <AFNetworking.h>
 
 #import "UIImage+XZChat.h"
 #import "NSString+XZChat.h"

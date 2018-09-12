@@ -10,9 +10,6 @@
 #import "XZButton.h"
 
 @interface XZKeyboardInputView()
-{
-    BOOL _isRoboter;
-}
 
 @property (nonatomic, strong) NSMutableArray *arrButton;
 
@@ -28,9 +25,9 @@
 }
 
 - (void)setIsRobot:(BOOL)isRobot {
-    isRobot = isRobot;
+    _isRobot = isRobot;
     
-    _isRoboter = isRobot;
+    [self.arrButton removeAllObjects];
     
     if (isRobot) { // 是机器人
         self.arrButton = @[@{@"title":@"留言",@"image":@"toolbar_keyboard_message"},
@@ -44,21 +41,21 @@
                            ].mutableCopy;
     }
     
-    for (int i = 0; i < self.arrButton.count; i++) {
+    for (int i = 0; i < self.subviews.count; i++) {
         XZButton *button = (XZButton *)self.subviews[i];
-        button.hidden = NO;
         
-        NSString *image = self.arrButton[i][@"image"];
-        NSString *title = self.arrButton[i][@"title"];
-        
-        [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
-        [button setTitle:title forState:UIControlStateNormal];
+        if (i < self.arrButton.count) { // 如果arrButton.count是2，隐藏最后2个按钮
+            button.hidden = NO;
+            NSString *image = self.arrButton[i][@"image"];
+            NSString *title = self.arrButton[i][@"title"];
+            
+            [button setImage:[UIImage imageNamed:image] forState:UIControlStateNormal];
+            [button setTitle:title forState:UIControlStateNormal];
+        }else { // 解决当4个变成2个的时候，最后两个不隐藏的问题
+            button.hidden = YES;
+        }
     }
     
-}
-
-- (BOOL)isRobot {
-    return _isRoboter;
 }
 
 /// 点击按钮
@@ -72,6 +69,7 @@
 - (void)setupKeyboardInputView {
     self.backgroundColor = [UIColor whiteColor];
     
+    CGFloat width = (KProjectScreenWidth - 30) / 4.0;
     for (int i = 0; i < 4; i++) {
         XZButton *button = [XZButton buttonWithType:UIButtonTypeCustom];
         [self addSubview:button];
@@ -80,7 +78,7 @@
         button.hidden = YES;
         [button setTitleColor:XZColor(51, 51, 51) forState:UIControlStateNormal];
         [button.titleLabel setTextAlignment:NSTextAlignmentCenter];
-        CGFloat width = (KProjectScreenWidth - 30) / 4.0;
+        
         button.frame = CGRectMake(15 + i * width, 20, width - 1, 60);
         [button.titleLabel setFont:[UIFont systemFontOfSize:15.0]];
         button.tag = 2000 + i;

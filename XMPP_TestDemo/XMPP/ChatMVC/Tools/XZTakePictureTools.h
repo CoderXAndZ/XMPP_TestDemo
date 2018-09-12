@@ -8,10 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-/// 将 PHAsset 转化成图片的结果回调
-typedef void(^BlockResult)(NSData *data,NSString *originalFilename);
-/// 将 PHAsset 转化成视频的结果回调
-typedef void(^ResultPath)(NSString *filePath, NSString *fileName);
+@class XZMediaModel;
+/// 将 PHAsset 转化成模型的结果回调
+typedef void(^BlockResultMediaModel)(NSMutableArray *mediaModels);
 
 @interface XZTakePictureTools : NSObject
 
@@ -19,13 +18,13 @@ typedef void(^ResultPath)(NSString *filePath, NSString *fileName);
 - (void)createImagePickerCompletion:(void(^)(UIImagePickerController *imgPickerVc))completion;
 /// 相册方法
 - (void)selectPhotoFromAlbumWithMaxCount:(NSInteger)maxCount controller:(UIViewController *)controller completion:(void(^)(NSMutableArray *photos))completion;
+/// 获取视频的第一帧
+- (UIImage *)getVideoFirstImage:(NSURL *)url;
 
 /// 关闭图片选择
-@property (nonatomic, copy) void(^blockDissmiss)(NSString *imgPath,UIImage *saveImg);
+@property (nonatomic, copy) void(^blockDissmiss)(XZMediaModel *modelMedia);
 
-// 图片
-@property (nonatomic, copy) BlockResult BlockResult;
-// 视频
-@property (nonatomic, copy) ResultPath ResultPath;
+/// 图片或者视频对象
+@property (nonatomic, copy) BlockResultMediaModel BlockResultMediaModel;
 
 @end

@@ -19,7 +19,6 @@
 #import "XZChatImageLeftCell.h" // 纯图片左侧
 #import "XZChatVoiceRightCell.h" // 右侧语音
 #import "XZChatVoiceLeftCell.h" // 左侧语音
-#import "XZVoiceProgress.h" // 说话音量显示
 #import "XZChatToolBar.h" //  聊天工具栏
 #import "XZXMPPManager.h"
 #import "XZVoicePlayer.h"
@@ -33,8 +32,6 @@
 @property (nonatomic, strong) UITableView *tableChat;
 /// 底部工具栏
 @property (nonatomic, strong) XZChatToolBar *toolBar;
-/// 录音提示页面
-@property (nonatomic, strong) XZVoiceProgress *voiceProgress;
 /// 3分钟之后新页面
 @property (nonatomic, strong) XZAfterThreeMinutesView *afterThreeMinutes;
 /// 拍照控制器
@@ -120,80 +117,11 @@
 }
 
 #pragma mark ---- 底部工具栏的代理
-/// 开始录制语音
-- (void)didStartRecordingVoice {
-    self.voiceProgress.hidden = NO;
-    
-    [[XZVoiceRecorderManager sharedManager] startRecordWithFileName:[XZFileTools currentRecordFileName] completion:^(NSError *error) {
-        if (error) {
-            if (error.code != 12) {
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"" message:error.localizedDescription delegate:self cancelButtonTitle:nil otherButtonTitles:@"确定", nil];
-                [alert show];
-            }
-        }
-    } power:^(CGFloat progress) {
-        Log(@"didStartRecordingVoice 正在录音 ==== %f",progress);
-        self.voiceProgress.progress = progress;
-    }];
-    
-}
-
-/// 取消录制语音
-- (void)didCancelRecordingVoice {
-    self.voiceProgress.hidden = YES;
-    
-    [[XZVoiceRecorderManager sharedManager] removeCurrentRecordFile];
-    
-    self.voiceProgress.image = [UIImage imageNamed:@"voice_1"];
-}
-
-/// 录制过程中进行拖拽
-- (void)didDragInside:(BOOL)inside {
-    if (inside) {
-        [[XZVoiceRecorderManager sharedManager] resumeTimer];
-        self.voiceProgress.image = [UIImage imageNamed:@"voice_1"];
-        self.voiceProgress.hidden = NO;
-    } else {
-        [[XZVoiceRecorderManager sharedManager] pauseTimer];
-        self.voiceProgress.image = [UIImage imageNamed:@"cancelVoice"];
-        self.voiceProgress.hidden = NO;
-    }
-}
-
 /// 停止录制语音
-- (void)didStopRecordingVoice {
-    self.voiceProgress.hidden = YES;
-    
-    FMWeakSelf;
-    [[XZVoiceRecorderManager sharedManager] stopRecordingWithCompletion:^(NSString *recordPath) {
-        Log(@"didStopRecordingVoice === recordPath:%@",recordPath);
-        
-        if ([recordPath isEqualToString:shortRecord]) {
-            [weakSelf showShortRecordProgress];
-        } else {
-            Log(@"录音完成，地址是：\n%@",recordPath);
-            
-            NSTimeInterval time = [XZFileTools durationWithVoiceURL:[NSURL fileURLWithPath:recordPath]];
-            Log(@"声音时长===== %f",time);
-        }
-    }];
+- (void)didStopRecordingVoice:(XZMediaModel *)mediaModel {
+    // 发送和上传 ============
+    Log(@"录制语音成功");
 }
-
-/// 录音太短提示
-- (void)showShortRecordProgress {
-    self.voiceProgress.hidden = NO;
-    
-    self.voiceProgress.image = [UIImage imageNamed:@"voiceShort"];
-    
-    FMWeakSelf;
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        
-        weakSelf.voiceProgress.hidden = YES;
-        
-        self.voiceProgress.image = [UIImage imageNamed:@"voice_1"];
-    });
-}
-
 
 /// 点击发送按钮
 - (void)didClickSendBtn:(NSString *)text {
@@ -204,14 +132,14 @@
 - (void)setupChatView {
     self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview: self.tableChat];
+    
     // 工具栏
     [self.view addSubview: self.toolBar];
     [self.toolBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.bottom.right.equalTo(self.view);
         make.height.equalTo(@(XZChatToolBarHeight));
     }];
-    // 录音提示
-    [self.view addSubview: self.voiceProgress];
+    
 //    // 3分钟后新界面
 //    [self.view addSubview: self.afterThreeMinutes];
     
@@ -233,17 +161,28 @@
 }
 
 /// 底部工具栏
+#pragma mark ----- 懒加载
+/// 底部工具栏
 - (XZChatToolBar *)toolBar {
     if (!_toolBar) {
         _toolBar = [[XZChatToolBar alloc] initWithViewController:self aboveView:self.tableChat];
         _toolBar.delegate = self;
         FMWeakSelf;
+        // 键盘的更改
+        _toolBar.blockKeyboardWillChange = ^(NSNotification *noti) {
+            
+        };
+        _toolBar.blockTextViwDidChanged = ^(CGFloat height) {
+            
+        };
         // 点击"发送"和 "转人工"
-        _toolBar.blockDidClickButton = ^(NSInteger tagIdx) {
+        _toolBar.blockDidClickButton = ^(NSInteger tagIdx, NSString *text) {
             if (tagIdx == 121) { // 转人工
                 Log(@"点击了 转人工");
+                
+                weakSelf.toolBar.transferSuccessed = YES;
             }else if (tagIdx == 123) { // 发送
-                Log(@"点击了 发送");
+                Log(@"点击了 发送: %@",text);
             }
         };
         // 点击 ”+“ 按钮视图
@@ -253,25 +192,13 @@
                     Log(@"点击了 留言");
                 }else if (tag == 2001) { // 评论
                     Log(@"点击了 评论");
-                }
-            }else {
-                if (tag == 2000) { // 图片
-                    Log(@"点击了 图片");
-                    // 推出拍照控制器
-//                    [weakSelf.pictureTool createImagePickerCompletion:^(UIImagePickerController *imgPickerVc) {
-//                        [weakSelf presentViewController:imgPickerVc animated:YES completion:nil];
-//                    }];
-                    [weakSelf.pictureTool selectPhotoFromAlbumWithMaxCount:9 controller:weakSelf completion:^(NSMutableArray *photos) {
-                        Log(@"控制器中的数组：%@",photos);
-                        
-                      
-                    }];
                 }else if (tag == 2001) { // 留言
                     Log(@"点击了 留言");
                 }else if (tag == 2002) { // 评价
                     Log(@"点击了 评价");
                 }else if (tag == 2003)  { // 附件
                     Log(@"点击了 附件");
+                    
                 }
             }
         };
@@ -283,22 +210,14 @@
 - (XZTakePictureTools *)pictureTool {
     if (!_pictureTool) {
         _pictureTool = [[XZTakePictureTools alloc] init];
+        
         // 拍照之后的图片和图片路径获取
-        _pictureTool.blockDissmiss = ^(NSString *imgPath, UIImage *saveImg) {
-            Log(@"图片路径:%@ ========== 图片：%@",imgPath,saveImg);
+        _pictureTool.blockDissmiss = ^(XZMediaModel *modelMedia) {
+            Log(@"图片路径========== 图片");
         };
         
     }
     return _pictureTool;
-}
-
-/// 录音提示页面
-- (XZVoiceProgress *)voiceProgress {
-    if (!_voiceProgress) {
-        _voiceProgress = [[XZVoiceProgress alloc] initWithFrame:CGRectMake(0, 0, 155, 155)];
-        _voiceProgress.center = CGPointMake(self.view.centerX, self.view.centerY - 64);
-    }
-    return _voiceProgress;
 }
 
 /// 3分钟后新界面

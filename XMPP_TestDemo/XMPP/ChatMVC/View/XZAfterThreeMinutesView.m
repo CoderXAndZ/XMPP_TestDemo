@@ -35,7 +35,6 @@
     
     NSArray *arrImg = @[@"after_three_minutes_satisfaction_evaluation",@"after_three_minutes_new_sesseion",@"after_three_minutes_message"];
     NSArray *arrTitle = @[@"满意度评价",@"新会话",@"留言"];
-//    NSArray *arrColor = @[[UIColor greenColor],[UIColor blueColor],[UIColor orangeColor]];
     for (int i = 0; i < 3; i++) {
         XZButton *button = [XZButton buttonWithType:UIButtonTypeCustom];
         [self addSubview:button];
@@ -49,7 +48,6 @@
         [button.titleLabel setFont:[UIFont systemFontOfSize:14.0]];
         button.tag = 1000 + i;
         [button addTarget:self action:@selector(didClickButton:) forControlEvents:UIControlEventTouchUpInside];
-//        [button setBackgroundColor:arrColor[i]];
     }
 }
 @end

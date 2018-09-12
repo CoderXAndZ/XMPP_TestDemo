@@ -7,25 +7,24 @@
 //  文件下载
 
 #import "XZDownloadManager.h"
-#import <AFNetworking/AFNetworking.h>
 #import "XZFileTools.h"
 
-
 @implementation XZDownloadManager
+
 /// 根据URL下载语音
 + (void)downloadAudioWithURL:(NSString *)urlStr completion:(void(^)(NSURL *url, CGFloat progressValue, NSString *amrPath))completion {
     
     // 1.创建会话管理者
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
-    //    // 取消证书验证 ==========
-    //    AFSecurityPolicy *security = [AFSecurityPolicy defaultPolicy];
-    //    // 客户端信任证书
-    //    security.allowInvalidCertificates = YES;
-    //    // 不在证书域字段验证域名
-    //    security.validatesDomainName = NO;
-    //    manager.securityPolicy = security;
-    //    // ===========
+//    // 取消证书验证 ==========
+//    AFSecurityPolicy *security = [AFSecurityPolicy defaultPolicy];
+//    // 客户端信任证书
+//    security.allowInvalidCertificates = YES;
+//    // 不在证书域字段验证域名
+//    security.validatesDomainName = NO;
+//    manager.securityPolicy = security;
+//    // ===========
     NSString *utf8Str = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     
     NSURL *url = [NSURL URLWithString: utf8Str];
@@ -44,28 +43,16 @@
         progress = progressDownload;
     } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
         
-        // ================
         NSURL *url = [NSURL fileURLWithPath:[XZFileTools recoderPathWithFileName:[NSString stringWithFormat:@"%@",response.suggestedFilename]]];
-        // [response.suggestedFilename stringByReplacingOccurrencesOfString:@"WAV" withString:@"wav"]
-        
-        //        NSString *urlStr = [url.absoluteString stringByReplacingOccurrencesOfString:@"file://" withString:@""];
         
         Log(@"下载完的url是：========== %@ \n ==== response.suggestedFilename:%@",url ,response.suggestedFilename);
-        //
-        //        Log(@"\n urlStr:%@\n\n 修改完的url ===  %@\n",urlStr,[NSURL URLWithString:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]);
-        
-        // ================
-        //        [NSURL fileURLWithPath:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]
         return url;
         
     } completionHandler:^(NSURLResponse * _Nonnull response, NSURL * _Nullable filePath, NSError * _Nullable error) {
         
         NSString *amrPath = [XZFileTools recoderPathWithFileName:[NSString stringWithFormat:@"%@",response.suggestedFilename]];
+       
         NSURL *url = [NSURL fileURLWithPath: amrPath];
-        
-        //        NSString *urlStr = [url.absoluteString stringByReplacingOccurrencesOfString:@"file://" withString:@""];
-        //
-        //        NSURL *urlFinal = [NSURL fileURLWithPath:[urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         
         if (progress == 1) {
             completion(url, progress,amrPath);
@@ -81,4 +68,3 @@
 }
 
 @end
-
