@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 @interface XZSpeechSynthesizer : NSObject
+
 /**
  * Privacy - Microphone Usage Description
  * Privacy - Speech Recognition Usage Description
@@ -16,11 +17,14 @@
 /// 判断设置是否支持语音识别功能
 - (void)requestingUserAuthorization;
 /// 开始录音
-- (void)startRecording;
+- (void)startRecording:(void(^)(NSString *transcription))completion;
+/// 是否正在录音
+- (BOOL)audioEngineIsRunning;
 /// 停止录音
 - (void)endRecording;
 /// 识别本地音频文件
-- (void)recognizerLocalAudioFile;
+- (void)recognizerLocalAudioFile:(NSString *)localFile completion:(void(^)(NSString *transcription))completion;
 /// 单例
 + (instancetype)shared;
+
 @end

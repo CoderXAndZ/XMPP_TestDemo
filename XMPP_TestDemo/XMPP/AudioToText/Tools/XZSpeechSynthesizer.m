@@ -13,14 +13,17 @@
 API_AVAILABLE(ios(10.0))
 @interface XZSpeechSynthesizer()<SFSpeechRecognizerDelegate>
 // 语音识别器
-@property(nonatomic,strong) SFSpeechRecognizer *speechRecognizer;
+@property(nonatomic, strong) SFSpeechRecognizer *speechRecognizer;
 // 语音识别请求
-@property (nonatomic,strong) SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
+@property (nonatomic, strong) SFSpeechAudioBufferRecognitionRequest *recognitionRequest;
 // 语音任务管理器
 @property (nonatomic, strong) SFSpeechRecognitionTask *recognitionTask;
 // 语音控制器
-@property (nonatomic,strong) AVAudioEngine *audioEngine;
-
+@property (nonatomic, strong) AVAudioEngine *audioEngine;
+/// 是否结束录音
+@property (nonatomic, assign) BOOL isStoped;
+/// 识别出来的内容
+@property (nonatomic, strong) NSString *recoginizerText;
 @end
 
 @implementation XZSpeechSynthesizer
@@ -45,6 +48,7 @@ API_AVAILABLE(ios(10.0))
         _speechRecognizer = [[SFSpeechRecognizer alloc] initWithLocale: locale];
         // 设置代理
         _speechRecognizer.delegate = self;
+        _isStoped = YES;
     }
     return _speechRecognizer;
 }
@@ -72,7 +76,7 @@ API_AVAILABLE(ios(10.0))
                 case SFSpeechRecognizerAuthorizationStatusAuthorized:
                     
                     isEnabled = true;
-                    NSLog(@"可以语音识别");
+//                    NSLog(@"可以语音识别");
                     break;
                 case SFSpeechRecognizerAuthorizationStatusDenied:
                     
@@ -99,11 +103,14 @@ API_AVAILABLE(ios(10.0))
 }
 
 /// 开始录音
-- (void)startRecording {
+- (void)startRecording:(void(^)(NSString *transcription))completion {
     if (self.recognitionTask) {
         [self.recognitionTask cancel];
         self.recognitionTask = nil;
     }
+    
+    // 每次置空上次识别内容
+    self.recoginizerText = @"";
     
     AVAudioSession *audioSession = [AVAudioSession sharedInstance];
     NSError *error;
@@ -130,11 +137,20 @@ API_AVAILABLE(ios(10.0))
             bool isFinal = false;
             NSLog(@"开始识别任务 %@", result);
             
-            if(result) {
-                ShowAutoHideAlertView([[result bestTranscription] formattedString]); // 语音转文本
-                isFinal = [result isFinal];
+            // 手动停止了录音，也会调用这个回调，使用这个参数判断是否结束了
+            if (weakSelf.isStoped) {
+                completion(weakSelf.recoginizerText);
             }else {
-                ShowAutoHideAlertView(@"好像失败了");
+                // 语音转文本
+                if(result) {
+                    Log(@"现在正在说：%@",[[result bestTranscription] formattedString]);
+                    weakSelf.recoginizerText = [[result bestTranscription] formattedString];
+                    completion(weakSelf.recoginizerText);
+                    
+                    isFinal = [result isFinal];
+                }else {
+                    completion(@"语音转文本，好像失败了");
+                }
             }
             
             if(error || isFinal) {
@@ -159,14 +175,22 @@ API_AVAILABLE(ios(10.0))
         
         [self.audioEngine prepare];
         [self.audioEngine startAndReturnError: &error];
-        ShowAutoHideAlertView(@"正在录音。。。");
+        _isStoped = NO;
+//        ShowAutoHideAlertView(@"正在录音。。。");
     } else {
         // Fallback on earlier versions
     }
 }
 
+/// 是否正在录音
+- (BOOL)audioEngineIsRunning {
+    return [self.audioEngine isRunning] ? YES: NO;
+}
+
 /// 停止录音
 - (void)endRecording {
+    _isStoped = YES; // 停止
+    
     [self.audioEngine stop];
     
     if (_recognitionRequest) {
@@ -176,15 +200,17 @@ API_AVAILABLE(ios(10.0))
         [_recognitionTask cancel];
         _recognitionTask = nil;
     }
+    
 }
 
 /// 识别本地音频文件
-- (void)recognizerLocalAudioFile {
+- (void)recognizerLocalAudioFile:(NSString *)localFile completion:(void(^)(NSString *transcription))completion {
     NSLocale *local = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
     
     if (@available(iOS 10.0, *)) {
         SFSpeechRecognizer *localRecognizer = [[SFSpeechRecognizer alloc] initWithLocale: local];
-        NSURL *url = [[NSBundle mainBundle] URLForResource:@"1536718629.m4a" withExtension: nil];
+        NSURL *url = [[NSBundle mainBundle] URLForResource: localFile withExtension: nil];
+        
         NSLog(@"识别本地音频文件 : %@",url);
         
         if(!url) return;
@@ -195,7 +221,9 @@ API_AVAILABLE(ios(10.0))
             if(error) {
                 ShowAutoHideAlertView([NSString stringWithFormat:@"语音识别解析失败:%@",error]);
             } else { // 语音解析成功
-                ShowAutoHideAlertView(result.bestTranscription.formattedString);
+//                ShowAutoHideAlertView(result.bestTranscription.formattedString);
+                
+                completion(result.bestTranscription.formattedString);
             }
         }];
     } else {
