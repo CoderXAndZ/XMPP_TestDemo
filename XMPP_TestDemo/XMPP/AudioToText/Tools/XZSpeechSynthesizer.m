@@ -217,7 +217,7 @@ API_AVAILABLE(ios(10.0))
         
         SFSpeechURLRecognitionRequest *res = [[SFSpeechURLRecognitionRequest alloc] initWithURL: url];
         
-        [localRecognizer  recognitionTaskWithRequest: res resultHandler:^(SFSpeechRecognitionResult *_Nullable result, NSError *_Nullable error) {
+        [localRecognizer recognitionTaskWithRequest: res resultHandler:^(SFSpeechRecognitionResult *_Nullable result, NSError *_Nullable error) {
             if(error) {
                 ShowAutoHideAlertView([NSString stringWithFormat:@"语音识别解析失败:%@",error]);
             } else { // 语音解析成功

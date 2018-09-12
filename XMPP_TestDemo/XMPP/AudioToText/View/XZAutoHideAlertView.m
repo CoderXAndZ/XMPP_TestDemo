@@ -52,7 +52,7 @@ void ShowAutoHideAlertView(NSString *labelText)
     labelAlert.alpha = 0.9;
     labelAlert.text = text;
     
-//    [self performSelector:@selector(hideDelayed) withObject:[NSNumber numberWithBool:YES] afterDelay:2.0];
+    [self performSelector:@selector(hideDelayed) withObject:[NSNumber numberWithBool:YES] afterDelay:2.0];
 }
 
 - (void)hideDelayed {
